@@ -1,11 +1,24 @@
-# InvoiceDataExtractor
+# Blueprint PDF Data Extractor
 
-Proof of Concept for a blueprint-driven PDF invoice data extraction system.
+Proof of Concept for a blueprint-driven PDF data extraction system.
 
-The implemented scope is only the Generic Extraction Engine:
+This project demonstrates a reusable extraction workflow for structured and semi-structured business documents such as:
+
+- invoices
+- Bills of Lading
+- bank statements
+- receipts or similar document layouts
+
+The goal is not to build a one-time extractor for one PDF template.
+
+The goal is to separate document-specific rules from the extraction engine, so different document types can be processed using different blueprints while keeping the same generic extraction logic.
 
 ```text
-Normalized Document Representation + Blueprint JSON
+PDF Document
+-> Normalizer
+-> Normalized Document Representation
+-> Blueprint Classification
+-> Matching Blueprint JSON
 -> ExtractionEngine.extract()
 -> structured data, confidence scores, warnings, metadata
 ```
