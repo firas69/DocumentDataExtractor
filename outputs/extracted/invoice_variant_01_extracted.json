@@ -1,0 +1,115 @@
+{
+  "document_id": "invoice_variant_01",
+  "blueprint_id": "invoice_novaflow_layout_v1",
+  "document_family": "supplier_invoice",
+  "extracted_data": {
+    "invoice": {
+      "invoice_number": "INV-2026-0914",
+      "invoice_date": "2026-04-22",
+      "due_date": "2026-05-22"
+    },
+    "supplier": {
+      "name": "NovaFlow Automation Ltd."
+    },
+    "customer": {
+      "name": "Horizon Retail Group"
+    },
+    "amounts": {
+      "subtotal": {
+        "amount": 4080,
+        "currency": "USD"
+      },
+      "tax": {
+        "amount": 328.35,
+        "currency": "USD"
+      },
+      "total": {
+        "amount": 4308.35,
+        "currency": "USD"
+      },
+      "currency": "USD"
+    },
+    "line_items": [
+      {
+        "description": "Workflow Audit & Mapping",
+        "quantity": 1,
+        "unit_price": {
+          "amount": 1300,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 1300,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Custom Python ETL Connector (v2.1)",
+        "quantity": 2,
+        "unit_price": {
+          "amount": 475,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 950,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Cloud Infrastructure Support (Monthly)",
+        "quantity": 1,
+        "unit_price": {
+          "amount": 900,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 900,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "API Rate Limit Overage (March)",
+        "quantity": 12000,
+        "unit_price": {
+          "amount": 0.03,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 360,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Emergency Patch - Database Migration",
+        "quantity": 3,
+        "unit_price": {
+          "amount": 190,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 570,
+          "currency": "USD"
+        }
+      }
+    ]
+  },
+  "confidence": {
+    "invoice.invoice_number": 0.85,
+    "invoice.invoice_date": 0.6,
+    "invoice.due_date": 0.85,
+    "supplier.name": 0.85,
+    "customer.name": 0.85,
+    "amounts.subtotal": 0.85,
+    "amounts.tax": 0.85,
+    "amounts.total": 0.85,
+    "amounts.currency": 0.7,
+    "line_items": 0.8
+  },
+  "warnings": [],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 9,
+    "fields_extracted": 9,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "document_id": "invoice_3",
+  "source_file": "test_files/pdfs/invoice_3.pdf",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Total Credit\n$4 950,00\nDate Credit Debit\n25-Mar $4 250,12\n26-Mar $2 475,00\n26-Mar $1 400,00\n29-Mar $156,40\n29-Mar $65,20\n29-Mar $42,99\n1-Apr $8,50\n1-Apr $2 475,00\n2-Apr $120,00\n4-Apr $9,99\n4-Apr $215,30\n4-Apr $14,25\n5-Apr $800,00\n6-Apr $19,99\n7-Apr $45,00\n8-Apr $59,83\n9-Apr $52,99\n10-Apr $500,00\n11-Apr $24,50\n12-Apr $18,40\n$6 665,18CVS PHARMACY #0421\n$6 646,78UBER TRIP - HELP.UBER.COM\n$6 689,68\nOpening Balance $4 250,12\nRENT PAYMENT - SKYLINE APTS $5 325,12\n$5 168,72\nPAYROLL DEP - TECH CORP $6 725,12\nPOS PUR: TARGET STORES $6 242,67\nWHOLE FOODS MARKET #1029\nSHELL OIL - AUTO FUEL\n$5 060,53AMAZON.COM - CLOUD SVC\nPAYROLL DEP - TECH CORP\nCOMCAST - INTERNET SVC\n$6 189,68\n$5 052,03\n$7 527,03\n$7 407,03\nSTARBUCKS #4492\nAPPLE.COM - ICLOUD STORAGE\nDescription\n$6 302,50GYM MEMBERSHIP\n$5 103,52\nZELLE TO: LANDLORD (UTILITIES) $6 367,49\nNETFLIX SUBSCRIPTION $6 347,50\n$7 397,04\nUTILITY CO - ELEC/WATER $7 181,74\nCHIPOTLE MEXICAN GRILL $7 167,49\nADOBE CREATIVE CLOUD\nTransaction Details\n$6 227,67$4 250,12 $2 972,45\nCard Type Opening Balance Total Debit Net Balance\nClassic\nBank Statement\nCustomer Service Information\nwww.dreamlandnationalbank.comWebsite: \nNortheast Regional Hub\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\nService Centre: (000) 999-9999         support@dreamlandnationalbank.com\nTRANSFER FROM SAVINGS ...9921\nBusiness Details\nAccount Type: \n746512321\nCurrent \n(000) 999-9999Information Cell: \nBusiness Name: Jordan K. SterlingAccount Number: \nBusiness Address: 4282 Innovation City, Sancturn, SC 78701\nBalance\nStatement Summary",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "Total Credit",
+          "page_number": 1
+        },
+        {
+          "line_number": 2,
+          "text": "$4 950,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 3,
+          "text": "Date Credit Debit",
+          "page_number": 1
+        },
+        {
+          "line_number": 4,
+          "text": "25-Mar $4 250,12",
+          "page_number": 1
+        },
+        {
+          "line_number": 5,
+          "text": "26-Mar $2 475,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 6,
+          "text": "26-Mar $1 400,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 7,
+          "text": "29-Mar $156,40",
+          "page_number": 1
+        },
+        {
+          "line_number": 8,
+          "text": "29-Mar $65,20",
+          "page_number": 1
+        },
+        {
+          "line_number": 9,
+          "text": "29-Mar $42,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 10,
+          "text": "1-Apr $8,50",
+          "page_number": 1
+        },
+        {
+          "line_number": 11,
+          "text": "1-Apr $2 475,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 12,
+          "text": "2-Apr $120,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 13,
+          "text": "4-Apr $9,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 14,
+          "text": "4-Apr $215,30",
+          "page_number": 1
+        },
+        {
+          "line_number": 15,
+          "text": "4-Apr $14,25",
+          "page_number": 1
+        },
+        {
+          "line_number": 16,
+          "text": "5-Apr $800,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 17,
+          "text": "6-Apr $19,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 18,
+          "text": "7-Apr $45,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 19,
+          "text": "8-Apr $59,83",
+          "page_number": 1
+        },
+        {
+          "line_number": 20,
+          "text": "9-Apr $52,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 21,
+          "text": "10-Apr $500,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 22,
+          "text": "11-Apr $24,50",
+          "page_number": 1
+        },
+        {
+          "line_number": 23,
+          "text": "12-Apr $18,40",
+          "page_number": 1
+        },
+        {
+          "line_number": 24,
+          "text": "$6 665,18CVS PHARMACY #0421",
+          "page_number": 1
+        },
+        {
+          "line_number": 25,
+          "text": "$6 646,78UBER TRIP - HELP.UBER.COM",
+          "page_number": 1
+        },
+        {
+          "line_number": 26,
+          "text": "$6 689,68",
+          "page_number": 1
+        },
+        {
+          "line_number": 27,
+          "text": "Opening Balance $4 250,12",
+          "page_number": 1
+        },
+        {
+          "line_number": 28,
+          "text": "RENT PAYMENT - SKYLINE APTS $5 325,12",
+          "page_number": 1
+        },
+        {
+          "line_number": 29,
+          "text": "$5 168,72",
+          "page_number": 1
+        },
+        {
+          "line_number": 30,
+          "text": "PAYROLL DEP - TECH CORP $6 725,12",
+          "page_number": 1
+        },
+        {
+          "line_number": 31,
+          "text": "POS PUR: TARGET STORES $6 242,67",
+          "page_number": 1
+        },
+        {
+          "line_number": 32,
+          "text": "WHOLE FOODS MARKET #1029",
+          "page_number": 1
+        },
+        {
+          "line_number": 33,
+          "text": "SHELL OIL - AUTO FUEL",
+          "page_number": 1
+        },
+        {
+          "line_number": 34,
+          "text": "$5 060,53AMAZON.COM - CLOUD SVC",
+          "page_number": 1
+        },
+        {
+          "line_number": 35,
+          "text": "PAYROLL DEP - TECH CORP",
+          "page_number": 1
+        },
+        {
+          "line_number": 36,
+          "text": "COMCAST - INTERNET SVC",
+          "page_number": 1
+        },
+        {
+          "line_number": 37,
+          "text": "$6 189,68",
+          "page_number": 1
+        },
+        {
+          "line_number": 38,
+          "text": "$5 052,03",
+          "page_number": 1
+        },
+        {
+          "line_number": 39,
+          "text": "$7 527,03",
+          "page_number": 1
+        },
+        {
+          "line_number": 40,
+          "text": "$7 407,03",
+          "page_number": 1
+        },
+        {
+          "line_number": 41,
+          "text": "STARBUCKS #4492",
+          "page_number": 1
+        },
+        {
+          "line_number": 42,
+          "text": "APPLE.COM - ICLOUD STORAGE",
+          "page_number": 1
+        },
+        {
+          "line_number": 43,
+          "text": "Description",
+          "page_number": 1
+        },
+        {
+          "line_number": 44,
+          "text": "$6 302,50GYM MEMBERSHIP",
+          "page_number": 1
+        },
+        {
+          "line_number": 45,
+          "text": "$5 103,52",
+          "page_number": 1
+        },
+        {
+          "line_number": 46,
+          "text": "ZELLE TO: LANDLORD (UTILITIES) $6 367,49",
+          "page_number": 1
+        },
+        {
+          "line_number": 47,
+          "text": "NETFLIX SUBSCRIPTION $6 347,50",
+          "page_number": 1
+        },
+        {
+          "line_number": 48,
+          "text": "$7 397,04",
+          "page_number": 1
+        },
+        {
+          "line_number": 49,
+          "text": "UTILITY CO - ELEC/WATER $7 181,74",
+          "page_number": 1
+        },
+        {
+          "line_number": 50,
+          "text": "CHIPOTLE MEXICAN GRILL $7 167,49",
+          "page_number": 1
+        },
+        {
+          "line_number": 51,
+          "text": "ADOBE CREATIVE CLOUD",
+          "page_number": 1
+        },
+        {
+          "line_number": 52,
+          "text": "Transaction Details",
+          "page_number": 1
+        },
+        {
+          "line_number": 53,
+          "text": "$6 227,67$4 250,12 $2 972,45",
+          "page_number": 1
+        },
+        {
+          "line_number": 54,
+          "text": "Card Type Opening Balance Total Debit Net Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 55,
+          "text": "Classic",
+          "page_number": 1
+        },
+        {
+          "line_number": 56,
+          "text": "Bank Statement",
+          "page_number": 1
+        },
+        {
+          "line_number": 57,
+          "text": "Customer Service Information",
+          "page_number": 1
+        },
+        {
+          "line_number": 58,
+          "text": "www.dreamlandnationalbank.comWebsite:",
+          "page_number": 1
+        },
+        {
+          "line_number": 59,
+          "text": "Northeast Regional Hub",
+          "page_number": 1
+        },
+        {
+          "line_number": 60,
+          "text": "Dreamland National Bank",
+          "page_number": 1
+        },
+        {
+          "line_number": 61,
+          "text": "100 Central city, The Abyss, TA 10005",
+          "page_number": 1
+        },
+        {
+          "line_number": 62,
+          "text": "Service Centre: (000) 999-9999         support@dreamlandnationalbank.com",
+          "page_number": 1
+        },
+        {
+          "line_number": 63,
+          "text": "TRANSFER FROM SAVINGS ...9921",
+          "page_number": 1
+        },
+        {
+          "line_number": 64,
+          "text": "Business Details",
+          "page_number": 1
+        },
+        {
+          "line_number": 65,
+          "text": "Account Type:",
+          "page_number": 1
+        },
+        {
+          "line_number": 66,
+          "text": "746512321",
+          "page_number": 1
+        },
+        {
+          "line_number": 67,
+          "text": "Current",
+          "page_number": 1
+        },
+        {
+          "line_number": 68,
+          "text": "(000) 999-9999Information Cell:",
+          "page_number": 1
+        },
+        {
+          "line_number": 69,
+          "text": "Business Name: Jordan K. SterlingAccount Number:",
+          "page_number": 1
+        },
+        {
+          "line_number": 70,
+          "text": "Business Address: 4282 Innovation City, Sancturn, SC 78701",
+          "page_number": 1
+        },
+        {
+          "line_number": 71,
+          "text": "Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 72,
+          "text": "Statement Summary",
+          "page_number": 1
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p1_b1",
+          "type": "text",
+          "text": "Total Credit\n$4 950,00\nDate Credit Debit\n25-Mar $4 250,12\n26-Mar $2 475,00\n26-Mar $1 400,00\n29-Mar $156,40\n29-Mar $65,20\n29-Mar $42,99\n1-Apr $8,50\n1-Apr $2 475,00\n2-Apr $120,00\n4-Apr $9,99\n4-Apr $215,30\n4-Apr $14,25\n5-Apr $800,00\n6-Apr $19,99\n7-Apr $45,00\n8-Apr $59,83\n9-Apr $52,99\n10-Apr $500,00\n11-Apr $24,50\n12-Apr $18,40\n$6 665,18CVS PHARMACY #0421\n$6 646,78UBER TRIP - HELP.UBER.COM\n$6 689,68\nOpening Balance $4 250,12\nRENT PAYMENT - SKYLINE APTS $5 325,12\n$5 168,72\nPAYROLL DEP - TECH CORP $6 725,12\nPOS PUR: TARGET STORES $6 242,67\nWHOLE FOODS MARKET #1029\nSHELL OIL - AUTO FUEL\n$5 060,53AMAZON.COM - CLOUD SVC\nPAYROLL DEP - TECH CORP\nCOMCAST - INTERNET SVC\n$6 189,68\n$5 052,03\n$7 527,03\n$7 407,03\nSTARBUCKS #4492\nAPPLE.COM - ICLOUD STORAGE\nDescription\n$6 302,50GYM MEMBERSHIP\n$5 103,52\nZELLE TO: LANDLORD (UTILITIES) $6 367,49\nNETFLIX SUBSCRIPTION $6 347,50\n$7 397,04\nUTILITY CO - ELEC/WATER $7 181,74\nCHIPOTLE MEXICAN GRILL $7 167,49\nADOBE CREATIVE CLOUD\nTransaction Details\n$6 227,67$4 250,12 $2 972,45\nCard Type Opening Balance Total Debit Net Balance\nClassic\nBank Statement\nCustomer Service Information\nwww.dreamlandnationalbank.comWebsite: \nNortheast Regional Hub\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\nService Centre: (000) 999-9999         support@dreamlandnationalbank.com\nTRANSFER FROM SAVINGS ...9921\nBusiness Details\nAccount Type: \n746512321\nCurrent \n(000) 999-9999Information Cell: \nBusiness Name: Jordan K. SterlingAccount Number: \nBusiness Address: 4282 Innovation City, Sancturn, SC 78701\nBalance\nStatement Summary",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "text": "Date Credit DebitDescription Balance\n13-Apr $88,12\n14-Apr $6,75\n14-Apr $45,00\n15-Apr $15,00\n$6 581,91TOTAL\nBLUE BOTTLE COFFEE CAFE $6 551,91\nZELLE FROM: SAM REIMBURSE $6 596,91\nMONTHLY SERVICE CHARGE $6 581,91\n$6 558,66OFFICE DEPOT - STATIONERY",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "Date Credit DebitDescription Balance",
+          "page_number": 2
+        },
+        {
+          "line_number": 2,
+          "text": "13-Apr $88,12",
+          "page_number": 2
+        },
+        {
+          "line_number": 3,
+          "text": "14-Apr $6,75",
+          "page_number": 2
+        },
+        {
+          "line_number": 4,
+          "text": "14-Apr $45,00",
+          "page_number": 2
+        },
+        {
+          "line_number": 5,
+          "text": "15-Apr $15,00",
+          "page_number": 2
+        },
+        {
+          "line_number": 6,
+          "text": "$6 581,91TOTAL",
+          "page_number": 2
+        },
+        {
+          "line_number": 7,
+          "text": "BLUE BOTTLE COFFEE CAFE $6 551,91",
+          "page_number": 2
+        },
+        {
+          "line_number": 8,
+          "text": "ZELLE FROM: SAM REIMBURSE $6 596,91",
+          "page_number": 2
+        },
+        {
+          "line_number": 9,
+          "text": "MONTHLY SERVICE CHARGE $6 581,91",
+          "page_number": 2
+        },
+        {
+          "line_number": 10,
+          "text": "$6 558,66OFFICE DEPOT - STATIONERY",
+          "page_number": 2
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p2_b1",
+          "type": "text",
+          "text": "Date Credit DebitDescription Balance\n13-Apr $88,12\n14-Apr $6,75\n14-Apr $45,00\n15-Apr $15,00\n$6 581,91TOTAL\nBLUE BOTTLE COFFEE CAFE $6 551,91\nZELLE FROM: SAM REIMBURSE $6 596,91\nMONTHLY SERVICE CHARGE $6 581,91\n$6 558,66OFFICE DEPOT - STATIONERY",
+          "page_number": 2
+        }
+      ]
+    }
+  ],
+  "full_text": "Total Credit\n$4 950,00\nDate Credit Debit\n25-Mar $4 250,12\n26-Mar $2 475,00\n26-Mar $1 400,00\n29-Mar $156,40\n29-Mar $65,20\n29-Mar $42,99\n1-Apr $8,50\n1-Apr $2 475,00\n2-Apr $120,00\n4-Apr $9,99\n4-Apr $215,30\n4-Apr $14,25\n5-Apr $800,00\n6-Apr $19,99\n7-Apr $45,00\n8-Apr $59,83\n9-Apr $52,99\n10-Apr $500,00\n11-Apr $24,50\n12-Apr $18,40\n$6 665,18CVS PHARMACY #0421\n$6 646,78UBER TRIP - HELP.UBER.COM\n$6 689,68\nOpening Balance $4 250,12\nRENT PAYMENT - SKYLINE APTS $5 325,12\n$5 168,72\nPAYROLL DEP - TECH CORP $6 725,12\nPOS PUR: TARGET STORES $6 242,67\nWHOLE FOODS MARKET #1029\nSHELL OIL - AUTO FUEL\n$5 060,53AMAZON.COM - CLOUD SVC\nPAYROLL DEP - TECH CORP\nCOMCAST - INTERNET SVC\n$6 189,68\n$5 052,03\n$7 527,03\n$7 407,03\nSTARBUCKS #4492\nAPPLE.COM - ICLOUD STORAGE\nDescription\n$6 302,50GYM MEMBERSHIP\n$5 103,52\nZELLE TO: LANDLORD (UTILITIES) $6 367,49\nNETFLIX SUBSCRIPTION $6 347,50\n$7 397,04\nUTILITY CO - ELEC/WATER $7 181,74\nCHIPOTLE MEXICAN GRILL $7 167,49\nADOBE CREATIVE CLOUD\nTransaction Details\n$6 227,67$4 250,12 $2 972,45\nCard Type Opening Balance Total Debit Net Balance\nClassic\nBank Statement\nCustomer Service Information\nwww.dreamlandnationalbank.comWebsite: \nNortheast Regional Hub\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\nService Centre: (000) 999-9999         support@dreamlandnationalbank.com\nTRANSFER FROM SAVINGS ...9921\nBusiness Details\nAccount Type: \n746512321\nCurrent \n(000) 999-9999Information Cell: \nBusiness Name: Jordan K. SterlingAccount Number: \nBusiness Address: 4282 Innovation City, Sancturn, SC 78701\nBalance\nStatement Summary\nDate Credit DebitDescription Balance\n13-Apr $88,12\n14-Apr $6,75\n14-Apr $45,00\n15-Apr $15,00\n$6 581,91TOTAL\nBLUE BOTTLE COFFEE CAFE $6 551,91\nZELLE FROM: SAM REIMBURSE $6 596,91\nMONTHLY SERVICE CHARGE $6 581,91\n$6 558,66OFFICE DEPOT - STATIONERY",
+  "metadata": {
+    "normalizer": "pypdf.extract_text",
+    "page_count": 2
+  }
+}

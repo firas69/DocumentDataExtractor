@@ -1,0 +1,699 @@
+{
+  "document_id": "bank_statement_variant_03",
+  "source_file": "bank_statement_variant_03.pdf",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Bank Statement\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\n(000) 999-9999      support@dreamlandnationalbank.com\nCustomer Service Information\nWebsite:\nwww.dreamlandnationalbank.com\nService Centre:\nNortheast Regional Hub\nInformation Cell:\n(000) 999-9999\nBusiness Details\nAccount Number:\n917530482\nBusiness Name:\nNadia P. Calloway\nAccount Type:\nCurrent\nBusiness Address:\n5809 Summit Lane, Rivergate, RG 90218\nStatement Summary\nCard Type\nOpening Balance\nTotal Credit\nTotal Debit\nNet Balance\nClassic\n$3 890,25\n$4 015,00\n$3 075,61\n$4 829,64\nTransaction Details\nDate\nDescription\nCredit\nDebit\nBalance\n07-Jul\nOpening Balance\n$3 890,25\n$3 890,25\n08-Jul\nPAYROLL DEP - TECH CORP\n$2 475,00\n$6 365,25\n08-Jul\nRENT PAYMENT - SKYLINE APTS\n$1 450,00\n$4 915,25\n09-Jul\nWHOLE FOODS MARKET #1029\n$172,86\n$4 742,39\n10-Jul\nSHELL OIL - AUTO FUEL\n$58,77\n$4 683,62\n11-Jul\nAMAZON.COM - CLOUD SVC\n$39,99\n$4 643,63\n12-Jul\nSTARBUCKS #4492\n$9,40\n$4 634,23\n13-Jul\nTRANSFER FROM SAVINGS ...7714\n$900,00\n$5 534,23\n13-Jul\nCOMCAST - INTERNET SVC\n$124,25\n$5 409,98\n14-Jul\nAPPLE.COM - ICLOUD STORAGE\n$9,99\n$5 399,99\n15-Jul\nUTILITY CO - ELEC/WATER\n$242,55\n$5 157,44\n16-Jul\nCHIPOTLE MEXICAN GRILL\n$18,90\n$5 138,54\n17-Jul\nZELLE TO: LANDLORD UTILITIES\n$675,00\n$4 463,54\n18-Jul\nNETFLIX SUBSCRIPTION\n$19,99\n$4 443,55\n19-Jul\nGYM MEMBERSHIP\n$48,00\n$4 395,55\n20-Jul\nPOS PUR: TARGET STORES\n$73,22\n$4 322,33\n21-Jul\nADOBE CREATIVE CLOUD\n$54,99\n$4 267,34\n22-Jul\nCLIENT REFUND - DESIGN WORK\n$640,00\n$4 907,34\n23-Jul\nCVS PHARMACY #0421\n$33,85\n$4 873,49\n24-Jul\nUBER TRIP - HELP.UBER.COM\n$21,60\n$4 851,89\n",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "Bank Statement",
+          "page_number": 1
+        },
+        {
+          "line_number": 2,
+          "text": "Dreamland National Bank",
+          "page_number": 1
+        },
+        {
+          "line_number": 3,
+          "text": "100 Central city, The Abyss, TA 10005",
+          "page_number": 1
+        },
+        {
+          "line_number": 4,
+          "text": "(000) 999-9999      support@dreamlandnationalbank.com",
+          "page_number": 1
+        },
+        {
+          "line_number": 5,
+          "text": "Customer Service Information",
+          "page_number": 1
+        },
+        {
+          "line_number": 6,
+          "text": "Website:",
+          "page_number": 1
+        },
+        {
+          "line_number": 7,
+          "text": "www.dreamlandnationalbank.com",
+          "page_number": 1
+        },
+        {
+          "line_number": 8,
+          "text": "Service Centre:",
+          "page_number": 1
+        },
+        {
+          "line_number": 9,
+          "text": "Northeast Regional Hub",
+          "page_number": 1
+        },
+        {
+          "line_number": 10,
+          "text": "Information Cell:",
+          "page_number": 1
+        },
+        {
+          "line_number": 11,
+          "text": "(000) 999-9999",
+          "page_number": 1
+        },
+        {
+          "line_number": 12,
+          "text": "Business Details",
+          "page_number": 1
+        },
+        {
+          "line_number": 13,
+          "text": "Account Number:",
+          "page_number": 1
+        },
+        {
+          "line_number": 14,
+          "text": "917530482",
+          "page_number": 1
+        },
+        {
+          "line_number": 15,
+          "text": "Business Name:",
+          "page_number": 1
+        },
+        {
+          "line_number": 16,
+          "text": "Nadia P. Calloway",
+          "page_number": 1
+        },
+        {
+          "line_number": 17,
+          "text": "Account Type:",
+          "page_number": 1
+        },
+        {
+          "line_number": 18,
+          "text": "Current",
+          "page_number": 1
+        },
+        {
+          "line_number": 19,
+          "text": "Business Address:",
+          "page_number": 1
+        },
+        {
+          "line_number": 20,
+          "text": "5809 Summit Lane, Rivergate, RG 90218",
+          "page_number": 1
+        },
+        {
+          "line_number": 21,
+          "text": "Statement Summary",
+          "page_number": 1
+        },
+        {
+          "line_number": 22,
+          "text": "Card Type",
+          "page_number": 1
+        },
+        {
+          "line_number": 23,
+          "text": "Opening Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 24,
+          "text": "Total Credit",
+          "page_number": 1
+        },
+        {
+          "line_number": 25,
+          "text": "Total Debit",
+          "page_number": 1
+        },
+        {
+          "line_number": 26,
+          "text": "Net Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 27,
+          "text": "Classic",
+          "page_number": 1
+        },
+        {
+          "line_number": 28,
+          "text": "$3 890,25",
+          "page_number": 1
+        },
+        {
+          "line_number": 29,
+          "text": "$4 015,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 30,
+          "text": "$3 075,61",
+          "page_number": 1
+        },
+        {
+          "line_number": 31,
+          "text": "$4 829,64",
+          "page_number": 1
+        },
+        {
+          "line_number": 32,
+          "text": "Transaction Details",
+          "page_number": 1
+        },
+        {
+          "line_number": 33,
+          "text": "Date",
+          "page_number": 1
+        },
+        {
+          "line_number": 34,
+          "text": "Description",
+          "page_number": 1
+        },
+        {
+          "line_number": 35,
+          "text": "Credit",
+          "page_number": 1
+        },
+        {
+          "line_number": 36,
+          "text": "Debit",
+          "page_number": 1
+        },
+        {
+          "line_number": 37,
+          "text": "Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 38,
+          "text": "07-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 39,
+          "text": "Opening Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 40,
+          "text": "$3 890,25",
+          "page_number": 1
+        },
+        {
+          "line_number": 41,
+          "text": "$3 890,25",
+          "page_number": 1
+        },
+        {
+          "line_number": 42,
+          "text": "08-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 43,
+          "text": "PAYROLL DEP - TECH CORP",
+          "page_number": 1
+        },
+        {
+          "line_number": 44,
+          "text": "$2 475,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 45,
+          "text": "$6 365,25",
+          "page_number": 1
+        },
+        {
+          "line_number": 46,
+          "text": "08-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 47,
+          "text": "RENT PAYMENT - SKYLINE APTS",
+          "page_number": 1
+        },
+        {
+          "line_number": 48,
+          "text": "$1 450,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 49,
+          "text": "$4 915,25",
+          "page_number": 1
+        },
+        {
+          "line_number": 50,
+          "text": "09-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 51,
+          "text": "WHOLE FOODS MARKET #1029",
+          "page_number": 1
+        },
+        {
+          "line_number": 52,
+          "text": "$172,86",
+          "page_number": 1
+        },
+        {
+          "line_number": 53,
+          "text": "$4 742,39",
+          "page_number": 1
+        },
+        {
+          "line_number": 54,
+          "text": "10-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 55,
+          "text": "SHELL OIL - AUTO FUEL",
+          "page_number": 1
+        },
+        {
+          "line_number": 56,
+          "text": "$58,77",
+          "page_number": 1
+        },
+        {
+          "line_number": 57,
+          "text": "$4 683,62",
+          "page_number": 1
+        },
+        {
+          "line_number": 58,
+          "text": "11-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 59,
+          "text": "AMAZON.COM - CLOUD SVC",
+          "page_number": 1
+        },
+        {
+          "line_number": 60,
+          "text": "$39,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 61,
+          "text": "$4 643,63",
+          "page_number": 1
+        },
+        {
+          "line_number": 62,
+          "text": "12-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 63,
+          "text": "STARBUCKS #4492",
+          "page_number": 1
+        },
+        {
+          "line_number": 64,
+          "text": "$9,40",
+          "page_number": 1
+        },
+        {
+          "line_number": 65,
+          "text": "$4 634,23",
+          "page_number": 1
+        },
+        {
+          "line_number": 66,
+          "text": "13-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 67,
+          "text": "TRANSFER FROM SAVINGS ...7714",
+          "page_number": 1
+        },
+        {
+          "line_number": 68,
+          "text": "$900,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 69,
+          "text": "$5 534,23",
+          "page_number": 1
+        },
+        {
+          "line_number": 70,
+          "text": "13-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 71,
+          "text": "COMCAST - INTERNET SVC",
+          "page_number": 1
+        },
+        {
+          "line_number": 72,
+          "text": "$124,25",
+          "page_number": 1
+        },
+        {
+          "line_number": 73,
+          "text": "$5 409,98",
+          "page_number": 1
+        },
+        {
+          "line_number": 74,
+          "text": "14-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 75,
+          "text": "APPLE.COM - ICLOUD STORAGE",
+          "page_number": 1
+        },
+        {
+          "line_number": 76,
+          "text": "$9,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 77,
+          "text": "$5 399,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 78,
+          "text": "15-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 79,
+          "text": "UTILITY CO - ELEC/WATER",
+          "page_number": 1
+        },
+        {
+          "line_number": 80,
+          "text": "$242,55",
+          "page_number": 1
+        },
+        {
+          "line_number": 81,
+          "text": "$5 157,44",
+          "page_number": 1
+        },
+        {
+          "line_number": 82,
+          "text": "16-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 83,
+          "text": "CHIPOTLE MEXICAN GRILL",
+          "page_number": 1
+        },
+        {
+          "line_number": 84,
+          "text": "$18,90",
+          "page_number": 1
+        },
+        {
+          "line_number": 85,
+          "text": "$5 138,54",
+          "page_number": 1
+        },
+        {
+          "line_number": 86,
+          "text": "17-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 87,
+          "text": "ZELLE TO: LANDLORD UTILITIES",
+          "page_number": 1
+        },
+        {
+          "line_number": 88,
+          "text": "$675,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 89,
+          "text": "$4 463,54",
+          "page_number": 1
+        },
+        {
+          "line_number": 90,
+          "text": "18-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 91,
+          "text": "NETFLIX SUBSCRIPTION",
+          "page_number": 1
+        },
+        {
+          "line_number": 92,
+          "text": "$19,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 93,
+          "text": "$4 443,55",
+          "page_number": 1
+        },
+        {
+          "line_number": 94,
+          "text": "19-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 95,
+          "text": "GYM MEMBERSHIP",
+          "page_number": 1
+        },
+        {
+          "line_number": 96,
+          "text": "$48,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 97,
+          "text": "$4 395,55",
+          "page_number": 1
+        },
+        {
+          "line_number": 98,
+          "text": "20-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 99,
+          "text": "POS PUR: TARGET STORES",
+          "page_number": 1
+        },
+        {
+          "line_number": 100,
+          "text": "$73,22",
+          "page_number": 1
+        },
+        {
+          "line_number": 101,
+          "text": "$4 322,33",
+          "page_number": 1
+        },
+        {
+          "line_number": 102,
+          "text": "21-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 103,
+          "text": "ADOBE CREATIVE CLOUD",
+          "page_number": 1
+        },
+        {
+          "line_number": 104,
+          "text": "$54,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 105,
+          "text": "$4 267,34",
+          "page_number": 1
+        },
+        {
+          "line_number": 106,
+          "text": "22-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 107,
+          "text": "CLIENT REFUND - DESIGN WORK",
+          "page_number": 1
+        },
+        {
+          "line_number": 108,
+          "text": "$640,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 109,
+          "text": "$4 907,34",
+          "page_number": 1
+        },
+        {
+          "line_number": 110,
+          "text": "23-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 111,
+          "text": "CVS PHARMACY #0421",
+          "page_number": 1
+        },
+        {
+          "line_number": 112,
+          "text": "$33,85",
+          "page_number": 1
+        },
+        {
+          "line_number": 113,
+          "text": "$4 873,49",
+          "page_number": 1
+        },
+        {
+          "line_number": 114,
+          "text": "24-Jul",
+          "page_number": 1
+        },
+        {
+          "line_number": 115,
+          "text": "UBER TRIP - HELP.UBER.COM",
+          "page_number": 1
+        },
+        {
+          "line_number": 116,
+          "text": "$21,60",
+          "page_number": 1
+        },
+        {
+          "line_number": 117,
+          "text": "$4 851,89",
+          "page_number": 1
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p1_b1",
+          "type": "text",
+          "text": "Bank Statement\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\n(000) 999-9999      support@dreamlandnationalbank.com\nCustomer Service Information\nWebsite:\nwww.dreamlandnationalbank.com\nService Centre:\nNortheast Regional Hub\nInformation Cell:\n(000) 999-9999\nBusiness Details\nAccount Number:\n917530482\nBusiness Name:\nNadia P. Calloway\nAccount Type:\nCurrent\nBusiness Address:\n5809 Summit Lane, Rivergate, RG 90218\nStatement Summary\nCard Type\nOpening Balance\nTotal Credit\nTotal Debit\nNet Balance\nClassic\n$3 890,25\n$4 015,00\n$3 075,61\n$4 829,64\nTransaction Details\nDate\nDescription\nCredit\nDebit\nBalance\n07-Jul\nOpening Balance\n$3 890,25\n$3 890,25\n08-Jul\nPAYROLL DEP - TECH CORP\n$2 475,00\n$6 365,25\n08-Jul\nRENT PAYMENT - SKYLINE APTS\n$1 450,00\n$4 915,25\n09-Jul\nWHOLE FOODS MARKET #1029\n$172,86\n$4 742,39\n10-Jul\nSHELL OIL - AUTO FUEL\n$58,77\n$4 683,62\n11-Jul\nAMAZON.COM - CLOUD SVC\n$39,99\n$4 643,63\n12-Jul\nSTARBUCKS #4492\n$9,40\n$4 634,23\n13-Jul\nTRANSFER FROM SAVINGS ...7714\n$900,00\n$5 534,23\n13-Jul\nCOMCAST - INTERNET SVC\n$124,25\n$5 409,98\n14-Jul\nAPPLE.COM - ICLOUD STORAGE\n$9,99\n$5 399,99\n15-Jul\nUTILITY CO - ELEC/WATER\n$242,55\n$5 157,44\n16-Jul\nCHIPOTLE MEXICAN GRILL\n$18,90\n$5 138,54\n17-Jul\nZELLE TO: LANDLORD UTILITIES\n$675,00\n$4 463,54\n18-Jul\nNETFLIX SUBSCRIPTION\n$19,99\n$4 443,55\n19-Jul\nGYM MEMBERSHIP\n$48,00\n$4 395,55\n20-Jul\nPOS PUR: TARGET STORES\n$73,22\n$4 322,33\n21-Jul\nADOBE CREATIVE CLOUD\n$54,99\n$4 267,34\n22-Jul\nCLIENT REFUND - DESIGN WORK\n$640,00\n$4 907,34\n23-Jul\nCVS PHARMACY #0421\n$33,85\n$4 873,49\n24-Jul\nUBER TRIP - HELP.UBER.COM\n$21,60\n$4 851,89\n",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "text": "Date\nDescription\nCredit\nDebit\nBalance\n25-Jul\nBLUE BOTTLE COFFEE CAFE\n$7,25\n$4 844,64\n26-Jul\nMONTHLY SERVICE CHARGE\n$15,00\n$4 829,64\nTOTAL\n$4 829,64\n",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "Date",
+          "page_number": 2
+        },
+        {
+          "line_number": 2,
+          "text": "Description",
+          "page_number": 2
+        },
+        {
+          "line_number": 3,
+          "text": "Credit",
+          "page_number": 2
+        },
+        {
+          "line_number": 4,
+          "text": "Debit",
+          "page_number": 2
+        },
+        {
+          "line_number": 5,
+          "text": "Balance",
+          "page_number": 2
+        },
+        {
+          "line_number": 6,
+          "text": "25-Jul",
+          "page_number": 2
+        },
+        {
+          "line_number": 7,
+          "text": "BLUE BOTTLE COFFEE CAFE",
+          "page_number": 2
+        },
+        {
+          "line_number": 8,
+          "text": "$7,25",
+          "page_number": 2
+        },
+        {
+          "line_number": 9,
+          "text": "$4 844,64",
+          "page_number": 2
+        },
+        {
+          "line_number": 10,
+          "text": "26-Jul",
+          "page_number": 2
+        },
+        {
+          "line_number": 11,
+          "text": "MONTHLY SERVICE CHARGE",
+          "page_number": 2
+        },
+        {
+          "line_number": 12,
+          "text": "$15,00",
+          "page_number": 2
+        },
+        {
+          "line_number": 13,
+          "text": "$4 829,64",
+          "page_number": 2
+        },
+        {
+          "line_number": 14,
+          "text": "TOTAL",
+          "page_number": 2
+        },
+        {
+          "line_number": 15,
+          "text": "$4 829,64",
+          "page_number": 2
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p2_b1",
+          "type": "text",
+          "text": "Date\nDescription\nCredit\nDebit\nBalance\n25-Jul\nBLUE BOTTLE COFFEE CAFE\n$7,25\n$4 844,64\n26-Jul\nMONTHLY SERVICE CHARGE\n$15,00\n$4 829,64\nTOTAL\n$4 829,64\n",
+          "page_number": 2
+        }
+      ]
+    }
+  ],
+  "full_text": "Bank Statement\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\n(000) 999-9999      support@dreamlandnationalbank.com\nCustomer Service Information\nWebsite:\nwww.dreamlandnationalbank.com\nService Centre:\nNortheast Regional Hub\nInformation Cell:\n(000) 999-9999\nBusiness Details\nAccount Number:\n917530482\nBusiness Name:\nNadia P. Calloway\nAccount Type:\nCurrent\nBusiness Address:\n5809 Summit Lane, Rivergate, RG 90218\nStatement Summary\nCard Type\nOpening Balance\nTotal Credit\nTotal Debit\nNet Balance\nClassic\n$3 890,25\n$4 015,00\n$3 075,61\n$4 829,64\nTransaction Details\nDate\nDescription\nCredit\nDebit\nBalance\n07-Jul\nOpening Balance\n$3 890,25\n$3 890,25\n08-Jul\nPAYROLL DEP - TECH CORP\n$2 475,00\n$6 365,25\n08-Jul\nRENT PAYMENT - SKYLINE APTS\n$1 450,00\n$4 915,25\n09-Jul\nWHOLE FOODS MARKET #1029\n$172,86\n$4 742,39\n10-Jul\nSHELL OIL - AUTO FUEL\n$58,77\n$4 683,62\n11-Jul\nAMAZON.COM - CLOUD SVC\n$39,99\n$4 643,63\n12-Jul\nSTARBUCKS #4492\n$9,40\n$4 634,23\n13-Jul\nTRANSFER FROM SAVINGS ...7714\n$900,00\n$5 534,23\n13-Jul\nCOMCAST - INTERNET SVC\n$124,25\n$5 409,98\n14-Jul\nAPPLE.COM - ICLOUD STORAGE\n$9,99\n$5 399,99\n15-Jul\nUTILITY CO - ELEC/WATER\n$242,55\n$5 157,44\n16-Jul\nCHIPOTLE MEXICAN GRILL\n$18,90\n$5 138,54\n17-Jul\nZELLE TO: LANDLORD UTILITIES\n$675,00\n$4 463,54\n18-Jul\nNETFLIX SUBSCRIPTION\n$19,99\n$4 443,55\n19-Jul\nGYM MEMBERSHIP\n$48,00\n$4 395,55\n20-Jul\nPOS PUR: TARGET STORES\n$73,22\n$4 322,33\n21-Jul\nADOBE CREATIVE CLOUD\n$54,99\n$4 267,34\n22-Jul\nCLIENT REFUND - DESIGN WORK\n$640,00\n$4 907,34\n23-Jul\nCVS PHARMACY #0421\n$33,85\n$4 873,49\n24-Jul\nUBER TRIP - HELP.UBER.COM\n$21,60\n$4 851,89\n\nDate\nDescription\nCredit\nDebit\nBalance\n25-Jul\nBLUE BOTTLE COFFEE CAFE\n$7,25\n$4 844,64\n26-Jul\nMONTHLY SERVICE CHARGE\n$15,00\n$4 829,64\nTOTAL\n$4 829,64\n",
+  "metadata": {
+    "normalizer": "pypdf.extract_text",
+    "page_count": 2
+  }
+}

@@ -1,0 +1,1255 @@
+{
+  "blueprint_metadata": {
+    "blueprint_id": "bol_swifttrack_layout_v1",
+    "blueprint_name": "Bill of Lading Extraction Blueprint - Standard Logistics Layout",
+    "blueprint_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "status": "active",
+    "created_by": "document_automation_architect",
+    "created_at": "2026-05-26",
+    "last_updated_at": "2026-05-26",
+    "description": "Reusable blueprint for extracting structured data from a standard Bill of Lading document with shipper, consignee, carrier, shipment details, declared value, handling notes, total weight, and signature sections.",
+    "intended_engine_version": ">=0.1.0",
+    "language": "en",
+    "notes": [
+      "This blueprint is for Bill of Lading documents, not supplier invoices.",
+      "The document should be rejected by an invoice-only extraction engine unless BOL documents are explicitly supported.",
+      "The blueprint describes extraction rules and must not be treated as extracted output."
+    ]
+  },
+  "document_family": {
+    "family": "logistics_document",
+    "document_type": "bill_of_lading",
+    "supported_variants": [
+      "standard_bol",
+      "non_negotiable_bol",
+      "freight_bol",
+      "carrier_bol"
+    ],
+    "unsupported_variants": [
+      "supplier_invoice",
+      "tax_invoice",
+      "commercial_invoice",
+      "purchase_order",
+      "receipt",
+      "packing_slip_only"
+    ],
+    "expected_document_characteristics": {
+      "is_pdf": true,
+      "may_be_scanned": true,
+      "may_have_multiple_pages": false,
+      "may_contain_tables": true,
+      "may_contain_totals_section": false,
+      "may_contain_tax_section": false,
+      "may_contain_signature_section": true,
+      "may_contain_legal_terms": true
+    }
+  },
+  "layout_identity": {
+    "layout_id": "standard_bol_logistics_layout",
+    "layout_name": "Standard Bill of Lading Logistics Layout",
+    "layout_description": "Recognizes a Bill of Lading layout using BOL-specific labels, shipment parties, shipment details, handling notes, total weight, and signatures.",
+    "identity_strategy": "keyword_and_section_signature",
+    "required_keywords": [
+      "bill of lading",
+      "bol number",
+      "shipper",
+      "consignee",
+      "carrier",
+      "shipment details"
+    ],
+    "optional_keywords": [
+      "original, not negotiable",
+      "po / reference number",
+      "pickup date",
+      "pro number",
+      "declared value",
+      "total weight",
+      "signatures",
+      "shipper signature",
+      "carrier signature",
+      "consignee signature"
+    ],
+    "negative_keywords": [
+      "invoice number",
+      "invoice date",
+      "subtotal",
+      "tax",
+      "vat",
+      "amount due",
+      "balance due",
+      "grand total"
+    ],
+    "layout_signatures": {
+      "page_count_range": {
+        "min": 1,
+        "max": 3
+      },
+      "expected_sections": [
+        "document_header",
+        "bol_identifiers",
+        "shipper_info",
+        "consignee_info",
+        "carrier_info",
+        "shipment_details",
+        "handling_notes",
+        "total_weight",
+        "legal_terms",
+        "signatures"
+      ],
+      "common_label_patterns": [
+        "BOL NUMBER",
+        "PO / REFERENCE NUMBER",
+        "PICKUP DATE",
+        "PRO NUMBER",
+        "SHIPPER (FROM)",
+        "CONSIGNEE (TO)",
+        "CARRIER",
+        "DECLARED VALUE",
+        "SHIPMENT DETAILS",
+        "TOTAL WEIGHT",
+        "SIGNATURES"
+      ]
+    },
+    "minimum_identity_confidence": 0.75,
+    "on_identity_failure": {
+      "action": "reject_blueprint_for_document",
+      "message": "The document does not match the expected Bill of Lading layout strongly enough."
+    }
+  },
+  "normalizer_assumptions": {
+    "input_representation": "normalized_document",
+    "required_normalized_inputs": [
+      "pages",
+      "lines",
+      "text"
+    ],
+    "optional_normalized_inputs": [
+      "blocks",
+      "tables",
+      "coordinates",
+      "font_metadata",
+      "ocr_confidence"
+    ],
+    "line_object_contract": {
+      "required_properties": [
+        "page_number",
+        "line_index",
+        "text"
+      ],
+      "optional_properties": [
+        "x_min",
+        "y_min",
+        "x_max",
+        "y_max",
+        "block_id",
+        "ocr_confidence"
+      ]
+    },
+    "page_numbering": "1_based",
+    "text_ordering_assumption": "top_to_bottom_left_to_right",
+    "ocr_assumptions": {
+      "ocr_may_be_used": true,
+      "ocr_errors_expected": true,
+      "common_ocr_confusions": [
+        {
+          "from": "O",
+          "to": "0"
+        },
+        {
+          "from": "I",
+          "to": "1"
+        },
+        {
+          "from": "S",
+          "to": "5"
+        }
+      ]
+    },
+    "preprocessing_expectations": {
+      "trim_whitespace": true,
+      "normalize_unicode": true,
+      "preserve_line_breaks": true,
+      "preserve_page_numbers": true,
+      "do_not_translate_content": true
+    }
+  },
+  "global_extraction_settings": {
+    "default_language": "en",
+    "supported_languages": [
+      "en"
+    ],
+    "case_sensitive_matching": false,
+    "accent_sensitive_matching": false,
+    "currency_detection": true,
+    "date_detection": true,
+    "number_detection": true,
+    "multi_page_extraction": true,
+    "allow_partial_extraction": true,
+    "minimum_document_confidence": 0.7,
+    "minimum_required_field_confidence": 0.7,
+    "minimum_optional_field_confidence": 0.5,
+    "fail_on_missing_required_fields": false,
+    "return_extraction_warnings": true,
+    "return_field_confidence": true,
+    "return_source_trace": true
+  },
+  "fields": [
+    {
+      "name": "bol_number",
+      "display_name": "BOL Number",
+      "description": "Unique Bill of Lading identifier assigned to the shipment document.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "bol number",
+        "bill of lading number",
+        "b/l number"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "next_line",
+          "same_line",
+          "right_of_label"
+        ],
+        "value_pattern": "[A-Za-z0-9\\-\\/]+",
+        "max_search_distance_lines": 2,
+        "stop_words": [
+          "po",
+          "reference",
+          "pickup date",
+          "pro number"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "bol_identifiers",
+        "relative_position": "top_left_or_top_center"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true,
+        "uppercase": false
+      },
+      "validation": {
+        "required": true,
+        "min_length": 3,
+        "max_length": 80,
+        "regex": "^[A-Za-z0-9][A-Za-z0-9\\-\\/]*$",
+        "reject_values": [
+          "bol number",
+          "bill of lading",
+          "date"
+        ]
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_label_found": 0.3,
+        "increase_if_value_matches_pattern": 0.15,
+        "increase_if_in_expected_location": 0.1,
+        "decrease_if_multiple_candidates": 0.15
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "top_identifier_after_bol_keyword",
+          "regex_near_bill_of_lading_keyword",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "bol.bol_number"
+    },
+    {
+      "name": "po_reference_number",
+      "display_name": "PO / Reference Number",
+      "description": "Purchase order or shipment reference number associated with the Bill of Lading.",
+      "data_type": "string",
+      "required": false,
+      "possible_labels": [
+        "po / reference number",
+        "po number",
+        "reference number",
+        "purchase order number"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "next_line",
+          "same_line",
+          "right_of_label"
+        ],
+        "value_pattern": "[A-Za-z0-9\\-\\/]+",
+        "max_search_distance_lines": 2
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "bol_identifiers",
+        "relative_position": "near_bol_number"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": false,
+        "min_length": 2,
+        "max_length": 80
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.3,
+        "increase_if_value_matches_pattern": 0.15,
+        "increase_if_near_bol_number": 0.1
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "regex_near_po_keyword",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "bol.po_reference_number"
+    },
+    {
+      "name": "pickup_date",
+      "display_name": "Pickup Date",
+      "description": "Date when the shipment is scheduled to be picked up.",
+      "data_type": "date",
+      "required": true,
+      "possible_labels": [
+        "pickup date",
+        "pick up date",
+        "shipment date"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "next_line",
+          "same_line",
+          "right_of_label"
+        ],
+        "value_pattern": "date",
+        "max_search_distance_lines": 2
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "bol_identifiers",
+        "relative_position": "near_po_reference_number"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_date": true,
+        "input_date_formats": [
+          "YYYY-MM-DD",
+          "DD/MM/YYYY",
+          "MM/DD/YYYY",
+          "DD-MM-YYYY",
+          "DD MMM YYYY"
+        ],
+        "output_date_format": "YYYY-MM-DD"
+      },
+      "validation": {
+        "required": true,
+        "must_be_valid_date": true
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_label_found": 0.25,
+        "increase_if_valid_date": 0.15,
+        "increase_if_in_expected_location": 0.1,
+        "decrease_if_ambiguous_date_format": 0.2
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "nearest_date_to_pickup_keyword",
+          "first_date_in_identifier_section",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "bol.pickup_date"
+    },
+    {
+      "name": "pro_number",
+      "display_name": "PRO Number",
+      "description": "Carrier tracking or freight pro number associated with the shipment.",
+      "data_type": "string",
+      "required": false,
+      "possible_labels": [
+        "pro number",
+        "tracking number",
+        "freight number"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "next_line",
+          "same_line",
+          "right_of_label"
+        ],
+        "value_pattern": "[A-Za-z0-9\\-\\/]+",
+        "max_search_distance_lines": 2
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "bol_identifiers",
+        "relative_position": "near_pickup_date"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": false,
+        "min_length": 2,
+        "max_length": 80
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.3,
+        "increase_if_value_matches_pattern": 0.15
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "regex_near_pro_keyword",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "bol.pro_number"
+    },
+    {
+      "name": "shipper_name",
+      "display_name": "Shipper Name",
+      "description": "Name of the company or party shipping the goods.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "shipper",
+        "shipper (from)",
+        "from"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "section_based",
+        "section_markers": [
+          "shipper",
+          "shipper (from)"
+        ],
+        "candidate_selection": "first_business_name_after_section_marker",
+        "max_lines_in_section": 5,
+        "section_end_markers": [
+          "consignee",
+          "consignee (to)",
+          "carrier"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "shipper_info",
+        "relative_position": "upper_left"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": true,
+        "min_length": 2,
+        "max_length": 150,
+        "reject_if_contains_only_numbers": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_section_marker_found": 0.3,
+        "increase_if_business_name_pattern": 0.1,
+        "increase_if_before_consignee_section": 0.1,
+        "decrease_if_same_as_consignee_name": 0.3
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "first_strong_text_after_shipper_marker",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "shipper.name"
+    },
+    {
+      "name": "consignee_name",
+      "display_name": "Consignee Name",
+      "description": "Name of the company or party receiving the goods.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "consignee",
+        "consignee (to)",
+        "to"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "section_based",
+        "section_markers": [
+          "consignee",
+          "consignee (to)"
+        ],
+        "candidate_selection": "first_business_name_after_section_marker",
+        "max_lines_in_section": 5,
+        "section_end_markers": [
+          "carrier",
+          "declared value",
+          "shipment details"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "consignee_info",
+        "relative_position": "middle_left"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": true,
+        "min_length": 2,
+        "max_length": 150,
+        "reject_if_same_as_shipper_name": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_section_marker_found": 0.3,
+        "increase_if_business_name_pattern": 0.1,
+        "increase_if_after_shipper_section": 0.1,
+        "decrease_if_same_as_shipper_name": 0.3
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "first_strong_text_after_consignee_marker",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "consignee.name"
+    },
+    {
+      "name": "carrier_name",
+      "display_name": "Carrier Name",
+      "description": "Name of the logistics carrier responsible for transporting the shipment.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "carrier"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "next_line",
+          "same_line",
+          "right_of_label"
+        ],
+        "value_pattern": ".+",
+        "max_search_distance_lines": 2,
+        "stop_words": [
+          "declared value",
+          "shipment details"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "carrier_info",
+        "relative_position": "below_consignee_section"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": true,
+        "min_length": 2,
+        "max_length": 150
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.3,
+        "increase_if_business_name_pattern": 0.1,
+        "increase_if_in_expected_location": 0.1
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "first_strong_text_after_carrier_marker",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "carrier.name"
+    },
+    {
+      "name": "declared_value",
+      "display_name": "Declared Value",
+      "description": "Declared monetary value of the shipment, if provided.",
+      "data_type": "money",
+      "required": false,
+      "possible_labels": [
+        "declared value",
+        "shipment value",
+        "declared amount"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "next_line",
+          "same_line",
+          "right_of_label"
+        ],
+        "value_pattern": "money",
+        "max_search_distance_lines": 2
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "carrier_info",
+        "relative_position": "before_shipment_details"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_money": true,
+        "decimal_separator_detection": true,
+        "thousand_separator_detection": true,
+        "preserve_currency": true
+      },
+      "validation": {
+        "required": false,
+        "must_be_positive_or_zero": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.3,
+        "increase_if_money_format_valid": 0.15,
+        "increase_if_near_shipment_details": 0.1
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "money_value_after_declared_value_marker",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "shipment.declared_value"
+    },
+    {
+      "name": "total_weight",
+      "display_name": "Total Weight",
+      "description": "Total shipment weight stated in the Bill of Lading.",
+      "data_type": "weight",
+      "required": true,
+      "possible_labels": [
+        "total weight",
+        "gross weight",
+        "shipment weight"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "next_line",
+          "same_line",
+          "right_of_label"
+        ],
+        "value_pattern": "[0-9,\\.]+\\s*(lbs|lb|kg|kgs)",
+        "max_search_distance_lines": 2
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "total_weight",
+        "relative_position": "after_handling_notes"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_number": true,
+        "extract_unit": true,
+        "remove_thousand_separator": true
+      },
+      "validation": {
+        "required": true,
+        "must_be_positive": true,
+        "allowed_units": [
+          "lbs",
+          "lb",
+          "kg",
+          "kgs"
+        ]
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_label_found": 0.3,
+        "increase_if_weight_unit_found": 0.15,
+        "increase_if_after_shipment_details": 0.1,
+        "decrease_if_no_unit_found": 0.25
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "sum_weight_column_from_shipment_details",
+          "nearest_weight_after_total_weight_keyword",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "shipment.total_weight"
+    },
+    {
+      "name": "handling_notes",
+      "display_name": "Handling Notes",
+      "description": "Special shipment handling instructions or warnings.",
+      "data_type": "string",
+      "required": false,
+      "possible_labels": [
+        "special instructions",
+        "handling notes",
+        "special instructions / handling notes"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "section_based",
+        "section_markers": [
+          "special instructions",
+          "handling notes",
+          "special instructions / handling notes"
+        ],
+        "candidate_selection": "all_lines_until_next_section_marker",
+        "max_lines_in_section": 8,
+        "section_end_markers": [
+          "total weight",
+          "received",
+          "signatures"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "handling_notes",
+        "relative_position": "below_shipment_details"
+      },
+      "normalization": {
+        "trim": true,
+        "collapse_multiple_spaces": true,
+        "preserve_sentence_breaks": true
+      },
+      "validation": {
+        "required": false,
+        "max_length": 1000
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_section_marker_found": 0.3,
+        "increase_if_multiple_instruction_lines_found": 0.1,
+        "increase_if_before_total_weight": 0.1
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "text_between_handling_and_total_weight",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "shipment.handling_notes"
+    }
+  ],
+  "tables": [
+    {
+      "table_name": "shipment_details",
+      "description": "Table containing shipment item rows with quantity, package type, description, weight, freight class, NMFC code, and dimensions.",
+      "required": true,
+      "detection_strategy": {
+        "strategy_type": "header_keyword_and_row_pattern",
+        "use_detected_tables_if_available": true,
+        "fallback_to_line_grouping": true,
+        "minimum_header_match_count": 3,
+        "allow_multi_page_table": false
+      },
+      "header_keywords": [
+        "qty",
+        "pkg type",
+        "description",
+        "weight",
+        "weight (lbs)",
+        "freight class",
+        "nmfc code",
+        "dims",
+        "l×w×h"
+      ],
+      "start_markers": [
+        "shipment details"
+      ],
+      "end_markers": [
+        "special instructions",
+        "handling notes",
+        "total weight",
+        "received",
+        "signatures"
+      ],
+      "columns": [
+        {
+          "name": "quantity",
+          "display_name": "Quantity",
+          "data_type": "number",
+          "required": true,
+          "possible_headers": [
+            "qty",
+            "quantity"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "value_pattern": "number"
+          },
+          "normalization": {
+            "parse_number": true
+          },
+          "validation": {
+            "must_be_positive": true
+          },
+          "output_key": "quantity"
+        },
+        {
+          "name": "package_type",
+          "display_name": "Package Type",
+          "data_type": "string",
+          "required": false,
+          "possible_headers": [
+            "pkg type",
+            "package type",
+            "packaging"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping"
+          },
+          "normalization": {
+            "trim": true,
+            "remove_extra_spaces": true
+          },
+          "validation": {
+            "max_length": 80
+          },
+          "output_key": "package_type"
+        },
+        {
+          "name": "description",
+          "display_name": "Description",
+          "data_type": "string",
+          "required": true,
+          "possible_headers": [
+            "description",
+            "item description",
+            "goods description"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "allow_multiline": true,
+            "merge_continuation_lines": true
+          },
+          "normalization": {
+            "trim": true,
+            "remove_extra_spaces": true
+          },
+          "validation": {
+            "min_length": 1,
+            "max_length": 500
+          },
+          "output_key": "description"
+        },
+        {
+          "name": "weight_lbs",
+          "display_name": "Weight",
+          "data_type": "number",
+          "required": true,
+          "possible_headers": [
+            "weight",
+            "weight (lbs)",
+            "lbs"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "value_pattern": "number"
+          },
+          "normalization": {
+            "parse_number": true,
+            "unit": "lbs"
+          },
+          "validation": {
+            "must_be_positive": true
+          },
+          "output_key": "weight_lbs"
+        },
+        {
+          "name": "freight_class",
+          "display_name": "Freight Class",
+          "data_type": "string",
+          "required": false,
+          "possible_headers": [
+            "freight class",
+            "class"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "value_pattern": "[0-9A-Za-z\\.\\-]+"
+          },
+          "normalization": {
+            "trim": true
+          },
+          "validation": {
+            "max_length": 40
+          },
+          "output_key": "freight_class"
+        },
+        {
+          "name": "nmfc_code",
+          "display_name": "NMFC Code",
+          "data_type": "string",
+          "required": false,
+          "possible_headers": [
+            "nmfc code",
+            "nmfc"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "value_pattern": "[0-9A-Za-z\\-]+"
+          },
+          "normalization": {
+            "trim": true
+          },
+          "validation": {
+            "max_length": 50
+          },
+          "output_key": "nmfc_code"
+        },
+        {
+          "name": "dimensions",
+          "display_name": "Dimensions",
+          "data_type": "string",
+          "required": false,
+          "possible_headers": [
+            "dims",
+            "dimensions",
+            "dims (l×w×h in)",
+            "l×w×h"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "value_pattern": "[0-9]+\\s*[x×]\\s*[0-9]+\\s*[x×]\\s*[0-9]+"
+          },
+          "normalization": {
+            "trim": true,
+            "normalize_multiplication_symbol": true,
+            "unit": "in"
+          },
+          "validation": {
+            "max_length": 80
+          },
+          "output_key": "dimensions"
+        }
+      ],
+      "row_rules": {
+        "minimum_columns_per_row": 4,
+        "ignore_empty_rows": true,
+        "ignore_rows_matching": [
+          "shipment details",
+          "qty",
+          "pkg type",
+          "description",
+          "special instructions",
+          "handling notes",
+          "total weight"
+        ],
+        "allow_wrapped_description_rows": true,
+        "merge_wrapped_rows_when_no_weight_present": true,
+        "row_continuation_strategy": "append_to_previous_description",
+        "stop_when_end_marker_found": true
+      },
+      "validation": {
+        "required": true,
+        "minimum_rows": 1,
+        "sum_weight_should_match_total_weight": true,
+        "allowed_weight_tolerance": 1
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_header_keywords_found": 0.25,
+        "increase_if_rows_have_consistent_column_count": 0.15,
+        "increase_if_weight_sum_matches_total_weight": 0.15,
+        "decrease_if_no_header_found": 0.2,
+        "decrease_if_rows_are_inconsistent": 0.2
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "detected_tables_from_normalizer",
+          "line_grouping_between_shipment_details_and_handling_notes",
+          "row_pattern_starting_with_quantity",
+          "manual_review"
+        ],
+        "on_failure": "return_empty_array_with_warning"
+      },
+      "output_key": "shipment.items"
+    }
+  ],
+  "data_normalization_rules": {
+    "strings": {
+      "trim": true,
+      "collapse_multiple_spaces": true,
+      "remove_invisible_characters": true
+    },
+    "dates": {
+      "standard_output_format": "YYYY-MM-DD",
+      "ambiguous_date_policy": "prefer_document_locale_then_warn",
+      "supported_formats": [
+        "YYYY-MM-DD",
+        "DD/MM/YYYY",
+        "MM/DD/YYYY",
+        "DD-MM-YYYY",
+        "DD MMM YYYY",
+        "MMM DD YYYY"
+      ]
+    },
+    "numbers": {
+      "decimal_separator_detection": true,
+      "thousand_separator_detection": true,
+      "negative_number_formats": [
+        "-100.00",
+        "(100.00)"
+      ]
+    },
+    "money": {
+      "preserve_original_text": true,
+      "parse_numeric_value": true,
+      "extract_currency_if_present": true,
+      "rounding_precision": 2
+    },
+    "currency": {
+      "symbol_to_code_map": {
+        "$": "USD",
+        "€": "EUR",
+        "£": "GBP",
+        "TND": "TND",
+        "د.ت": "TND"
+      }
+    },
+    "weight": {
+      "parse_numeric_value": true,
+      "extract_unit": true,
+      "supported_units": [
+        "lbs",
+        "lb",
+        "kg",
+        "kgs"
+      ],
+      "remove_thousand_separator": true
+    }
+  },
+  "validation_rules": {
+    "document_level": [
+      {
+        "rule_id": "required_bol_number",
+        "description": "BOL number must be present.",
+        "severity": "error",
+        "condition": "bol.bol_number is not null"
+      },
+      {
+        "rule_id": "required_pickup_date",
+        "description": "Pickup date must be present and valid.",
+        "severity": "error",
+        "condition": "bol.pickup_date is valid_date"
+      },
+      {
+        "rule_id": "required_shipper_name",
+        "description": "Shipper name must be present.",
+        "severity": "error",
+        "condition": "shipper.name is not null"
+      },
+      {
+        "rule_id": "required_consignee_name",
+        "description": "Consignee name must be present.",
+        "severity": "error",
+        "condition": "consignee.name is not null"
+      },
+      {
+        "rule_id": "required_carrier_name",
+        "description": "Carrier name must be present.",
+        "severity": "error",
+        "condition": "carrier.name is not null"
+      },
+      {
+        "rule_id": "shipment_items_present",
+        "description": "At least one shipment detail row should be extracted.",
+        "severity": "warning",
+        "condition": "shipment.items.length >= 1"
+      },
+      {
+        "rule_id": "shipment_weight_consistency",
+        "description": "Sum of shipment item weights should approximately match total weight when both values are available.",
+        "severity": "warning",
+        "condition": "abs(sum(shipment.items.weight_lbs) - shipment.total_weight.value) <= 1"
+      }
+    ],
+    "field_level_policy": {
+      "missing_required_field": "error",
+      "invalid_required_field": "error",
+      "missing_optional_field": "info",
+      "invalid_optional_field": "warning"
+    }
+  },
+  "confidence_scoring": {
+    "enabled": true,
+    "score_range": {
+      "min": 0,
+      "max": 1
+    },
+    "document_confidence_formula": {
+      "required_fields_weight": 0.5,
+      "optional_fields_weight": 0.15,
+      "table_confidence_weight": 0.25,
+      "validation_consistency_weight": 0.1
+    },
+    "confidence_thresholds": {
+      "high": 0.85,
+      "medium": 0.7,
+      "low": 0.4
+    },
+    "manual_review_policy": {
+      "send_to_review_if_document_confidence_below": 0.7,
+      "send_to_review_if_required_field_confidence_below": 0.7,
+      "send_to_review_if_validation_errors_exist": true
+    }
+  },
+  "warnings_and_fallback_behavior": {
+    "warning_categories": [
+      "missing_required_field",
+      "missing_optional_field",
+      "low_confidence",
+      "ambiguous_candidate",
+      "validation_failed",
+      "ocr_quality_low",
+      "table_detection_failed",
+      "layout_identity_low",
+      "document_type_mismatch"
+    ],
+    "fallback_policy": {
+      "allow_field_fallbacks": true,
+      "allow_table_fallbacks": true,
+      "allow_formula_based_inference": true,
+      "allow_manual_review_marker": true,
+      "never_guess_required_values_without_trace": true
+    },
+    "on_extraction_failure": {
+      "return_partial_output": true,
+      "include_errors": true,
+      "include_warnings": true,
+      "include_source_trace": true
+    }
+  },
+  "output_mapping": {
+    "output_format": "json",
+    "include_metadata": true,
+    "include_confidence": true,
+    "include_source_trace": true,
+    "target_structure": {
+      "bol": {
+        "bol_number": "fields.bol_number",
+        "po_reference_number": "fields.po_reference_number",
+        "pickup_date": "fields.pickup_date",
+        "pro_number": "fields.pro_number"
+      },
+      "shipper": {
+        "name": "fields.shipper_name"
+      },
+      "consignee": {
+        "name": "fields.consignee_name"
+      },
+      "carrier": {
+        "name": "fields.carrier_name"
+      },
+      "shipment": {
+        "declared_value": "fields.declared_value",
+        "total_weight": "fields.total_weight",
+        "handling_notes": "fields.handling_notes",
+        "items": "tables.shipment_details"
+      }
+    }
+  },
+  "source_trace_requirements": {
+    "enabled": true,
+    "for_each_field_include": [
+      "page_number",
+      "line_index",
+      "raw_text",
+      "matched_label",
+      "extraction_strategy_used",
+      "confidence"
+    ],
+    "for_each_table_row_include": [
+      "page_number",
+      "raw_row_text",
+      "detected_columns",
+      "confidence"
+    ]
+  },
+  "versioning": {
+    "blueprint_semver": true,
+    "breaking_change_policy": {
+      "major": "Changes to required sections, field contract, table contract, or output mapping.",
+      "minor": "New optional fields, new strategies, or new validation rules.",
+      "patch": "Small corrections to labels, hints, or descriptions."
+    },
+    "backward_compatibility": {
+      "engine_should_reject_unsupported_major_versions": true,
+      "engine_may_ignore_unknown_optional_properties": true
+    }
+  },
+  "maintainability_notes": {
+    "owner": "data_extraction_team",
+    "recommended_review_frequency": "after_each_new_bol_layout",
+    "known_limitations": [
+      "This blueprint is not compatible with invoice-only extraction unless the engine supports multiple document families.",
+      "Shipment detail extraction depends on consistent row ordering because the normalized document may not expose true table coordinates.",
+      "Rows with long descriptions may require continuation-line merging.",
+      "OCR errors in BOL number, PRO number, NMFC code, or dimensions can reduce confidence."
+    ],
+    "change_log": [
+      {
+        "version": "1.0.0",
+        "date": "2026-05-26",
+        "changes": [
+          "Initial Bill of Lading blueprint generated from the provided normalized document representation."
+        ]
+      }
+    ]
+  }
+}

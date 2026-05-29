@@ -1,0 +1,76 @@
+{
+  "document_id": "bank_statement_variant_02",
+  "blueprint_id": "bank_statement_dreamland_layout_v1",
+  "document_family": "bank_statement",
+  "extracted_data": {
+    "bank": {
+      "name": "Dreamland National Bank"
+    },
+    "account": {
+      "account_number": "604918237",
+      "account_type": "Business Checking"
+    },
+    "customer": {
+      "business_name": "Orion Field Services LLC",
+      "business_address": "2290 Cedar Park Ave, Brookhaven, BH 60412"
+    },
+    "summary": {
+      "opening_balance": {
+        "amount": 7325.4,
+        "currency": "USD"
+      },
+      "total_credit": {
+        "amount": 15495.5,
+        "currency": "USD"
+      },
+      "total_debit": {
+        "amount": 5900.87,
+        "currency": "USD"
+      },
+      "net_balance": {
+        "amount": 16920.03,
+        "currency": "USD"
+      },
+      "currency": "USD"
+    },
+    "transactions": [
+      {
+        "transaction_date": "Business",
+        "credit_amount": {
+          "amount": 7325.4,
+          "currency": "USD"
+        },
+        "debit_amount": {
+          "amount": 15495.5,
+          "currency": "USD"
+        },
+        "description": "$5 900,87",
+        "balance": {
+          "amount": 16920.03,
+          "currency": "USD"
+        }
+      }
+    ]
+  },
+  "confidence": {
+    "bank.name": 0.85,
+    "account.account_number": 0.85,
+    "account.account_type": 0.85,
+    "customer.business_name": 0.85,
+    "customer.business_address": 0.85,
+    "summary.opening_balance": 0.85,
+    "summary.total_credit": 0.85,
+    "summary.total_debit": 0.85,
+    "summary.net_balance": 0.85,
+    "summary.currency": 0.7,
+    "transactions": 0.8
+  },
+  "warnings": [],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 10,
+    "fields_extracted": 10,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}

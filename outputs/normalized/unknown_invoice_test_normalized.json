@@ -1,0 +1,160 @@
+{
+  "document_id": "unknown_invoice_test",
+  "source_file": "unknown_invoice_test.pdf",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Invoice #13594027\nDescription Total\nSub Total\nCredit USD $0.00\nTotal\nTransactions\nTransaction Date Transaction ID Amount\nBalance\nPDF Generated on 06/23/2018\n1 Main St.\nBevery Hills, CA 90210\nPhone: +1 (800) 555-5555\nemail@yourdomain.com\nUSD $50.00\nPromotional Code: 25OFF - 25.00% Recurring Discount\nUSD $37.50\nUSD $37.50\nUSD $-12.50\nUSD $37.50\nDate: 06/23/2018\nPremium Membership - Monthly - yourdomain.com (06/23/2018 - 07/23/2018)\nYour Business Name\nInvoiced To\nJohn Smith\n123 Oak Ave.\nLos Angeles, CA 90017\nch_9CdwKtEDJAI2k4ZEVqkl0xQr06/23/2018 USD $37.50\n",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "Invoice #13594027",
+          "page_number": 1
+        },
+        {
+          "line_number": 2,
+          "text": "Description Total",
+          "page_number": 1
+        },
+        {
+          "line_number": 3,
+          "text": "Sub Total",
+          "page_number": 1
+        },
+        {
+          "line_number": 4,
+          "text": "Credit USD $0.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 5,
+          "text": "Total",
+          "page_number": 1
+        },
+        {
+          "line_number": 6,
+          "text": "Transactions",
+          "page_number": 1
+        },
+        {
+          "line_number": 7,
+          "text": "Transaction Date Transaction ID Amount",
+          "page_number": 1
+        },
+        {
+          "line_number": 8,
+          "text": "Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 9,
+          "text": "PDF Generated on 06/23/2018",
+          "page_number": 1
+        },
+        {
+          "line_number": 10,
+          "text": "1 Main St.",
+          "page_number": 1
+        },
+        {
+          "line_number": 11,
+          "text": "Bevery Hills, CA 90210",
+          "page_number": 1
+        },
+        {
+          "line_number": 12,
+          "text": "Phone: +1 (800) 555-5555",
+          "page_number": 1
+        },
+        {
+          "line_number": 13,
+          "text": "email@yourdomain.com",
+          "page_number": 1
+        },
+        {
+          "line_number": 14,
+          "text": "USD $50.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 15,
+          "text": "Promotional Code: 25OFF - 25.00% Recurring Discount",
+          "page_number": 1
+        },
+        {
+          "line_number": 16,
+          "text": "USD $37.50",
+          "page_number": 1
+        },
+        {
+          "line_number": 17,
+          "text": "USD $37.50",
+          "page_number": 1
+        },
+        {
+          "line_number": 18,
+          "text": "USD $-12.50",
+          "page_number": 1
+        },
+        {
+          "line_number": 19,
+          "text": "USD $37.50",
+          "page_number": 1
+        },
+        {
+          "line_number": 20,
+          "text": "Date: 06/23/2018",
+          "page_number": 1
+        },
+        {
+          "line_number": 21,
+          "text": "Premium Membership - Monthly - yourdomain.com (06/23/2018 - 07/23/2018)",
+          "page_number": 1
+        },
+        {
+          "line_number": 22,
+          "text": "Your Business Name",
+          "page_number": 1
+        },
+        {
+          "line_number": 23,
+          "text": "Invoiced To",
+          "page_number": 1
+        },
+        {
+          "line_number": 24,
+          "text": "John Smith",
+          "page_number": 1
+        },
+        {
+          "line_number": 25,
+          "text": "123 Oak Ave.",
+          "page_number": 1
+        },
+        {
+          "line_number": 26,
+          "text": "Los Angeles, CA 90017",
+          "page_number": 1
+        },
+        {
+          "line_number": 27,
+          "text": "ch_9CdwKtEDJAI2k4ZEVqkl0xQr06/23/2018 USD $37.50",
+          "page_number": 1
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p1_b1",
+          "type": "text",
+          "text": "Invoice #13594027\nDescription Total\nSub Total\nCredit USD $0.00\nTotal\nTransactions\nTransaction Date Transaction ID Amount\nBalance\nPDF Generated on 06/23/2018\n1 Main St.\nBevery Hills, CA 90210\nPhone: +1 (800) 555-5555\nemail@yourdomain.com\nUSD $50.00\nPromotional Code: 25OFF - 25.00% Recurring Discount\nUSD $37.50\nUSD $37.50\nUSD $-12.50\nUSD $37.50\nDate: 06/23/2018\nPremium Membership - Monthly - yourdomain.com (06/23/2018 - 07/23/2018)\nYour Business Name\nInvoiced To\nJohn Smith\n123 Oak Ave.\nLos Angeles, CA 90017\nch_9CdwKtEDJAI2k4ZEVqkl0xQr06/23/2018 USD $37.50\n",
+          "page_number": 1
+        }
+      ]
+    }
+  ],
+  "full_text": "Invoice #13594027\nDescription Total\nSub Total\nCredit USD $0.00\nTotal\nTransactions\nTransaction Date Transaction ID Amount\nBalance\nPDF Generated on 06/23/2018\n1 Main St.\nBevery Hills, CA 90210\nPhone: +1 (800) 555-5555\nemail@yourdomain.com\nUSD $50.00\nPromotional Code: 25OFF - 25.00% Recurring Discount\nUSD $37.50\nUSD $37.50\nUSD $-12.50\nUSD $37.50\nDate: 06/23/2018\nPremium Membership - Monthly - yourdomain.com (06/23/2018 - 07/23/2018)\nYour Business Name\nInvoiced To\nJohn Smith\n123 Oak Ave.\nLos Angeles, CA 90017\nch_9CdwKtEDJAI2k4ZEVqkl0xQr06/23/2018 USD $37.50\n",
+  "metadata": {
+    "normalizer": "pypdf.extract_text",
+    "page_count": 1
+  }
+}

@@ -1,0 +1,385 @@
+{
+  "document_id": "invoice_2_generated_variant",
+  "source_file": "test_files/pdfs/invoice_2_generated_variant.pdf",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "NOVAFLOW AUTOMATION\nLTD\nInvoice\n# INV-2026-1047\nNovaFlow Automation Ltd.\n4282 Innovation Way, Suite 10\nAustin, TX 78701\nVAT ID: US99-40291\nDate:\nMay 20, 2026\nPayment methods:\nACH / Wire (Zenith\nBank)\nPurchase order:\nPO-2026-HRG-05\nSolde à payer:\n$5,520.75\nTo:\nDelivery address:\nHorizon Retail Group\nAttn: Accounts\nPayable\n1920 Commerce Blvd\nChicago, IL 60601\nHorizon Retail Group\n- Central Warehouse\n> 4400 West Dickens\nAve, Gate 4\nChicago, IL 60639\nAttn: Receiving Dept /\nMike S.\nObject\nQuantity\nUnit price\nAmount\nAI Model Integration Review\n2\n$980.00\n$1,960.00\nData Pipeline Refactoring Sprint\n5\n$320.00\n$1,600.00\nCloud Monitoring Setup\n1\n$750.00\n$750.00\nAPI Usage Overage (April)\n12000\n$0.03\n$360.00\nSecurity Patch Deployment\n3\n$210.00\n$630.00\nSubtotal:\n$5,300.00\nDiscount:\n$200.00\nTax (8.25%):\n$420.75\nTotal:\n$5,520.75\nAuthorized\nSignatory\nRemarks:\nAll deliverables for the \"Q3 Intelligent Operations Upgrade\" have been reviewed and approved by the client\nteam. Updated deployment notes and monitoring documentation are available in the client portal. Thank you\nfor your continued partnership!\nTerms:\nNet 30. A late fee of 1.5% per month will be applied to all overdue balances. Please make checks payable to\nNovaFlow Automation Ltd. Professional services are non-refundable once deployed to production.\n",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "NOVAFLOW AUTOMATION",
+          "page_number": 1
+        },
+        {
+          "line_number": 2,
+          "text": "LTD",
+          "page_number": 1
+        },
+        {
+          "line_number": 3,
+          "text": "Invoice",
+          "page_number": 1
+        },
+        {
+          "line_number": 4,
+          "text": "# INV-2026-1047",
+          "page_number": 1
+        },
+        {
+          "line_number": 5,
+          "text": "NovaFlow Automation Ltd.",
+          "page_number": 1
+        },
+        {
+          "line_number": 6,
+          "text": "4282 Innovation Way, Suite 10",
+          "page_number": 1
+        },
+        {
+          "line_number": 7,
+          "text": "Austin, TX 78701",
+          "page_number": 1
+        },
+        {
+          "line_number": 8,
+          "text": "VAT ID: US99-40291",
+          "page_number": 1
+        },
+        {
+          "line_number": 9,
+          "text": "Date:",
+          "page_number": 1
+        },
+        {
+          "line_number": 10,
+          "text": "May 20, 2026",
+          "page_number": 1
+        },
+        {
+          "line_number": 11,
+          "text": "Payment methods:",
+          "page_number": 1
+        },
+        {
+          "line_number": 12,
+          "text": "ACH / Wire (Zenith",
+          "page_number": 1
+        },
+        {
+          "line_number": 13,
+          "text": "Bank)",
+          "page_number": 1
+        },
+        {
+          "line_number": 14,
+          "text": "Purchase order:",
+          "page_number": 1
+        },
+        {
+          "line_number": 15,
+          "text": "PO-2026-HRG-05",
+          "page_number": 1
+        },
+        {
+          "line_number": 16,
+          "text": "Solde à payer:",
+          "page_number": 1
+        },
+        {
+          "line_number": 17,
+          "text": "$5,520.75",
+          "page_number": 1
+        },
+        {
+          "line_number": 18,
+          "text": "To:",
+          "page_number": 1
+        },
+        {
+          "line_number": 19,
+          "text": "Delivery address:",
+          "page_number": 1
+        },
+        {
+          "line_number": 20,
+          "text": "Horizon Retail Group",
+          "page_number": 1
+        },
+        {
+          "line_number": 21,
+          "text": "Attn: Accounts",
+          "page_number": 1
+        },
+        {
+          "line_number": 22,
+          "text": "Payable",
+          "page_number": 1
+        },
+        {
+          "line_number": 23,
+          "text": "1920 Commerce Blvd",
+          "page_number": 1
+        },
+        {
+          "line_number": 24,
+          "text": "Chicago, IL 60601",
+          "page_number": 1
+        },
+        {
+          "line_number": 25,
+          "text": "Horizon Retail Group",
+          "page_number": 1
+        },
+        {
+          "line_number": 26,
+          "text": "- Central Warehouse",
+          "page_number": 1
+        },
+        {
+          "line_number": 27,
+          "text": "> 4400 West Dickens",
+          "page_number": 1
+        },
+        {
+          "line_number": 28,
+          "text": "Ave, Gate 4",
+          "page_number": 1
+        },
+        {
+          "line_number": 29,
+          "text": "Chicago, IL 60639",
+          "page_number": 1
+        },
+        {
+          "line_number": 30,
+          "text": "Attn: Receiving Dept /",
+          "page_number": 1
+        },
+        {
+          "line_number": 31,
+          "text": "Mike S.",
+          "page_number": 1
+        },
+        {
+          "line_number": 32,
+          "text": "Object",
+          "page_number": 1
+        },
+        {
+          "line_number": 33,
+          "text": "Quantity",
+          "page_number": 1
+        },
+        {
+          "line_number": 34,
+          "text": "Unit price",
+          "page_number": 1
+        },
+        {
+          "line_number": 35,
+          "text": "Amount",
+          "page_number": 1
+        },
+        {
+          "line_number": 36,
+          "text": "AI Model Integration Review",
+          "page_number": 1
+        },
+        {
+          "line_number": 37,
+          "text": "2",
+          "page_number": 1
+        },
+        {
+          "line_number": 38,
+          "text": "$980.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 39,
+          "text": "$1,960.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 40,
+          "text": "Data Pipeline Refactoring Sprint",
+          "page_number": 1
+        },
+        {
+          "line_number": 41,
+          "text": "5",
+          "page_number": 1
+        },
+        {
+          "line_number": 42,
+          "text": "$320.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 43,
+          "text": "$1,600.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 44,
+          "text": "Cloud Monitoring Setup",
+          "page_number": 1
+        },
+        {
+          "line_number": 45,
+          "text": "1",
+          "page_number": 1
+        },
+        {
+          "line_number": 46,
+          "text": "$750.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 47,
+          "text": "$750.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 48,
+          "text": "API Usage Overage (April)",
+          "page_number": 1
+        },
+        {
+          "line_number": 49,
+          "text": "12000",
+          "page_number": 1
+        },
+        {
+          "line_number": 50,
+          "text": "$0.03",
+          "page_number": 1
+        },
+        {
+          "line_number": 51,
+          "text": "$360.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 52,
+          "text": "Security Patch Deployment",
+          "page_number": 1
+        },
+        {
+          "line_number": 53,
+          "text": "3",
+          "page_number": 1
+        },
+        {
+          "line_number": 54,
+          "text": "$210.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 55,
+          "text": "$630.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 56,
+          "text": "Subtotal:",
+          "page_number": 1
+        },
+        {
+          "line_number": 57,
+          "text": "$5,300.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 58,
+          "text": "Discount:",
+          "page_number": 1
+        },
+        {
+          "line_number": 59,
+          "text": "$200.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 60,
+          "text": "Tax (8.25%):",
+          "page_number": 1
+        },
+        {
+          "line_number": 61,
+          "text": "$420.75",
+          "page_number": 1
+        },
+        {
+          "line_number": 62,
+          "text": "Total:",
+          "page_number": 1
+        },
+        {
+          "line_number": 63,
+          "text": "$5,520.75",
+          "page_number": 1
+        },
+        {
+          "line_number": 64,
+          "text": "Authorized",
+          "page_number": 1
+        },
+        {
+          "line_number": 65,
+          "text": "Signatory",
+          "page_number": 1
+        },
+        {
+          "line_number": 66,
+          "text": "Remarks:",
+          "page_number": 1
+        },
+        {
+          "line_number": 67,
+          "text": "All deliverables for the \"Q3 Intelligent Operations Upgrade\" have been reviewed and approved by the client",
+          "page_number": 1
+        },
+        {
+          "line_number": 68,
+          "text": "team. Updated deployment notes and monitoring documentation are available in the client portal. Thank you",
+          "page_number": 1
+        },
+        {
+          "line_number": 69,
+          "text": "for your continued partnership!",
+          "page_number": 1
+        },
+        {
+          "line_number": 70,
+          "text": "Terms:",
+          "page_number": 1
+        },
+        {
+          "line_number": 71,
+          "text": "Net 30. A late fee of 1.5% per month will be applied to all overdue balances. Please make checks payable to",
+          "page_number": 1
+        },
+        {
+          "line_number": 72,
+          "text": "NovaFlow Automation Ltd. Professional services are non-refundable once deployed to production.",
+          "page_number": 1
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p1_b1",
+          "type": "text",
+          "text": "NOVAFLOW AUTOMATION\nLTD\nInvoice\n# INV-2026-1047\nNovaFlow Automation Ltd.\n4282 Innovation Way, Suite 10\nAustin, TX 78701\nVAT ID: US99-40291\nDate:\nMay 20, 2026\nPayment methods:\nACH / Wire (Zenith\nBank)\nPurchase order:\nPO-2026-HRG-05\nSolde à payer:\n$5,520.75\nTo:\nDelivery address:\nHorizon Retail Group\nAttn: Accounts\nPayable\n1920 Commerce Blvd\nChicago, IL 60601\nHorizon Retail Group\n- Central Warehouse\n> 4400 West Dickens\nAve, Gate 4\nChicago, IL 60639\nAttn: Receiving Dept /\nMike S.\nObject\nQuantity\nUnit price\nAmount\nAI Model Integration Review\n2\n$980.00\n$1,960.00\nData Pipeline Refactoring Sprint\n5\n$320.00\n$1,600.00\nCloud Monitoring Setup\n1\n$750.00\n$750.00\nAPI Usage Overage (April)\n12000\n$0.03\n$360.00\nSecurity Patch Deployment\n3\n$210.00\n$630.00\nSubtotal:\n$5,300.00\nDiscount:\n$200.00\nTax (8.25%):\n$420.75\nTotal:\n$5,520.75\nAuthorized\nSignatory\nRemarks:\nAll deliverables for the \"Q3 Intelligent Operations Upgrade\" have been reviewed and approved by the client\nteam. Updated deployment notes and monitoring documentation are available in the client portal. Thank you\nfor your continued partnership!\nTerms:\nNet 30. A late fee of 1.5% per month will be applied to all overdue balances. Please make checks payable to\nNovaFlow Automation Ltd. Professional services are non-refundable once deployed to production.\n",
+          "page_number": 1
+        }
+      ]
+    }
+  ],
+  "full_text": "NOVAFLOW AUTOMATION\nLTD\nInvoice\n# INV-2026-1047\nNovaFlow Automation Ltd.\n4282 Innovation Way, Suite 10\nAustin, TX 78701\nVAT ID: US99-40291\nDate:\nMay 20, 2026\nPayment methods:\nACH / Wire (Zenith\nBank)\nPurchase order:\nPO-2026-HRG-05\nSolde à payer:\n$5,520.75\nTo:\nDelivery address:\nHorizon Retail Group\nAttn: Accounts\nPayable\n1920 Commerce Blvd\nChicago, IL 60601\nHorizon Retail Group\n- Central Warehouse\n> 4400 West Dickens\nAve, Gate 4\nChicago, IL 60639\nAttn: Receiving Dept /\nMike S.\nObject\nQuantity\nUnit price\nAmount\nAI Model Integration Review\n2\n$980.00\n$1,960.00\nData Pipeline Refactoring Sprint\n5\n$320.00\n$1,600.00\nCloud Monitoring Setup\n1\n$750.00\n$750.00\nAPI Usage Overage (April)\n12000\n$0.03\n$360.00\nSecurity Patch Deployment\n3\n$210.00\n$630.00\nSubtotal:\n$5,300.00\nDiscount:\n$200.00\nTax (8.25%):\n$420.75\nTotal:\n$5,520.75\nAuthorized\nSignatory\nRemarks:\nAll deliverables for the \"Q3 Intelligent Operations Upgrade\" have been reviewed and approved by the client\nteam. Updated deployment notes and monitoring documentation are available in the client portal. Thank you\nfor your continued partnership!\nTerms:\nNet 30. A late fee of 1.5% per month will be applied to all overdue balances. Please make checks payable to\nNovaFlow Automation Ltd. Professional services are non-refundable once deployed to production.\n",
+  "metadata": {
+    "normalizer": "pypdf.extract_text",
+    "page_count": 1
+  }
+}

@@ -1,0 +1,14 @@
+[project]
+name = "invoice-data-extractor"
+version = "0.1.0"
+description = "POC blueprint-driven invoice extraction engine"
+requires-python = ">=3.11"
+dependencies = [
+  "pypdf>=6.0",
+  "streamlit>=1.57",
+  "pandas>=3.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

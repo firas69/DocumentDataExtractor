@@ -1,0 +1,76 @@
+{
+  "document_id": "bank_statement_variant_01",
+  "blueprint_id": "bank_statement_dreamland_layout_v1",
+  "document_family": "bank_statement",
+  "extracted_data": {
+    "bank": {
+      "name": "Dreamland National Bank"
+    },
+    "account": {
+      "account_number": "839274650",
+      "account_type": "Current"
+    },
+    "customer": {
+      "business_name": "Elena R. Whitman",
+      "business_address": "7142 Harbor View Road, Meridian, MR 33108"
+    },
+    "summary": {
+      "opening_balance": {
+        "amount": 5120.8,
+        "currency": "USD"
+      },
+      "total_credit": {
+        "amount": 9235,
+        "currency": "USD"
+      },
+      "total_debit": {
+        "amount": 3984.6,
+        "currency": "USD"
+      },
+      "net_balance": {
+        "amount": 10371.2,
+        "currency": "USD"
+      },
+      "currency": "USD"
+    },
+    "transactions": [
+      {
+        "transaction_date": "Premium",
+        "credit_amount": {
+          "amount": 5120.8,
+          "currency": "USD"
+        },
+        "debit_amount": {
+          "amount": 9235,
+          "currency": "USD"
+        },
+        "description": "$3 984,60",
+        "balance": {
+          "amount": 10371.2,
+          "currency": "USD"
+        }
+      }
+    ]
+  },
+  "confidence": {
+    "bank.name": 0.85,
+    "account.account_number": 0.85,
+    "account.account_type": 0.85,
+    "customer.business_name": 0.85,
+    "customer.business_address": 0.85,
+    "summary.opening_balance": 0.85,
+    "summary.total_credit": 0.85,
+    "summary.total_debit": 0.85,
+    "summary.net_balance": 0.85,
+    "summary.currency": 0.7,
+    "transactions": 0.8
+  },
+  "warnings": [],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 10,
+    "fields_extracted": 10,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}

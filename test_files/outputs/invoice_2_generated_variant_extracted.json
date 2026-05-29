@@ -1,0 +1,115 @@
+{
+  "document_id": "invoice_2_generated_variant",
+  "blueprint_id": "invoice_novaflow_layout_v1",
+  "document_family": "supplier_invoice",
+  "extracted_data": {
+    "invoice": {
+      "invoice_number": "INV-2026-1047",
+      "invoice_date": "2026-05-20",
+      "due_date": "2026-06-19"
+    },
+    "supplier": {
+      "name": "NovaFlow Automation Ltd."
+    },
+    "customer": {
+      "name": "Horizon Retail Group"
+    },
+    "amounts": {
+      "subtotal": {
+        "amount": 5300,
+        "currency": "USD"
+      },
+      "tax": {
+        "amount": 420.75,
+        "currency": "USD"
+      },
+      "total": {
+        "amount": 5520.75,
+        "currency": "USD"
+      },
+      "currency": "USD"
+    },
+    "line_items": [
+      {
+        "description": "AI Model Integration Review",
+        "quantity": 2,
+        "unit_price": {
+          "amount": 980,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 1960,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Data Pipeline Refactoring Sprint",
+        "quantity": 5,
+        "unit_price": {
+          "amount": 320,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 1600,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Cloud Monitoring Setup",
+        "quantity": 1,
+        "unit_price": {
+          "amount": 750,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 750,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "API Usage Overage (April)",
+        "quantity": 12000,
+        "unit_price": {
+          "amount": 0.03,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 360,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Security Patch Deployment",
+        "quantity": 3,
+        "unit_price": {
+          "amount": 210,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 630,
+          "currency": "USD"
+        }
+      }
+    ]
+  },
+  "confidence": {
+    "invoice.invoice_number": 0.85,
+    "invoice.invoice_date": 0.85,
+    "invoice.due_date": 0.85,
+    "supplier.name": 0.85,
+    "customer.name": 0.85,
+    "amounts.subtotal": 0.85,
+    "amounts.tax": 0.85,
+    "amounts.total": 0.85,
+    "amounts.currency": 0.7,
+    "line_items": 0.8
+  },
+  "warnings": [],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 9,
+    "fields_extracted": 9,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}

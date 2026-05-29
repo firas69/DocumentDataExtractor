@@ -1,0 +1,670 @@
+{
+  "document_id": "invoice_3",
+  "blueprint_id": "bank_statement_dreamland_layout_v1",
+  "document_family": "bank_statement",
+  "extracted_data": {
+    "bank": {
+      "name": "www.dreamlandnationalbank.comWebsite:"
+    },
+    "account": {
+      "account_number": "746512321",
+      "account_type": "Opening Balance Total Debit Net Balance"
+    },
+    "customer": {
+      "business_name": "Jordan K. SterlingAccount Number:",
+      "business_address": "4282 Innovation City, Sancturn, SC 78701"
+    },
+    "summary": {
+      "opening_balance": {
+        "amount": 4250.12,
+        "currency": "USD"
+      },
+      "total_credit": {
+        "amount": 4950,
+        "currency": "USD"
+      },
+      "total_debit": {
+        "amount": 6227.67,
+        "currency": "USD"
+      },
+      "net_balance": {
+        "amount": 4250.12,
+        "currency": "USD"
+      },
+      "currency": "USD"
+    },
+    "transactions": [
+      {
+        "transaction_date": "25-Mar",
+        "credit_amount": {
+          "amount": 4,
+          "currency": "USD"
+        },
+        "debit_amount": {
+          "amount": 250.12,
+          "currency": null
+        },
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "26-Mar",
+        "credit_amount": {
+          "amount": 2,
+          "currency": "USD"
+        },
+        "debit_amount": {
+          "amount": 475,
+          "currency": null
+        },
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "26-Mar",
+        "credit_amount": {
+          "amount": 1,
+          "currency": "USD"
+        },
+        "debit_amount": {
+          "amount": 400,
+          "currency": null
+        },
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "29-Mar",
+        "credit_amount": {
+          "amount": 156.4,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "29-Mar",
+        "credit_amount": {
+          "amount": 65.2,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "29-Mar",
+        "credit_amount": {
+          "amount": 42.99,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "1-Apr",
+        "credit_amount": {
+          "amount": 8.5,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "1-Apr",
+        "credit_amount": {
+          "amount": 2,
+          "currency": "USD"
+        },
+        "debit_amount": {
+          "amount": 475,
+          "currency": null
+        },
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "2-Apr",
+        "credit_amount": {
+          "amount": 120,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "4-Apr",
+        "credit_amount": {
+          "amount": 9.99,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "4-Apr",
+        "credit_amount": {
+          "amount": 215.3,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "4-Apr",
+        "credit_amount": {
+          "amount": 14.25,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "5-Apr",
+        "credit_amount": {
+          "amount": 800,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "6-Apr",
+        "credit_amount": {
+          "amount": 19.99,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "7-Apr",
+        "credit_amount": {
+          "amount": 45,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "8-Apr",
+        "credit_amount": {
+          "amount": 59.83,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "9-Apr",
+        "credit_amount": {
+          "amount": 52.99,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "10-Apr",
+        "credit_amount": {
+          "amount": 500,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "11-Apr",
+        "credit_amount": {
+          "amount": 24.5,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "12-Apr",
+        "credit_amount": {
+          "amount": 18.4,
+          "currency": "USD"
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "$6",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": null,
+        "balance": {
+          "amount": null,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "$6",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "-",
+        "balance": {
+          "amount": null,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "$6",
+        "credit_amount": {
+          "amount": 689.68,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "Opening",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": 4,
+          "currency": "USD"
+        },
+        "description": null,
+        "balance": {
+          "amount": 250.12,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "RENT",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "SKYLINE APTS $5",
+        "balance": {
+          "amount": 325.12,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "$5",
+        "credit_amount": {
+          "amount": 168.72,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "PAYROLL",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "TECH CORP $6",
+        "balance": {
+          "amount": 725.12,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "POS",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "STORES $6",
+        "balance": {
+          "amount": 242.67,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "WHOLE",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": null,
+        "balance": {
+          "amount": null,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "SHELL",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "AUTO",
+        "balance": {
+          "amount": null,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "$5",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "CLOUD",
+        "balance": {
+          "amount": null,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "PAYROLL",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "TECH",
+        "balance": {
+          "amount": null,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "COMCAST",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": null,
+        "balance": {
+          "amount": null,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "$6",
+        "credit_amount": {
+          "amount": 189.68,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "$5",
+        "credit_amount": {
+          "amount": 52.03,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "$7",
+        "credit_amount": {
+          "amount": 527.03,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "$7",
+        "credit_amount": {
+          "amount": 407.03,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "STARBUCKS",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "APPLE.COM",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": null,
+        "balance": {
+          "amount": null,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "$6",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "$5",
+        "credit_amount": {
+          "amount": 103.52,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "ZELLE",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "(UTILITIES) $6",
+        "balance": {
+          "amount": 367.49,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "NETFLIX",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": 6,
+          "currency": "USD"
+        },
+        "description": null,
+        "balance": {
+          "amount": 347.5,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "$7",
+        "credit_amount": {
+          "amount": 397.04,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "UTILITY",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "ELEC/WATER $7",
+        "balance": {
+          "amount": 181.74,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "CHIPOTLE",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": "$7",
+        "balance": {
+          "amount": 167.49,
+          "currency": null
+        }
+      },
+      {
+        "transaction_date": "ADOBE",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "Transaction",
+        "credit_amount": {
+          "amount": null,
+          "currency": null
+        },
+        "debit_amount": null,
+        "description": null,
+        "balance": null
+      },
+      {
+        "transaction_date": "$6",
+        "credit_amount": {
+          "amount": 4,
+          "currency": "USD"
+        },
+        "debit_amount": {
+          "amount": 250.12,
+          "currency": null
+        },
+        "description": "$2",
+        "balance": {
+          "amount": 972.45,
+          "currency": null
+        }
+      }
+    ]
+  },
+  "confidence": {
+    "bank.name": 0.85,
+    "account.account_number": 0.85,
+    "account.account_type": 0.85,
+    "customer.business_name": 0.85,
+    "customer.business_address": 0.85,
+    "summary.opening_balance": 0.85,
+    "summary.total_credit": 0.85,
+    "summary.total_debit": 0.6,
+    "summary.net_balance": 0.6,
+    "summary.currency": 0.7,
+    "transactions": 0.8
+  },
+  "warnings": [],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 10,
+    "fields_extracted": 10,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}

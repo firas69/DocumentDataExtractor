@@ -1,0 +1,123 @@
+{
+  "document_id": "invoice_variant_02",
+  "blueprint_id": "invoice_novaflow_layout_v1",
+  "document_family": "supplier_invoice",
+  "extracted_data": {
+    "invoice": {
+      "invoice_number": "$6,072.83",
+      "invoice_date": "2026-05-06",
+      "due_date": "2026-06-05"
+    },
+    "supplier": {
+      "name": "NovaFlow Automation Ltd."
+    },
+    "customer": {
+      "name": "Horizon Retail Group"
+    },
+    "amounts": {
+      "subtotal": {
+        "amount": 5860,
+        "currency": "USD"
+      },
+      "tax": {
+        "amount": 462.83,
+        "currency": "USD"
+      },
+      "total": {
+        "amount": 6072.83,
+        "currency": "USD"
+      },
+      "currency": "USD"
+    },
+    "line_items": [
+      {
+        "description": "Workflow Audit & Mapping",
+        "quantity": 2,
+        "unit_price": {
+          "amount": 1100,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 2200,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Custom Python ETL Connector (v2.1)",
+        "quantity": 4,
+        "unit_price": {
+          "amount": 425,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 1700,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Cloud Infrastructure Support (Monthly)",
+        "quantity": 1,
+        "unit_price": {
+          "amount": 800,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 800,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "API Rate Limit Overage (March)",
+        "quantity": 18000,
+        "unit_price": {
+          "amount": 0.02,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 360,
+          "currency": "USD"
+        }
+      },
+      {
+        "description": "Emergency Patch - Database Migration",
+        "quantity": 5,
+        "unit_price": {
+          "amount": 160,
+          "currency": "USD"
+        },
+        "line_total": {
+          "amount": 800,
+          "currency": "USD"
+        }
+      }
+    ]
+  },
+  "confidence": {
+    "invoice.invoice_number": 0.8,
+    "invoice.invoice_date": 0.6,
+    "invoice.due_date": 0.85,
+    "supplier.name": 0.85,
+    "customer.name": 0.85,
+    "amounts.subtotal": 0.85,
+    "amounts.tax": 0.85,
+    "amounts.total": 0.85,
+    "amounts.currency": 0.7,
+    "line_items": 0.8
+  },
+  "warnings": [
+    {
+      "code": "pattern_mismatch",
+      "message": "Field 'invoice.invoice_number' does not match pattern '^[A-Za-z0-9][A-Za-z0-9\\\\-\\\\/]*$'",
+      "field": "invoice.invoice_number",
+      "table": null,
+      "severity": "warning"
+    }
+  ],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 9,
+    "fields_extracted": 9,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}

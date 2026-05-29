@@ -1,0 +1,420 @@
+{
+  "document_id": "invoice_2",
+  "source_file": "test_files/pdfs/invoice_2.pdf",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Invoice\n# INV-2026-0882\nNovaFlow Automation Ltd.\n4282 Innovation Way, Suite 10\nAustin, TX 78701\nVAT ID: US99-40291\nTo\n:\nHorizon Retail Group\nAttn: Accounts\nPayable\n1920 Commerce Blvd\nChicago, IL 60601\nDelivery address\n:\nHorizon Retail Group\n– Central Warehouse\n> 4400 West Dickens\nAve, Gate 4\nChicago, IL 60639\nAttn: Receiving Dept /\nMike S.\nApr 15, 2026\nPO-2026-HRG-04\n$4,600.63\nACH / Wire (Zenith\nBank)\nDate\n:\nPayment methods\n:\nPurchase order\n:\nSolde à payer\n:\nObject\nQuantity\nUnit price\nAmount\nWorkflow Audit & Mapping\n1\n$1,200.00\n$1,200.00\nCustom Python ETL Connector (v2.1)\n3\n$450.00\n$1,350.00\nCloud Infrastructure Support (Monthly)\n1\n$850.00\n$850.00\nAPI Rate Limit Overage (March)\n15000\n$0.02\n$300.00\nEmergency Patch - Database Migration\n4\n$175.00\n$700.00\n$4,400.00\n$150.00\n$350.63\n$4,600.63\nSubtotal\n:\nDiscount\n:\nTax (8.25%)\n:\nTotal\n:\nRemarks\n:\nAll deliverables for the \"Q2 Automation Initiative\" have been signed off by the engineering lead. Project documentation\nis attached to the client portal. Thank you for your continued partnership!\nTerms\n:\nNet 30. A late fee of 1.5% per month will be applied to all overdue balances. Please make checks payable to NovaFlow\nAutomation Ltd. Professional services are non-refundable once the ETL connector is deployed to production.\n",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "Invoice",
+          "page_number": 1
+        },
+        {
+          "line_number": 2,
+          "text": "# INV-2026-0882",
+          "page_number": 1
+        },
+        {
+          "line_number": 3,
+          "text": "NovaFlow Automation Ltd.",
+          "page_number": 1
+        },
+        {
+          "line_number": 4,
+          "text": "4282 Innovation Way, Suite 10",
+          "page_number": 1
+        },
+        {
+          "line_number": 5,
+          "text": "Austin, TX 78701",
+          "page_number": 1
+        },
+        {
+          "line_number": 6,
+          "text": "VAT ID: US99-40291",
+          "page_number": 1
+        },
+        {
+          "line_number": 7,
+          "text": "To",
+          "page_number": 1
+        },
+        {
+          "line_number": 8,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 9,
+          "text": "Horizon Retail Group",
+          "page_number": 1
+        },
+        {
+          "line_number": 10,
+          "text": "Attn: Accounts",
+          "page_number": 1
+        },
+        {
+          "line_number": 11,
+          "text": "Payable",
+          "page_number": 1
+        },
+        {
+          "line_number": 12,
+          "text": "1920 Commerce Blvd",
+          "page_number": 1
+        },
+        {
+          "line_number": 13,
+          "text": "Chicago, IL 60601",
+          "page_number": 1
+        },
+        {
+          "line_number": 14,
+          "text": "Delivery address",
+          "page_number": 1
+        },
+        {
+          "line_number": 15,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 16,
+          "text": "Horizon Retail Group",
+          "page_number": 1
+        },
+        {
+          "line_number": 17,
+          "text": "– Central Warehouse",
+          "page_number": 1
+        },
+        {
+          "line_number": 18,
+          "text": "> 4400 West Dickens",
+          "page_number": 1
+        },
+        {
+          "line_number": 19,
+          "text": "Ave, Gate 4",
+          "page_number": 1
+        },
+        {
+          "line_number": 20,
+          "text": "Chicago, IL 60639",
+          "page_number": 1
+        },
+        {
+          "line_number": 21,
+          "text": "Attn: Receiving Dept /",
+          "page_number": 1
+        },
+        {
+          "line_number": 22,
+          "text": "Mike S.",
+          "page_number": 1
+        },
+        {
+          "line_number": 23,
+          "text": "Apr 15, 2026",
+          "page_number": 1
+        },
+        {
+          "line_number": 24,
+          "text": "PO-2026-HRG-04",
+          "page_number": 1
+        },
+        {
+          "line_number": 25,
+          "text": "$4,600.63",
+          "page_number": 1
+        },
+        {
+          "line_number": 26,
+          "text": "ACH / Wire (Zenith",
+          "page_number": 1
+        },
+        {
+          "line_number": 27,
+          "text": "Bank)",
+          "page_number": 1
+        },
+        {
+          "line_number": 28,
+          "text": "Date",
+          "page_number": 1
+        },
+        {
+          "line_number": 29,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 30,
+          "text": "Payment methods",
+          "page_number": 1
+        },
+        {
+          "line_number": 31,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 32,
+          "text": "Purchase order",
+          "page_number": 1
+        },
+        {
+          "line_number": 33,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 34,
+          "text": "Solde à payer",
+          "page_number": 1
+        },
+        {
+          "line_number": 35,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 36,
+          "text": "Object",
+          "page_number": 1
+        },
+        {
+          "line_number": 37,
+          "text": "Quantity",
+          "page_number": 1
+        },
+        {
+          "line_number": 38,
+          "text": "Unit price",
+          "page_number": 1
+        },
+        {
+          "line_number": 39,
+          "text": "Amount",
+          "page_number": 1
+        },
+        {
+          "line_number": 40,
+          "text": "Workflow Audit & Mapping",
+          "page_number": 1
+        },
+        {
+          "line_number": 41,
+          "text": "1",
+          "page_number": 1
+        },
+        {
+          "line_number": 42,
+          "text": "$1,200.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 43,
+          "text": "$1,200.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 44,
+          "text": "Custom Python ETL Connector (v2.1)",
+          "page_number": 1
+        },
+        {
+          "line_number": 45,
+          "text": "3",
+          "page_number": 1
+        },
+        {
+          "line_number": 46,
+          "text": "$450.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 47,
+          "text": "$1,350.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 48,
+          "text": "Cloud Infrastructure Support (Monthly)",
+          "page_number": 1
+        },
+        {
+          "line_number": 49,
+          "text": "1",
+          "page_number": 1
+        },
+        {
+          "line_number": 50,
+          "text": "$850.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 51,
+          "text": "$850.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 52,
+          "text": "API Rate Limit Overage (March)",
+          "page_number": 1
+        },
+        {
+          "line_number": 53,
+          "text": "15000",
+          "page_number": 1
+        },
+        {
+          "line_number": 54,
+          "text": "$0.02",
+          "page_number": 1
+        },
+        {
+          "line_number": 55,
+          "text": "$300.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 56,
+          "text": "Emergency Patch - Database Migration",
+          "page_number": 1
+        },
+        {
+          "line_number": 57,
+          "text": "4",
+          "page_number": 1
+        },
+        {
+          "line_number": 58,
+          "text": "$175.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 59,
+          "text": "$700.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 60,
+          "text": "$4,400.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 61,
+          "text": "$150.00",
+          "page_number": 1
+        },
+        {
+          "line_number": 62,
+          "text": "$350.63",
+          "page_number": 1
+        },
+        {
+          "line_number": 63,
+          "text": "$4,600.63",
+          "page_number": 1
+        },
+        {
+          "line_number": 64,
+          "text": "Subtotal",
+          "page_number": 1
+        },
+        {
+          "line_number": 65,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 66,
+          "text": "Discount",
+          "page_number": 1
+        },
+        {
+          "line_number": 67,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 68,
+          "text": "Tax (8.25%)",
+          "page_number": 1
+        },
+        {
+          "line_number": 69,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 70,
+          "text": "Total",
+          "page_number": 1
+        },
+        {
+          "line_number": 71,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 72,
+          "text": "Remarks",
+          "page_number": 1
+        },
+        {
+          "line_number": 73,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 74,
+          "text": "All deliverables for the \"Q2 Automation Initiative\" have been signed off by the engineering lead. Project documentation",
+          "page_number": 1
+        },
+        {
+          "line_number": 75,
+          "text": "is attached to the client portal. Thank you for your continued partnership!",
+          "page_number": 1
+        },
+        {
+          "line_number": 76,
+          "text": "Terms",
+          "page_number": 1
+        },
+        {
+          "line_number": 77,
+          "text": ":",
+          "page_number": 1
+        },
+        {
+          "line_number": 78,
+          "text": "Net 30. A late fee of 1.5% per month will be applied to all overdue balances. Please make checks payable to NovaFlow",
+          "page_number": 1
+        },
+        {
+          "line_number": 79,
+          "text": "Automation Ltd. Professional services are non-refundable once the ETL connector is deployed to production.",
+          "page_number": 1
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p1_b1",
+          "type": "text",
+          "text": "Invoice\n# INV-2026-0882\nNovaFlow Automation Ltd.\n4282 Innovation Way, Suite 10\nAustin, TX 78701\nVAT ID: US99-40291\nTo\n:\nHorizon Retail Group\nAttn: Accounts\nPayable\n1920 Commerce Blvd\nChicago, IL 60601\nDelivery address\n:\nHorizon Retail Group\n– Central Warehouse\n> 4400 West Dickens\nAve, Gate 4\nChicago, IL 60639\nAttn: Receiving Dept /\nMike S.\nApr 15, 2026\nPO-2026-HRG-04\n$4,600.63\nACH / Wire (Zenith\nBank)\nDate\n:\nPayment methods\n:\nPurchase order\n:\nSolde à payer\n:\nObject\nQuantity\nUnit price\nAmount\nWorkflow Audit & Mapping\n1\n$1,200.00\n$1,200.00\nCustom Python ETL Connector (v2.1)\n3\n$450.00\n$1,350.00\nCloud Infrastructure Support (Monthly)\n1\n$850.00\n$850.00\nAPI Rate Limit Overage (March)\n15000\n$0.02\n$300.00\nEmergency Patch - Database Migration\n4\n$175.00\n$700.00\n$4,400.00\n$150.00\n$350.63\n$4,600.63\nSubtotal\n:\nDiscount\n:\nTax (8.25%)\n:\nTotal\n:\nRemarks\n:\nAll deliverables for the \"Q2 Automation Initiative\" have been signed off by the engineering lead. Project documentation\nis attached to the client portal. Thank you for your continued partnership!\nTerms\n:\nNet 30. A late fee of 1.5% per month will be applied to all overdue balances. Please make checks payable to NovaFlow\nAutomation Ltd. Professional services are non-refundable once the ETL connector is deployed to production.\n",
+          "page_number": 1
+        }
+      ]
+    }
+  ],
+  "full_text": "Invoice\n# INV-2026-0882\nNovaFlow Automation Ltd.\n4282 Innovation Way, Suite 10\nAustin, TX 78701\nVAT ID: US99-40291\nTo\n:\nHorizon Retail Group\nAttn: Accounts\nPayable\n1920 Commerce Blvd\nChicago, IL 60601\nDelivery address\n:\nHorizon Retail Group\n– Central Warehouse\n> 4400 West Dickens\nAve, Gate 4\nChicago, IL 60639\nAttn: Receiving Dept /\nMike S.\nApr 15, 2026\nPO-2026-HRG-04\n$4,600.63\nACH / Wire (Zenith\nBank)\nDate\n:\nPayment methods\n:\nPurchase order\n:\nSolde à payer\n:\nObject\nQuantity\nUnit price\nAmount\nWorkflow Audit & Mapping\n1\n$1,200.00\n$1,200.00\nCustom Python ETL Connector (v2.1)\n3\n$450.00\n$1,350.00\nCloud Infrastructure Support (Monthly)\n1\n$850.00\n$850.00\nAPI Rate Limit Overage (March)\n15000\n$0.02\n$300.00\nEmergency Patch - Database Migration\n4\n$175.00\n$700.00\n$4,400.00\n$150.00\n$350.63\n$4,600.63\nSubtotal\n:\nDiscount\n:\nTax (8.25%)\n:\nTotal\n:\nRemarks\n:\nAll deliverables for the \"Q2 Automation Initiative\" have been signed off by the engineering lead. Project documentation\nis attached to the client portal. Thank you for your continued partnership!\nTerms\n:\nNet 30. A late fee of 1.5% per month will be applied to all overdue balances. Please make checks payable to NovaFlow\nAutomation Ltd. Professional services are non-refundable once the ETL connector is deployed to production.\n",
+  "metadata": {
+    "normalizer": "pypdf.extract_text",
+    "page_count": 1
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "document_id": "bol_variant_03",
+  "blueprint_id": "bol_swifttrack_layout_v1",
+  "document_family": "bill_of_lading",
+  "extracted_data": {
+    "bol": {
+      "bol_number": "Page 1 of 1",
+      "po_reference_number": "PO-2026-MED-11",
+      "pickup_date": "2026-11-07",
+      "pro_number": "781-443-Q71"
+    },
+    "shipper": {
+      "name": "MedCore Packaging LLC"
+    },
+    "consignee": {
+      "name": "Northwest Clinical Supply"
+    },
+    "carrier": {
+      "name": "SwiftTrack Global Logistics"
+    },
+    "shipment": {
+      "declared_value": {
+        "amount": 12318.45,
+        "currency": "USD"
+      },
+      "total_weight": 4030,
+      "handling_notes": "TEMPERATURE CONTROL: Maintain dry enclosed trailer. Do not expose to rain. Appointment required. Call 24 hours prior to delivery at (206) 555-0148. Driver must verify lot labels and seal #730415 at destination.",
+      "items": [
+        {
+          "quantity": 24,
+          "package_type": "Cartons",
+          "description": "Medical Packaging Inserts",
+          "weight_lbs": 960,
+          "freight_class": "100",
+          "nmfc_code": "49215",
+          "dimensions": "30x20x18"
+        },
+        {
+          "quantity": 10,
+          "package_type": "Pallets",
+          "description": "Sterile Storage Containers",
+          "weight_lbs": 2750,
+          "freight_class": "125",
+          "nmfc_code": "156600",
+          "dimensions": "48x40x52"
+        },
+        {
+          "quantity": 8,
+          "package_type": "Cases",
+          "description": "Inspection Labels and Kits",
+          "weight_lbs": 320,
+          "freight_class": "92.5",
+          "nmfc_code": "159420",
+          "dimensions": "24x18x16"
+        }
+      ]
+    }
+  },
+  "confidence": {
+    "bol.bol_number": 0.8,
+    "bol.po_reference_number": 0.85,
+    "bol.pickup_date": 0.85,
+    "bol.pro_number": 0.85,
+    "shipper.name": 0.85,
+    "consignee.name": 0.85,
+    "carrier.name": 0.85,
+    "shipment.declared_value": 0.85,
+    "shipment.total_weight": 0.85,
+    "shipment.handling_notes": 0.85,
+    "shipment.items": 0.8
+  },
+  "warnings": [
+    {
+      "code": "pattern_mismatch",
+      "message": "Field 'bol.bol_number' does not match pattern '^[A-Za-z0-9][A-Za-z0-9\\\\-\\\\/]*$'",
+      "field": "bol.bol_number",
+      "table": null,
+      "severity": "warning"
+    }
+  ],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 10,
+    "fields_extracted": 10,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}

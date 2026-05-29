@@ -1,0 +1,270 @@
+{
+  "document_id": "invoice_1",
+  "source_file": "test_files/pdfs/invoice_1.pdf",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "SwiftTrack Global Logistics BILL OF LADING\nOriginal, Not Negotiable\nBOL NUMBER\nSTG-7729-04-AX\nPO / REFERENCE NUMBER\nPO-2026-HRG-04\nPICKUP DATE\n2026-12-04\nPRO NUMBER\n992-001-X88\nSHIPPER (FROM)\nTitan Manufacturing Co.\n990 Industrial Loop\nDetroit, MI, 48201\nPhone: (313) 555-0192\nCONSIGNEE (TO)\nWest Coast Distribution Hub\n4000 Pier 9 Way\nLong Beach, CA, 90802\nPhone: (562) 555-0440\nCARRIER\nSwiftTrack Global Logistics\nDECLARED VALUE\n$4600.63\nSHIPMENT DETAILS\nQty Pkg Type Description Weight (lbs) Freight Class NMFC Code Dims (L×W×H in)\n12 Pallets Steel Fasteners, Grade 8 3800 50 95120 48×40×44\n2 Pallets Machine Parts, Iron/Steel (Fixed) 1050 70 114820 48×40×36\nSPECIAL INSTRUCTIONS / HANDLING NOTES\nDANGER: Do not stack pallets. Temperature sensitive - keep dry. \nCall 24 hours prior to delivery at (562) 555-0440. \nDriver must verify seal #192837 upon arrival. Liftgate required at destination.\nTOTAL WEIGHT\n4,850 lbs\nRECEIVED, subject to individually determined rates or contracts that have been agreed upon in writing between the carrier and shipper, if applicable; otherwise, to all applicable rates, classifications, and rules \nthat have been established; goods described herein in apparent good order, except as noted (contents and condition of packages unknown), marked, consigned, and destined as indicated, which said carrier (the \nword carrier being understood throughout this contract as meaning any person or corporation in possession of the property under the contract) agrees to carry to its usual place of delivery at said destination, if on \nits route, otherwise to deliver to another carrier on the route to said destination.\nSIGNATURES\nSHIPPER SIGNATURE\nSignature confirms freight description is accurate\nDate: _______________\nCARRIER SIGNATURE\nSignature confirms receipt of freight as described\nDate: _______________\nCONSIGNEE SIGNATURE\nNote any damage before signing\nDate: _______________\nPowered by Warp's free BOL generator · wearewarp.com/tools/bill-of-lading-template This BOL is not negotiable unless marked as such Page 1 of 1",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "SwiftTrack Global Logistics BILL OF LADING",
+          "page_number": 1
+        },
+        {
+          "line_number": 2,
+          "text": "Original, Not Negotiable",
+          "page_number": 1
+        },
+        {
+          "line_number": 3,
+          "text": "BOL NUMBER",
+          "page_number": 1
+        },
+        {
+          "line_number": 4,
+          "text": "STG-7729-04-AX",
+          "page_number": 1
+        },
+        {
+          "line_number": 5,
+          "text": "PO / REFERENCE NUMBER",
+          "page_number": 1
+        },
+        {
+          "line_number": 6,
+          "text": "PO-2026-HRG-04",
+          "page_number": 1
+        },
+        {
+          "line_number": 7,
+          "text": "PICKUP DATE",
+          "page_number": 1
+        },
+        {
+          "line_number": 8,
+          "text": "2026-12-04",
+          "page_number": 1
+        },
+        {
+          "line_number": 9,
+          "text": "PRO NUMBER",
+          "page_number": 1
+        },
+        {
+          "line_number": 10,
+          "text": "992-001-X88",
+          "page_number": 1
+        },
+        {
+          "line_number": 11,
+          "text": "SHIPPER (FROM)",
+          "page_number": 1
+        },
+        {
+          "line_number": 12,
+          "text": "Titan Manufacturing Co.",
+          "page_number": 1
+        },
+        {
+          "line_number": 13,
+          "text": "990 Industrial Loop",
+          "page_number": 1
+        },
+        {
+          "line_number": 14,
+          "text": "Detroit, MI, 48201",
+          "page_number": 1
+        },
+        {
+          "line_number": 15,
+          "text": "Phone: (313) 555-0192",
+          "page_number": 1
+        },
+        {
+          "line_number": 16,
+          "text": "CONSIGNEE (TO)",
+          "page_number": 1
+        },
+        {
+          "line_number": 17,
+          "text": "West Coast Distribution Hub",
+          "page_number": 1
+        },
+        {
+          "line_number": 18,
+          "text": "4000 Pier 9 Way",
+          "page_number": 1
+        },
+        {
+          "line_number": 19,
+          "text": "Long Beach, CA, 90802",
+          "page_number": 1
+        },
+        {
+          "line_number": 20,
+          "text": "Phone: (562) 555-0440",
+          "page_number": 1
+        },
+        {
+          "line_number": 21,
+          "text": "CARRIER",
+          "page_number": 1
+        },
+        {
+          "line_number": 22,
+          "text": "SwiftTrack Global Logistics",
+          "page_number": 1
+        },
+        {
+          "line_number": 23,
+          "text": "DECLARED VALUE",
+          "page_number": 1
+        },
+        {
+          "line_number": 24,
+          "text": "$4600.63",
+          "page_number": 1
+        },
+        {
+          "line_number": 25,
+          "text": "SHIPMENT DETAILS",
+          "page_number": 1
+        },
+        {
+          "line_number": 26,
+          "text": "Qty Pkg Type Description Weight (lbs) Freight Class NMFC Code Dims (L×W×H in)",
+          "page_number": 1
+        },
+        {
+          "line_number": 27,
+          "text": "12 Pallets Steel Fasteners, Grade 8 3800 50 95120 48×40×44",
+          "page_number": 1
+        },
+        {
+          "line_number": 28,
+          "text": "2 Pallets Machine Parts, Iron/Steel (Fixed) 1050 70 114820 48×40×36",
+          "page_number": 1
+        },
+        {
+          "line_number": 29,
+          "text": "SPECIAL INSTRUCTIONS / HANDLING NOTES",
+          "page_number": 1
+        },
+        {
+          "line_number": 30,
+          "text": "DANGER: Do not stack pallets. Temperature sensitive - keep dry.",
+          "page_number": 1
+        },
+        {
+          "line_number": 31,
+          "text": "Call 24 hours prior to delivery at (562) 555-0440.",
+          "page_number": 1
+        },
+        {
+          "line_number": 32,
+          "text": "Driver must verify seal #192837 upon arrival. Liftgate required at destination.",
+          "page_number": 1
+        },
+        {
+          "line_number": 33,
+          "text": "TOTAL WEIGHT",
+          "page_number": 1
+        },
+        {
+          "line_number": 34,
+          "text": "4,850 lbs",
+          "page_number": 1
+        },
+        {
+          "line_number": 35,
+          "text": "RECEIVED, subject to individually determined rates or contracts that have been agreed upon in writing between the carrier and shipper, if applicable; otherwise, to all applicable rates, classifications, and rules",
+          "page_number": 1
+        },
+        {
+          "line_number": 36,
+          "text": "that have been established; goods described herein in apparent good order, except as noted (contents and condition of packages unknown), marked, consigned, and destined as indicated, which said carrier (the",
+          "page_number": 1
+        },
+        {
+          "line_number": 37,
+          "text": "word carrier being understood throughout this contract as meaning any person or corporation in possession of the property under the contract) agrees to carry to its usual place of delivery at said destination, if on",
+          "page_number": 1
+        },
+        {
+          "line_number": 38,
+          "text": "its route, otherwise to deliver to another carrier on the route to said destination.",
+          "page_number": 1
+        },
+        {
+          "line_number": 39,
+          "text": "SIGNATURES",
+          "page_number": 1
+        },
+        {
+          "line_number": 40,
+          "text": "SHIPPER SIGNATURE",
+          "page_number": 1
+        },
+        {
+          "line_number": 41,
+          "text": "Signature confirms freight description is accurate",
+          "page_number": 1
+        },
+        {
+          "line_number": 42,
+          "text": "Date: _______________",
+          "page_number": 1
+        },
+        {
+          "line_number": 43,
+          "text": "CARRIER SIGNATURE",
+          "page_number": 1
+        },
+        {
+          "line_number": 44,
+          "text": "Signature confirms receipt of freight as described",
+          "page_number": 1
+        },
+        {
+          "line_number": 45,
+          "text": "Date: _______________",
+          "page_number": 1
+        },
+        {
+          "line_number": 46,
+          "text": "CONSIGNEE SIGNATURE",
+          "page_number": 1
+        },
+        {
+          "line_number": 47,
+          "text": "Note any damage before signing",
+          "page_number": 1
+        },
+        {
+          "line_number": 48,
+          "text": "Date: _______________",
+          "page_number": 1
+        },
+        {
+          "line_number": 49,
+          "text": "Powered by Warp's free BOL generator · wearewarp.com/tools/bill-of-lading-template This BOL is not negotiable unless marked as such Page 1 of 1",
+          "page_number": 1
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p1_b1",
+          "type": "text",
+          "text": "SwiftTrack Global Logistics BILL OF LADING\nOriginal, Not Negotiable\nBOL NUMBER\nSTG-7729-04-AX\nPO / REFERENCE NUMBER\nPO-2026-HRG-04\nPICKUP DATE\n2026-12-04\nPRO NUMBER\n992-001-X88\nSHIPPER (FROM)\nTitan Manufacturing Co.\n990 Industrial Loop\nDetroit, MI, 48201\nPhone: (313) 555-0192\nCONSIGNEE (TO)\nWest Coast Distribution Hub\n4000 Pier 9 Way\nLong Beach, CA, 90802\nPhone: (562) 555-0440\nCARRIER\nSwiftTrack Global Logistics\nDECLARED VALUE\n$4600.63\nSHIPMENT DETAILS\nQty Pkg Type Description Weight (lbs) Freight Class NMFC Code Dims (L×W×H in)\n12 Pallets Steel Fasteners, Grade 8 3800 50 95120 48×40×44\n2 Pallets Machine Parts, Iron/Steel (Fixed) 1050 70 114820 48×40×36\nSPECIAL INSTRUCTIONS / HANDLING NOTES\nDANGER: Do not stack pallets. Temperature sensitive - keep dry. \nCall 24 hours prior to delivery at (562) 555-0440. \nDriver must verify seal #192837 upon arrival. Liftgate required at destination.\nTOTAL WEIGHT\n4,850 lbs\nRECEIVED, subject to individually determined rates or contracts that have been agreed upon in writing between the carrier and shipper, if applicable; otherwise, to all applicable rates, classifications, and rules \nthat have been established; goods described herein in apparent good order, except as noted (contents and condition of packages unknown), marked, consigned, and destined as indicated, which said carrier (the \nword carrier being understood throughout this contract as meaning any person or corporation in possession of the property under the contract) agrees to carry to its usual place of delivery at said destination, if on \nits route, otherwise to deliver to another carrier on the route to said destination.\nSIGNATURES\nSHIPPER SIGNATURE\nSignature confirms freight description is accurate\nDate: _______________\nCARRIER SIGNATURE\nSignature confirms receipt of freight as described\nDate: _______________\nCONSIGNEE SIGNATURE\nNote any damage before signing\nDate: _______________\nPowered by Warp's free BOL generator · wearewarp.com/tools/bill-of-lading-template This BOL is not negotiable unless marked as such Page 1 of 1",
+          "page_number": 1
+        }
+      ]
+    }
+  ],
+  "full_text": "SwiftTrack Global Logistics BILL OF LADING\nOriginal, Not Negotiable\nBOL NUMBER\nSTG-7729-04-AX\nPO / REFERENCE NUMBER\nPO-2026-HRG-04\nPICKUP DATE\n2026-12-04\nPRO NUMBER\n992-001-X88\nSHIPPER (FROM)\nTitan Manufacturing Co.\n990 Industrial Loop\nDetroit, MI, 48201\nPhone: (313) 555-0192\nCONSIGNEE (TO)\nWest Coast Distribution Hub\n4000 Pier 9 Way\nLong Beach, CA, 90802\nPhone: (562) 555-0440\nCARRIER\nSwiftTrack Global Logistics\nDECLARED VALUE\n$4600.63\nSHIPMENT DETAILS\nQty Pkg Type Description Weight (lbs) Freight Class NMFC Code Dims (L×W×H in)\n12 Pallets Steel Fasteners, Grade 8 3800 50 95120 48×40×44\n2 Pallets Machine Parts, Iron/Steel (Fixed) 1050 70 114820 48×40×36\nSPECIAL INSTRUCTIONS / HANDLING NOTES\nDANGER: Do not stack pallets. Temperature sensitive - keep dry. \nCall 24 hours prior to delivery at (562) 555-0440. \nDriver must verify seal #192837 upon arrival. Liftgate required at destination.\nTOTAL WEIGHT\n4,850 lbs\nRECEIVED, subject to individually determined rates or contracts that have been agreed upon in writing between the carrier and shipper, if applicable; otherwise, to all applicable rates, classifications, and rules \nthat have been established; goods described herein in apparent good order, except as noted (contents and condition of packages unknown), marked, consigned, and destined as indicated, which said carrier (the \nword carrier being understood throughout this contract as meaning any person or corporation in possession of the property under the contract) agrees to carry to its usual place of delivery at said destination, if on \nits route, otherwise to deliver to another carrier on the route to said destination.\nSIGNATURES\nSHIPPER SIGNATURE\nSignature confirms freight description is accurate\nDate: _______________\nCARRIER SIGNATURE\nSignature confirms receipt of freight as described\nDate: _______________\nCONSIGNEE SIGNATURE\nNote any damage before signing\nDate: _______________\nPowered by Warp's free BOL generator · wearewarp.com/tools/bill-of-lading-template This BOL is not negotiable unless marked as such Page 1 of 1",
+  "metadata": {
+    "normalizer": "pypdf.extract_text",
+    "page_count": 1
+  }
+}

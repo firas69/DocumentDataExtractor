@@ -1,0 +1,80 @@
+{
+  "document_id": "bol_variant_01",
+  "blueprint_id": "bol_swifttrack_layout_v1",
+  "document_family": "bill_of_lading",
+  "extracted_data": {
+    "bol": {
+      "bol_number": "STG-8146-09-KQ",
+      "po_reference_number": "PO-2026-ALP-09",
+      "pickup_date": "2026-09-18",
+      "pro_number": "624-118-M42"
+    },
+    "shipper": {
+      "name": "Apex Industrial Supplies"
+    },
+    "consignee": {
+      "name": "Pacific Marine Depot"
+    },
+    "carrier": {
+      "name": "SwiftTrack Global Logistics"
+    },
+    "shipment": {
+      "declared_value": {
+        "amount": 7842.9,
+        "currency": "USD"
+      },
+      "total_weight": 4670,
+      "handling_notes": "FRAGILE: Keep crates upright. Protect from moisture during transit. Call receiving office 12 hours before arrival at (510) 555-0329. Driver must confirm pallet count and seal #284916 before unloading.",
+      "items": [
+        {
+          "quantity": 18,
+          "package_type": "Crates",
+          "description": "Hydraulic Valve Assemblies",
+          "weight_lbs": 2160,
+          "freight_class": "55",
+          "nmfc_code": "34980",
+          "dimensions": "42x36x30"
+        },
+        {
+          "quantity": 6,
+          "package_type": "Pallets",
+          "description": "Precision Pump Components",
+          "weight_lbs": 1890,
+          "freight_class": "70",
+          "nmfc_code": "121560",
+          "dimensions": "48x40x40"
+        },
+        {
+          "quantity": 4,
+          "package_type": "Cartons",
+          "description": "Control Panel Hardware",
+          "weight_lbs": 620,
+          "freight_class": "85",
+          "nmfc_code": "61700",
+          "dimensions": "36x24x28"
+        }
+      ]
+    }
+  },
+  "confidence": {
+    "bol.bol_number": 0.85,
+    "bol.po_reference_number": 0.85,
+    "bol.pickup_date": 0.85,
+    "bol.pro_number": 0.85,
+    "shipper.name": 0.85,
+    "consignee.name": 0.85,
+    "carrier.name": 0.85,
+    "shipment.declared_value": 0.85,
+    "shipment.total_weight": 0.85,
+    "shipment.handling_notes": 0.85,
+    "shipment.items": 0.8
+  },
+  "warnings": [],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 10,
+    "fields_extracted": 10,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}

@@ -1,0 +1,699 @@
+{
+  "document_id": "bank_statement_variant_02",
+  "source_file": "bank_statement_variant_02.pdf",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Bank Statement\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\n(000) 999-9999      support@dreamlandnationalbank.com\nCustomer Service Information\nWebsite:\nwww.dreamlandnationalbank.com\nService Centre:\nNortheast Regional Hub\nInformation Cell:\n(000) 999-9999\nBusiness Details\nAccount Number:\n604918237\nBusiness Name:\nOrion Field Services LLC\nAccount Type:\nBusiness Checking\nBusiness Address:\n2290 Cedar Park Ave, Brookhaven, BH 60412\nStatement Summary\nCard Type\nOpening Balance\nTotal Credit\nTotal Debit\nNet Balance\nBusiness\n$7 325,40\n$15 495,50\n$5 900,87\n$16 920,03\nTransaction Details\nDate\nDescription\nCredit\nDebit\nBalance\n02-Jun\nOpening Balance\n$7 325,40\n$7 325,40\n03-Jun\nWIRE DEP - NORTHSTAR ENERGY\n$5 800,00\n$13 125,40\n03-Jun\nACH PAYMENT - EQUIPMENT LEASE\n$2 100,00\n$11 025,40\n04-Jun\nHOME DEPOT #4412\n$492,30\n$10 533,10\n05-Jun\nSHELL OIL - FLEET FUEL\n$188,60\n$10 344,50\n06-Jun\nPAYROLL DEP - TECH CORP\n$2 475,00\n$12 819,50\n07-Jun\nAT&T BUSINESS SERVICES\n$245,75\n$12 573,75\n08-Jun\nINSURANCE PREMIUM - COMMERCIAL\n$615,20\n$11 958,55\n09-Jun\nTRANSFER FROM SAVINGS ...1180\n$1 250,00\n$13 208,55\n10-Jun\nLOWES COMMERCIAL SUPPLY\n$317,89\n$12 890,66\n10-Jun\nAPPLE.COM - ICLOUD STORAGE\n$12,99\n$12 877,67\n11-Jun\nOFFICE DEPOT - STATIONERY\n$96,44\n$12 781,23\n12-Jun\nCLIENT PAYMENT - WESTPORT INC\n$3 420,50\n$16 201,73\n13-Jun\nADOBE CREATIVE CLOUD\n$52,99\n$16 148,74\n14-Jun\nUBER TRIP - HELP.UBER.COM\n$34,80\n$16 113,94\n15-Jun\nUTILITY CO - ELEC/WATER\n$371,15\n$15 742,79\n16-Jun\nPAYROLL DEP - TECH CORP\n$2 475,00\n$18 217,79\n17-Jun\nZELLE TO: FIELD CONTRACTOR\n$1 300,00\n$16 917,79\n18-Jun\nCVS PHARMACY #1184\n$41,26\n$16 876,53\n19-Jun\nBLUE BOTTLE COFFEE CAFE\n$13,50\n$16 863,03\n",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "Bank Statement",
+          "page_number": 1
+        },
+        {
+          "line_number": 2,
+          "text": "Dreamland National Bank",
+          "page_number": 1
+        },
+        {
+          "line_number": 3,
+          "text": "100 Central city, The Abyss, TA 10005",
+          "page_number": 1
+        },
+        {
+          "line_number": 4,
+          "text": "(000) 999-9999      support@dreamlandnationalbank.com",
+          "page_number": 1
+        },
+        {
+          "line_number": 5,
+          "text": "Customer Service Information",
+          "page_number": 1
+        },
+        {
+          "line_number": 6,
+          "text": "Website:",
+          "page_number": 1
+        },
+        {
+          "line_number": 7,
+          "text": "www.dreamlandnationalbank.com",
+          "page_number": 1
+        },
+        {
+          "line_number": 8,
+          "text": "Service Centre:",
+          "page_number": 1
+        },
+        {
+          "line_number": 9,
+          "text": "Northeast Regional Hub",
+          "page_number": 1
+        },
+        {
+          "line_number": 10,
+          "text": "Information Cell:",
+          "page_number": 1
+        },
+        {
+          "line_number": 11,
+          "text": "(000) 999-9999",
+          "page_number": 1
+        },
+        {
+          "line_number": 12,
+          "text": "Business Details",
+          "page_number": 1
+        },
+        {
+          "line_number": 13,
+          "text": "Account Number:",
+          "page_number": 1
+        },
+        {
+          "line_number": 14,
+          "text": "604918237",
+          "page_number": 1
+        },
+        {
+          "line_number": 15,
+          "text": "Business Name:",
+          "page_number": 1
+        },
+        {
+          "line_number": 16,
+          "text": "Orion Field Services LLC",
+          "page_number": 1
+        },
+        {
+          "line_number": 17,
+          "text": "Account Type:",
+          "page_number": 1
+        },
+        {
+          "line_number": 18,
+          "text": "Business Checking",
+          "page_number": 1
+        },
+        {
+          "line_number": 19,
+          "text": "Business Address:",
+          "page_number": 1
+        },
+        {
+          "line_number": 20,
+          "text": "2290 Cedar Park Ave, Brookhaven, BH 60412",
+          "page_number": 1
+        },
+        {
+          "line_number": 21,
+          "text": "Statement Summary",
+          "page_number": 1
+        },
+        {
+          "line_number": 22,
+          "text": "Card Type",
+          "page_number": 1
+        },
+        {
+          "line_number": 23,
+          "text": "Opening Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 24,
+          "text": "Total Credit",
+          "page_number": 1
+        },
+        {
+          "line_number": 25,
+          "text": "Total Debit",
+          "page_number": 1
+        },
+        {
+          "line_number": 26,
+          "text": "Net Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 27,
+          "text": "Business",
+          "page_number": 1
+        },
+        {
+          "line_number": 28,
+          "text": "$7 325,40",
+          "page_number": 1
+        },
+        {
+          "line_number": 29,
+          "text": "$15 495,50",
+          "page_number": 1
+        },
+        {
+          "line_number": 30,
+          "text": "$5 900,87",
+          "page_number": 1
+        },
+        {
+          "line_number": 31,
+          "text": "$16 920,03",
+          "page_number": 1
+        },
+        {
+          "line_number": 32,
+          "text": "Transaction Details",
+          "page_number": 1
+        },
+        {
+          "line_number": 33,
+          "text": "Date",
+          "page_number": 1
+        },
+        {
+          "line_number": 34,
+          "text": "Description",
+          "page_number": 1
+        },
+        {
+          "line_number": 35,
+          "text": "Credit",
+          "page_number": 1
+        },
+        {
+          "line_number": 36,
+          "text": "Debit",
+          "page_number": 1
+        },
+        {
+          "line_number": 37,
+          "text": "Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 38,
+          "text": "02-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 39,
+          "text": "Opening Balance",
+          "page_number": 1
+        },
+        {
+          "line_number": 40,
+          "text": "$7 325,40",
+          "page_number": 1
+        },
+        {
+          "line_number": 41,
+          "text": "$7 325,40",
+          "page_number": 1
+        },
+        {
+          "line_number": 42,
+          "text": "03-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 43,
+          "text": "WIRE DEP - NORTHSTAR ENERGY",
+          "page_number": 1
+        },
+        {
+          "line_number": 44,
+          "text": "$5 800,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 45,
+          "text": "$13 125,40",
+          "page_number": 1
+        },
+        {
+          "line_number": 46,
+          "text": "03-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 47,
+          "text": "ACH PAYMENT - EQUIPMENT LEASE",
+          "page_number": 1
+        },
+        {
+          "line_number": 48,
+          "text": "$2 100,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 49,
+          "text": "$11 025,40",
+          "page_number": 1
+        },
+        {
+          "line_number": 50,
+          "text": "04-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 51,
+          "text": "HOME DEPOT #4412",
+          "page_number": 1
+        },
+        {
+          "line_number": 52,
+          "text": "$492,30",
+          "page_number": 1
+        },
+        {
+          "line_number": 53,
+          "text": "$10 533,10",
+          "page_number": 1
+        },
+        {
+          "line_number": 54,
+          "text": "05-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 55,
+          "text": "SHELL OIL - FLEET FUEL",
+          "page_number": 1
+        },
+        {
+          "line_number": 56,
+          "text": "$188,60",
+          "page_number": 1
+        },
+        {
+          "line_number": 57,
+          "text": "$10 344,50",
+          "page_number": 1
+        },
+        {
+          "line_number": 58,
+          "text": "06-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 59,
+          "text": "PAYROLL DEP - TECH CORP",
+          "page_number": 1
+        },
+        {
+          "line_number": 60,
+          "text": "$2 475,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 61,
+          "text": "$12 819,50",
+          "page_number": 1
+        },
+        {
+          "line_number": 62,
+          "text": "07-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 63,
+          "text": "AT&T BUSINESS SERVICES",
+          "page_number": 1
+        },
+        {
+          "line_number": 64,
+          "text": "$245,75",
+          "page_number": 1
+        },
+        {
+          "line_number": 65,
+          "text": "$12 573,75",
+          "page_number": 1
+        },
+        {
+          "line_number": 66,
+          "text": "08-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 67,
+          "text": "INSURANCE PREMIUM - COMMERCIAL",
+          "page_number": 1
+        },
+        {
+          "line_number": 68,
+          "text": "$615,20",
+          "page_number": 1
+        },
+        {
+          "line_number": 69,
+          "text": "$11 958,55",
+          "page_number": 1
+        },
+        {
+          "line_number": 70,
+          "text": "09-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 71,
+          "text": "TRANSFER FROM SAVINGS ...1180",
+          "page_number": 1
+        },
+        {
+          "line_number": 72,
+          "text": "$1 250,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 73,
+          "text": "$13 208,55",
+          "page_number": 1
+        },
+        {
+          "line_number": 74,
+          "text": "10-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 75,
+          "text": "LOWES COMMERCIAL SUPPLY",
+          "page_number": 1
+        },
+        {
+          "line_number": 76,
+          "text": "$317,89",
+          "page_number": 1
+        },
+        {
+          "line_number": 77,
+          "text": "$12 890,66",
+          "page_number": 1
+        },
+        {
+          "line_number": 78,
+          "text": "10-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 79,
+          "text": "APPLE.COM - ICLOUD STORAGE",
+          "page_number": 1
+        },
+        {
+          "line_number": 80,
+          "text": "$12,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 81,
+          "text": "$12 877,67",
+          "page_number": 1
+        },
+        {
+          "line_number": 82,
+          "text": "11-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 83,
+          "text": "OFFICE DEPOT - STATIONERY",
+          "page_number": 1
+        },
+        {
+          "line_number": 84,
+          "text": "$96,44",
+          "page_number": 1
+        },
+        {
+          "line_number": 85,
+          "text": "$12 781,23",
+          "page_number": 1
+        },
+        {
+          "line_number": 86,
+          "text": "12-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 87,
+          "text": "CLIENT PAYMENT - WESTPORT INC",
+          "page_number": 1
+        },
+        {
+          "line_number": 88,
+          "text": "$3 420,50",
+          "page_number": 1
+        },
+        {
+          "line_number": 89,
+          "text": "$16 201,73",
+          "page_number": 1
+        },
+        {
+          "line_number": 90,
+          "text": "13-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 91,
+          "text": "ADOBE CREATIVE CLOUD",
+          "page_number": 1
+        },
+        {
+          "line_number": 92,
+          "text": "$52,99",
+          "page_number": 1
+        },
+        {
+          "line_number": 93,
+          "text": "$16 148,74",
+          "page_number": 1
+        },
+        {
+          "line_number": 94,
+          "text": "14-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 95,
+          "text": "UBER TRIP - HELP.UBER.COM",
+          "page_number": 1
+        },
+        {
+          "line_number": 96,
+          "text": "$34,80",
+          "page_number": 1
+        },
+        {
+          "line_number": 97,
+          "text": "$16 113,94",
+          "page_number": 1
+        },
+        {
+          "line_number": 98,
+          "text": "15-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 99,
+          "text": "UTILITY CO - ELEC/WATER",
+          "page_number": 1
+        },
+        {
+          "line_number": 100,
+          "text": "$371,15",
+          "page_number": 1
+        },
+        {
+          "line_number": 101,
+          "text": "$15 742,79",
+          "page_number": 1
+        },
+        {
+          "line_number": 102,
+          "text": "16-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 103,
+          "text": "PAYROLL DEP - TECH CORP",
+          "page_number": 1
+        },
+        {
+          "line_number": 104,
+          "text": "$2 475,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 105,
+          "text": "$18 217,79",
+          "page_number": 1
+        },
+        {
+          "line_number": 106,
+          "text": "17-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 107,
+          "text": "ZELLE TO: FIELD CONTRACTOR",
+          "page_number": 1
+        },
+        {
+          "line_number": 108,
+          "text": "$1 300,00",
+          "page_number": 1
+        },
+        {
+          "line_number": 109,
+          "text": "$16 917,79",
+          "page_number": 1
+        },
+        {
+          "line_number": 110,
+          "text": "18-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 111,
+          "text": "CVS PHARMACY #1184",
+          "page_number": 1
+        },
+        {
+          "line_number": 112,
+          "text": "$41,26",
+          "page_number": 1
+        },
+        {
+          "line_number": 113,
+          "text": "$16 876,53",
+          "page_number": 1
+        },
+        {
+          "line_number": 114,
+          "text": "19-Jun",
+          "page_number": 1
+        },
+        {
+          "line_number": 115,
+          "text": "BLUE BOTTLE COFFEE CAFE",
+          "page_number": 1
+        },
+        {
+          "line_number": 116,
+          "text": "$13,50",
+          "page_number": 1
+        },
+        {
+          "line_number": 117,
+          "text": "$16 863,03",
+          "page_number": 1
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p1_b1",
+          "type": "text",
+          "text": "Bank Statement\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\n(000) 999-9999      support@dreamlandnationalbank.com\nCustomer Service Information\nWebsite:\nwww.dreamlandnationalbank.com\nService Centre:\nNortheast Regional Hub\nInformation Cell:\n(000) 999-9999\nBusiness Details\nAccount Number:\n604918237\nBusiness Name:\nOrion Field Services LLC\nAccount Type:\nBusiness Checking\nBusiness Address:\n2290 Cedar Park Ave, Brookhaven, BH 60412\nStatement Summary\nCard Type\nOpening Balance\nTotal Credit\nTotal Debit\nNet Balance\nBusiness\n$7 325,40\n$15 495,50\n$5 900,87\n$16 920,03\nTransaction Details\nDate\nDescription\nCredit\nDebit\nBalance\n02-Jun\nOpening Balance\n$7 325,40\n$7 325,40\n03-Jun\nWIRE DEP - NORTHSTAR ENERGY\n$5 800,00\n$13 125,40\n03-Jun\nACH PAYMENT - EQUIPMENT LEASE\n$2 100,00\n$11 025,40\n04-Jun\nHOME DEPOT #4412\n$492,30\n$10 533,10\n05-Jun\nSHELL OIL - FLEET FUEL\n$188,60\n$10 344,50\n06-Jun\nPAYROLL DEP - TECH CORP\n$2 475,00\n$12 819,50\n07-Jun\nAT&T BUSINESS SERVICES\n$245,75\n$12 573,75\n08-Jun\nINSURANCE PREMIUM - COMMERCIAL\n$615,20\n$11 958,55\n09-Jun\nTRANSFER FROM SAVINGS ...1180\n$1 250,00\n$13 208,55\n10-Jun\nLOWES COMMERCIAL SUPPLY\n$317,89\n$12 890,66\n10-Jun\nAPPLE.COM - ICLOUD STORAGE\n$12,99\n$12 877,67\n11-Jun\nOFFICE DEPOT - STATIONERY\n$96,44\n$12 781,23\n12-Jun\nCLIENT PAYMENT - WESTPORT INC\n$3 420,50\n$16 201,73\n13-Jun\nADOBE CREATIVE CLOUD\n$52,99\n$16 148,74\n14-Jun\nUBER TRIP - HELP.UBER.COM\n$34,80\n$16 113,94\n15-Jun\nUTILITY CO - ELEC/WATER\n$371,15\n$15 742,79\n16-Jun\nPAYROLL DEP - TECH CORP\n$2 475,00\n$18 217,79\n17-Jun\nZELLE TO: FIELD CONTRACTOR\n$1 300,00\n$16 917,79\n18-Jun\nCVS PHARMACY #1184\n$41,26\n$16 876,53\n19-Jun\nBLUE BOTTLE COFFEE CAFE\n$13,50\n$16 863,03\n",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "text": "Date\nDescription\nCredit\nDebit\nBalance\n19-Jun\nZELLE FROM: SAM REIMBURSE\n$75,00\n$16 938,03\n20-Jun\nMONTHLY SERVICE CHARGE\n$18,00\n$16 920,03\nTOTAL\n$16 920,03\n",
+      "lines": [
+        {
+          "line_number": 1,
+          "text": "Date",
+          "page_number": 2
+        },
+        {
+          "line_number": 2,
+          "text": "Description",
+          "page_number": 2
+        },
+        {
+          "line_number": 3,
+          "text": "Credit",
+          "page_number": 2
+        },
+        {
+          "line_number": 4,
+          "text": "Debit",
+          "page_number": 2
+        },
+        {
+          "line_number": 5,
+          "text": "Balance",
+          "page_number": 2
+        },
+        {
+          "line_number": 6,
+          "text": "19-Jun",
+          "page_number": 2
+        },
+        {
+          "line_number": 7,
+          "text": "ZELLE FROM: SAM REIMBURSE",
+          "page_number": 2
+        },
+        {
+          "line_number": 8,
+          "text": "$75,00",
+          "page_number": 2
+        },
+        {
+          "line_number": 9,
+          "text": "$16 938,03",
+          "page_number": 2
+        },
+        {
+          "line_number": 10,
+          "text": "20-Jun",
+          "page_number": 2
+        },
+        {
+          "line_number": 11,
+          "text": "MONTHLY SERVICE CHARGE",
+          "page_number": 2
+        },
+        {
+          "line_number": 12,
+          "text": "$18,00",
+          "page_number": 2
+        },
+        {
+          "line_number": 13,
+          "text": "$16 920,03",
+          "page_number": 2
+        },
+        {
+          "line_number": 14,
+          "text": "TOTAL",
+          "page_number": 2
+        },
+        {
+          "line_number": 15,
+          "text": "$16 920,03",
+          "page_number": 2
+        }
+      ],
+      "blocks": [
+        {
+          "block_id": "p2_b1",
+          "type": "text",
+          "text": "Date\nDescription\nCredit\nDebit\nBalance\n19-Jun\nZELLE FROM: SAM REIMBURSE\n$75,00\n$16 938,03\n20-Jun\nMONTHLY SERVICE CHARGE\n$18,00\n$16 920,03\nTOTAL\n$16 920,03\n",
+          "page_number": 2
+        }
+      ]
+    }
+  ],
+  "full_text": "Bank Statement\nDreamland National Bank\n100 Central city, The Abyss, TA 10005\n(000) 999-9999      support@dreamlandnationalbank.com\nCustomer Service Information\nWebsite:\nwww.dreamlandnationalbank.com\nService Centre:\nNortheast Regional Hub\nInformation Cell:\n(000) 999-9999\nBusiness Details\nAccount Number:\n604918237\nBusiness Name:\nOrion Field Services LLC\nAccount Type:\nBusiness Checking\nBusiness Address:\n2290 Cedar Park Ave, Brookhaven, BH 60412\nStatement Summary\nCard Type\nOpening Balance\nTotal Credit\nTotal Debit\nNet Balance\nBusiness\n$7 325,40\n$15 495,50\n$5 900,87\n$16 920,03\nTransaction Details\nDate\nDescription\nCredit\nDebit\nBalance\n02-Jun\nOpening Balance\n$7 325,40\n$7 325,40\n03-Jun\nWIRE DEP - NORTHSTAR ENERGY\n$5 800,00\n$13 125,40\n03-Jun\nACH PAYMENT - EQUIPMENT LEASE\n$2 100,00\n$11 025,40\n04-Jun\nHOME DEPOT #4412\n$492,30\n$10 533,10\n05-Jun\nSHELL OIL - FLEET FUEL\n$188,60\n$10 344,50\n06-Jun\nPAYROLL DEP - TECH CORP\n$2 475,00\n$12 819,50\n07-Jun\nAT&T BUSINESS SERVICES\n$245,75\n$12 573,75\n08-Jun\nINSURANCE PREMIUM - COMMERCIAL\n$615,20\n$11 958,55\n09-Jun\nTRANSFER FROM SAVINGS ...1180\n$1 250,00\n$13 208,55\n10-Jun\nLOWES COMMERCIAL SUPPLY\n$317,89\n$12 890,66\n10-Jun\nAPPLE.COM - ICLOUD STORAGE\n$12,99\n$12 877,67\n11-Jun\nOFFICE DEPOT - STATIONERY\n$96,44\n$12 781,23\n12-Jun\nCLIENT PAYMENT - WESTPORT INC\n$3 420,50\n$16 201,73\n13-Jun\nADOBE CREATIVE CLOUD\n$52,99\n$16 148,74\n14-Jun\nUBER TRIP - HELP.UBER.COM\n$34,80\n$16 113,94\n15-Jun\nUTILITY CO - ELEC/WATER\n$371,15\n$15 742,79\n16-Jun\nPAYROLL DEP - TECH CORP\n$2 475,00\n$18 217,79\n17-Jun\nZELLE TO: FIELD CONTRACTOR\n$1 300,00\n$16 917,79\n18-Jun\nCVS PHARMACY #1184\n$41,26\n$16 876,53\n19-Jun\nBLUE BOTTLE COFFEE CAFE\n$13,50\n$16 863,03\n\nDate\nDescription\nCredit\nDebit\nBalance\n19-Jun\nZELLE FROM: SAM REIMBURSE\n$75,00\n$16 938,03\n20-Jun\nMONTHLY SERVICE CHARGE\n$18,00\n$16 920,03\nTOTAL\n$16 920,03\n",
+  "metadata": {
+    "normalizer": "pypdf.extract_text",
+    "page_count": 2
+  }
+}

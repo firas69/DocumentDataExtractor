@@ -1,0 +1,1204 @@
+{
+  "blueprint_metadata": {
+    "blueprint_id": "invoice_novaflow_layout_v1",
+    "blueprint_name": "NovaFlow Automation Invoice Layout Blueprint",
+    "blueprint_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "status": "active",
+    "created_by": "document_automation_architect",
+    "created_at": "2026-05-26",
+    "last_updated_at": "2026-05-26",
+    "description": "Reusable blueprint for extracting structured data from a one-page supplier invoice layout containing a top invoice identifier, supplier block, customer block, delivery address block, invoice metadata labels, line-item table, totals section, remarks, and terms.",
+    "intended_engine_version": ">=0.1.0",
+    "language": "en",
+    "notes": [
+      "This blueprint is layout-specific and should be used for invoices following the same structure as the analyzed document.",
+      "The normalized text may separate labels, colons, and values across different lines; extraction rules must support nearby-line matching.",
+      "This blueprint describes extraction logic only and must not be treated as extracted invoice output."
+    ]
+  },
+  "document_family": {
+    "family": "invoice",
+    "document_type": "supplier_invoice",
+    "supported_variants": [
+      "standard_invoice",
+      "service_invoice",
+      "professional_services_invoice",
+      "tax_invoice"
+    ],
+    "unsupported_variants": [
+      "handwritten_invoice",
+      "receipt_only",
+      "bank_statement",
+      "purchase_order",
+      "bill_of_lading"
+    ],
+    "expected_document_characteristics": {
+      "is_pdf": true,
+      "may_be_scanned": true,
+      "may_have_multiple_pages": false,
+      "may_contain_tables": true,
+      "may_contain_totals_section": true,
+      "may_contain_tax_section": true
+    }
+  },
+  "layout_identity": {
+    "layout_id": "novaflow_single_page_invoice_layout",
+    "layout_name": "Single Page Service Invoice With Split Metadata Labels",
+    "layout_description": "Recognizes a one-page invoice where the invoice title and number appear at the top, supplier information follows immediately, customer and delivery blocks appear before invoice metadata, and the item table uses Object, Quantity, Unit price, and Amount columns.",
+    "identity_strategy": "keyword_and_layout_signature",
+    "required_keywords": [
+      "invoice",
+      "object",
+      "quantity",
+      "unit price",
+      "amount",
+      "subtotal",
+      "tax",
+      "total"
+    ],
+    "optional_keywords": [
+      "vat id",
+      "to",
+      "delivery address",
+      "date",
+      "payment methods",
+      "purchase order",
+      "solde à payer",
+      "remarks",
+      "terms"
+    ],
+    "negative_keywords": [
+      "bill of lading",
+      "bol number",
+      "quotation",
+      "receipt",
+      "bank statement"
+    ],
+    "layout_signatures": {
+      "page_count_range": {
+        "min": 1,
+        "max": 1
+      },
+      "expected_sections": [
+        "supplier_info",
+        "customer_info",
+        "delivery_address",
+        "invoice_header",
+        "line_items",
+        "totals",
+        "remarks",
+        "terms"
+      ],
+      "common_label_patterns": [
+        "Invoice",
+        "#",
+        "VAT ID",
+        "To:",
+        "Delivery address:",
+        "Date:",
+        "Payment methods:",
+        "Purchase order:",
+        "Solde à payer:",
+        "Object Quantity Unit price Amount",
+        "Subtotal:",
+        "Discount:",
+        "Tax",
+        "Total:"
+      ]
+    },
+    "minimum_identity_confidence": 0.75,
+    "on_identity_failure": {
+      "action": "reject_blueprint_for_document",
+      "message": "The document does not match the expected NovaFlow-style invoice layout strongly enough."
+    }
+  },
+  "normalizer_assumptions": {
+    "input_representation": "normalized_document",
+    "required_normalized_inputs": [
+      "pages",
+      "lines",
+      "text"
+    ],
+    "optional_normalized_inputs": [
+      "blocks",
+      "tables",
+      "coordinates",
+      "font_metadata",
+      "ocr_confidence"
+    ],
+    "line_object_contract": {
+      "required_properties": [
+        "page_number",
+        "line_index",
+        "text"
+      ],
+      "optional_properties": [
+        "x_min",
+        "y_min",
+        "x_max",
+        "y_max",
+        "block_id",
+        "ocr_confidence"
+      ]
+    },
+    "page_numbering": "1_based",
+    "text_ordering_assumption": "top_to_bottom_left_to_right",
+    "ocr_assumptions": {
+      "ocr_may_be_used": true,
+      "ocr_errors_expected": true,
+      "common_ocr_confusions": [
+        {
+          "from": "O",
+          "to": "0"
+        },
+        {
+          "from": "I",
+          "to": "1"
+        },
+        {
+          "from": "S",
+          "to": "5"
+        }
+      ]
+    },
+    "preprocessing_expectations": {
+      "trim_whitespace": true,
+      "normalize_unicode": true,
+      "preserve_line_breaks": true,
+      "preserve_page_numbers": true,
+      "do_not_translate_content": true
+    }
+  },
+  "global_extraction_settings": {
+    "default_language": "en",
+    "supported_languages": [
+      "en",
+      "fr"
+    ],
+    "case_sensitive_matching": false,
+    "accent_sensitive_matching": false,
+    "currency_detection": true,
+    "date_detection": true,
+    "number_detection": true,
+    "multi_page_extraction": false,
+    "allow_partial_extraction": true,
+    "minimum_document_confidence": 0.7,
+    "minimum_required_field_confidence": 0.7,
+    "minimum_optional_field_confidence": 0.5,
+    "fail_on_missing_required_fields": false,
+    "return_extraction_warnings": true,
+    "return_field_confidence": true,
+    "return_source_trace": true
+  },
+  "fields": [
+    {
+      "name": "invoice_number",
+      "display_name": "Invoice Number",
+      "description": "Unique identifier assigned to the invoice by the supplier.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "invoice",
+        "#",
+        "invoice number",
+        "invoice no",
+        "invoice #"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "next_line",
+          "same_line"
+        ],
+        "value_pattern": "#?\\s*[A-Za-z0-9\\-\\/]+",
+        "max_search_distance_lines": 2,
+        "stop_words": [
+          "vat id",
+          "to",
+          "date",
+          "total"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "invoice_header",
+        "relative_position": "top_left"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true,
+        "remove_prefixes": [
+          "#"
+        ],
+        "uppercase": false
+      },
+      "validation": {
+        "required": true,
+        "min_length": 2,
+        "max_length": 50,
+        "regex": "^[A-Za-z0-9][A-Za-z0-9\\-\\/]*$",
+        "reject_values": [
+          "invoice",
+          "date",
+          "total"
+        ]
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_label_found": 0.25,
+        "increase_if_value_matches_pattern": 0.15,
+        "increase_if_in_expected_location": 0.1,
+        "decrease_if_multiple_candidates": 0.15,
+        "decrease_if_ocr_confidence_low": 0.2
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "first_identifier_after_invoice_title",
+          "regex_near_invoice_keyword",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "invoice.invoice_number"
+    },
+    {
+      "name": "invoice_date",
+      "display_name": "Invoice Date",
+      "description": "Date when the invoice was issued.",
+      "data_type": "date",
+      "required": true,
+      "possible_labels": [
+        "date",
+        "invoice date",
+        "issue date"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value_with_split_label_support",
+        "label_position": [
+          "previous_value_block",
+          "same_line",
+          "next_line",
+          "right_of_label"
+        ],
+        "value_pattern": "date",
+        "max_search_distance_lines": 8,
+        "special_handling": [
+          "support_layout_where_value_appears_before_label",
+          "support_label_colon_split_across_lines"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "invoice_header",
+        "relative_position": "after_delivery_address_before_line_items"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_date": true,
+        "input_date_formats": [
+          "YYYY-MM-DD",
+          "DD/MM/YYYY",
+          "MM/DD/YYYY",
+          "DD-MM-YYYY",
+          "DD MMM YYYY",
+          "MMM DD YYYY"
+        ],
+        "output_date_format": "YYYY-MM-DD"
+      },
+      "validation": {
+        "required": true,
+        "must_be_valid_date": true,
+        "not_older_than_years": 10
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_label_found": 0.25,
+        "increase_if_valid_date": 0.15,
+        "increase_if_in_expected_location": 0.1,
+        "decrease_if_ambiguous_date_format": 0.2
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "first_date_after_delivery_address",
+          "nearest_date_before_payment_methods_label",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "invoice.invoice_date"
+    },
+    {
+      "name": "due_date",
+      "display_name": "Due Date",
+      "description": "Date by which the invoice should be paid.",
+      "data_type": "date",
+      "required": false,
+      "possible_labels": [
+        "due date",
+        "payment due",
+        "pay by",
+        "terms",
+        "net 30"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "terms_based_inference",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "within_terms_section"
+        ],
+        "value_pattern": "date_or_payment_terms",
+        "max_search_distance_lines": 5
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "terms",
+        "relative_position": "bottom_left"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_date": true,
+        "infer_from_terms_if_possible": true,
+        "input_date_formats": [
+          "YYYY-MM-DD",
+          "DD/MM/YYYY",
+          "MM/DD/YYYY",
+          "DD-MM-YYYY",
+          "DD MMM YYYY",
+          "MMM DD YYYY"
+        ],
+        "output_date_format": "YYYY-MM-DD"
+      },
+      "validation": {
+        "required": false,
+        "must_be_valid_date": true,
+        "should_be_on_or_after_field": "invoice_date"
+      },
+      "confidence_rules": {
+        "base_score": 0.4,
+        "increase_if_explicit_due_date_label_found": 0.3,
+        "increase_if_terms_pattern_found": 0.2,
+        "increase_if_after_invoice_date": 0.1,
+        "decrease_if_inferred_not_explicit": 0.15
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "payment_terms_based_inference",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "invoice.due_date"
+    },
+    {
+      "name": "supplier_name",
+      "display_name": "Supplier Name",
+      "description": "Name of the company or individual issuing the invoice.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "from",
+        "supplier",
+        "vendor",
+        "seller",
+        "issued by"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "section_based",
+        "section_markers": [
+          "invoice"
+        ],
+        "candidate_selection": "first_business_name_after_invoice_number",
+        "max_lines_in_section": 6,
+        "section_end_markers": [
+          "to",
+          "bill to",
+          "customer",
+          "delivery address"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "supplier_info",
+        "relative_position": "top_left_below_invoice_number"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_extra_spaces": true,
+        "title_case": false
+      },
+      "validation": {
+        "required": true,
+        "min_length": 2,
+        "max_length": 150,
+        "reject_if_contains_only_numbers": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_in_supplier_section": 0.25,
+        "increase_if_business_suffix_found": 0.1,
+        "increase_if_top_left": 0.1,
+        "decrease_if_same_as_customer_name": 0.3
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "top_left_first_strong_text_block_after_invoice_number",
+          "largest_header_text_on_first_page",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "supplier.name"
+    },
+    {
+      "name": "customer_name",
+      "display_name": "Customer Name",
+      "description": "Name of the person or company receiving the invoice.",
+      "data_type": "string",
+      "required": false,
+      "possible_labels": [
+        "to",
+        "bill to",
+        "customer",
+        "client",
+        "invoice to",
+        "billed to"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "section_based",
+        "section_markers": [
+          "to"
+        ],
+        "candidate_selection": "first_name_or_company_after_section_marker",
+        "max_lines_in_section": 8,
+        "section_end_markers": [
+          "delivery address",
+          "date",
+          "payment methods",
+          "purchase order"
+        ],
+        "support_label_colon_split_across_lines": true
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "customer_info",
+        "relative_position": "upper_left_below_supplier_info"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": false,
+        "min_length": 2,
+        "max_length": 150,
+        "reject_if_same_as_supplier_name": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.25,
+        "increase_if_after_customer_marker": 0.2,
+        "decrease_if_same_as_supplier_name": 0.3
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "first_business_name_after_to_marker",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "customer.name"
+    },
+    {
+      "name": "subtotal_amount",
+      "display_name": "Subtotal Amount",
+      "description": "Invoice amount before discount, tax, or final adjustments.",
+      "data_type": "money",
+      "required": false,
+      "possible_labels": [
+        "subtotal",
+        "sub total",
+        "net amount",
+        "amount before tax"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value_with_reversed_totals_support",
+        "label_position": [
+          "previous_value_block",
+          "same_line",
+          "right_of_label",
+          "next_line"
+        ],
+        "value_pattern": "money",
+        "max_search_distance_lines": 6,
+        "special_handling": [
+          "support_layout_where_totals_values_appear_above_labels",
+          "map_totals_values_to_labels_by_order"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          "last"
+        ],
+        "preferred_section": "totals",
+        "relative_position": "below_line_items"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_money": true,
+        "remove_currency_symbols": false,
+        "decimal_separator_detection": true,
+        "thousand_separator_detection": true
+      },
+      "validation": {
+        "required": false,
+        "must_be_positive_or_zero": true,
+        "should_be_less_than_or_equal_field": "total_amount"
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.3,
+        "increase_if_in_totals_section": 0.15,
+        "increase_if_money_format_valid": 0.1,
+        "decrease_if_more_than_total": 0.3
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "derive_from_line_items_sum",
+          "ordered_money_value_before_subtotal_label",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "amounts.subtotal"
+    },
+    {
+      "name": "tax_amount",
+      "display_name": "Tax Amount",
+      "description": "Total tax amount applied to the invoice.",
+      "data_type": "money",
+      "required": false,
+      "possible_labels": [
+        "tax",
+        "tax (8.25%)",
+        "vat",
+        "gst",
+        "sales tax"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value_with_reversed_totals_support",
+        "label_position": [
+          "previous_value_block",
+          "same_line",
+          "right_of_label",
+          "next_line"
+        ],
+        "value_pattern": "money",
+        "max_search_distance_lines": 6,
+        "special_handling": [
+          "support_layout_where_totals_values_appear_above_labels",
+          "extract_tax_rate_from_label_if_present",
+          "map_totals_values_to_labels_by_order"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          "last"
+        ],
+        "preferred_section": "totals",
+        "relative_position": "below_discount_above_total"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_money": true,
+        "decimal_separator_detection": true,
+        "thousand_separator_detection": true
+      },
+      "validation": {
+        "required": false,
+        "must_be_positive_or_zero": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_tax_label_found": 0.3,
+        "increase_if_tax_rate_found": 0.1,
+        "increase_if_in_totals_section": 0.15,
+        "increase_if_money_format_valid": 0.1,
+        "decrease_if_larger_than_total": 0.3
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "derive_from_total_minus_subtotal_plus_discount",
+          "ordered_money_value_before_tax_label",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "amounts.tax"
+    },
+    {
+      "name": "total_amount",
+      "display_name": "Total Amount",
+      "description": "Final invoice amount to be paid.",
+      "data_type": "money",
+      "required": true,
+      "possible_labels": [
+        "total",
+        "solde à payer",
+        "total due",
+        "amount due",
+        "balance due",
+        "grand total"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value_with_reversed_totals_support",
+        "label_position": [
+          "previous_value_block",
+          "same_line",
+          "right_of_label",
+          "next_line"
+        ],
+        "value_pattern": "money",
+        "max_search_distance_lines": 8,
+        "prefer_strong_total_labels": true,
+        "special_handling": [
+          "support_layout_where_total_value_appears_before_label",
+          "support_french_balance_label_solde_a_payer",
+          "map_totals_values_to_labels_by_order"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          "last"
+        ],
+        "preferred_section": "totals",
+        "relative_position": "below_line_items_and_above_remarks"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_money": true,
+        "decimal_separator_detection": true,
+        "thousand_separator_detection": true,
+        "preserve_currency": true
+      },
+      "validation": {
+        "required": true,
+        "must_be_positive": true,
+        "should_be_greater_than_or_equal_field": "subtotal_amount"
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_strong_total_label_found": 0.3,
+        "increase_if_in_totals_section": 0.1,
+        "increase_if_largest_amount_near_bottom": 0.1,
+        "decrease_if_multiple_total_candidates": 0.15,
+        "decrease_if_value_conflicts_with_amount_formula": 0.25
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "value_near_solde_a_payer_label",
+          "ordered_money_value_before_total_label",
+          "largest_money_amount_in_totals_section",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "amounts.total"
+    },
+    {
+      "name": "currency",
+      "display_name": "Currency",
+      "description": "Currency used for invoice amounts.",
+      "data_type": "currency_code",
+      "required": false,
+      "possible_labels": [
+        "currency",
+        "devise"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "symbol_or_code_detection",
+        "search_scope": [
+          "totals_section",
+          "line_items_table",
+          "full_document"
+        ],
+        "accepted_symbols": [
+          "$",
+          "€",
+          "£",
+          "د.ت",
+          "TND"
+        ],
+        "accepted_codes": [
+          "USD",
+          "EUR",
+          "GBP",
+          "TND"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1,
+          "last"
+        ],
+        "preferred_section": "totals",
+        "relative_position": "near_money_values"
+      },
+      "normalization": {
+        "map_symbols_to_iso_codes": true,
+        "default_currency_if_missing": null
+      },
+      "validation": {
+        "required": false,
+        "allowed_values": [
+          "USD",
+          "EUR",
+          "GBP",
+          "TND"
+        ]
+      },
+      "confidence_rules": {
+        "base_score": 0.4,
+        "increase_if_currency_symbol_repeated": 0.2,
+        "increase_if_iso_code_found": 0.25,
+        "increase_if_near_total_amount": 0.15,
+        "decrease_if_multiple_currencies_found": 0.25
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "infer_from_supplier_country",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "amounts.currency"
+    }
+  ],
+  "tables": [
+    {
+      "table_name": "line_items",
+      "description": "Table containing the services billed in the invoice.",
+      "required": true,
+      "detection_strategy": {
+        "strategy_type": "header_keyword_and_row_pattern",
+        "use_detected_tables_if_available": true,
+        "fallback_to_line_grouping": true,
+        "minimum_header_match_count": 3,
+        "allow_multi_page_table": false
+      },
+      "header_keywords": [
+        "object",
+        "description",
+        "item",
+        "service",
+        "quantity",
+        "qty",
+        "unit price",
+        "price",
+        "amount"
+      ],
+      "start_markers": [
+        "object",
+        "quantity",
+        "unit price",
+        "amount"
+      ],
+      "end_markers": [
+        "subtotal",
+        "discount",
+        "tax",
+        "total",
+        "remarks",
+        "terms"
+      ],
+      "columns": [
+        {
+          "name": "description",
+          "display_name": "Description",
+          "data_type": "string",
+          "required": true,
+          "possible_headers": [
+            "object",
+            "description",
+            "item",
+            "product",
+            "service",
+            "details"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "allow_multiline": true,
+            "merge_continuation_lines": true,
+            "position_hint": "leftmost_column"
+          },
+          "normalization": {
+            "trim": true,
+            "remove_extra_spaces": true
+          },
+          "validation": {
+            "min_length": 1,
+            "max_length": 500
+          },
+          "output_key": "description"
+        },
+        {
+          "name": "quantity",
+          "display_name": "Quantity",
+          "data_type": "number",
+          "required": false,
+          "possible_headers": [
+            "quantity",
+            "qty",
+            "qte",
+            "units"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "value_pattern": "number",
+            "position_hint": "after_description_before_unit_price"
+          },
+          "normalization": {
+            "parse_number": true,
+            "default_if_missing": 1
+          },
+          "validation": {
+            "must_be_positive": true
+          },
+          "output_key": "quantity"
+        },
+        {
+          "name": "unit_price",
+          "display_name": "Unit Price",
+          "data_type": "money",
+          "required": false,
+          "possible_headers": [
+            "unit price",
+            "price",
+            "rate",
+            "prix unitaire",
+            "pu"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "value_pattern": "money",
+            "position_hint": "money_column_before_amount"
+          },
+          "normalization": {
+            "parse_money": true,
+            "decimal_separator_detection": true,
+            "thousand_separator_detection": true
+          },
+          "validation": {
+            "must_be_positive_or_zero": true
+          },
+          "output_key": "unit_price"
+        },
+        {
+          "name": "line_total",
+          "display_name": "Line Total",
+          "data_type": "money",
+          "required": true,
+          "possible_headers": [
+            "amount",
+            "total",
+            "line total",
+            "montant"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_header_mapping",
+            "value_pattern": "money",
+            "prefer_rightmost_money_column": true,
+            "position_hint": "rightmost_column"
+          },
+          "normalization": {
+            "parse_money": true,
+            "decimal_separator_detection": true,
+            "thousand_separator_detection": true
+          },
+          "validation": {
+            "must_be_positive_or_zero": true,
+            "should_equal_quantity_times_unit_price_if_available": true,
+            "allowed_tolerance": 0.05
+          },
+          "output_key": "line_total"
+        }
+      ],
+      "row_rules": {
+        "minimum_columns_per_row": 4,
+        "ignore_empty_rows": true,
+        "ignore_rows_matching": [
+          "subtotal",
+          "discount",
+          "tax",
+          "total",
+          "remarks",
+          "terms"
+        ],
+        "allow_wrapped_description_rows": true,
+        "merge_wrapped_rows_when_no_amount_present": true,
+        "row_continuation_strategy": "append_to_previous_description",
+        "stop_when_end_marker_found": true,
+        "special_row_pattern": "description followed by quantity followed by unit_price followed by amount"
+      },
+      "validation": {
+        "required": true,
+        "minimum_rows": 1,
+        "sum_line_totals_should_match_subtotal_or_total": true,
+        "allowed_total_tolerance": 0.1
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_header_keywords_found": 0.25,
+        "increase_if_rows_have_consistent_column_count": 0.15,
+        "increase_if_line_totals_sum_matches_subtotal": 0.15,
+        "decrease_if_no_header_found": 0.2,
+        "decrease_if_rows_are_inconsistent": 0.2
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "detected_tables_from_normalizer",
+          "line_grouping_between_table_headers_and_totals",
+          "money_amount_row_pattern",
+          "manual_review"
+        ],
+        "on_failure": "return_empty_array_with_warning"
+      },
+      "output_key": "line_items"
+    }
+  ],
+  "data_normalization_rules": {
+    "strings": {
+      "trim": true,
+      "collapse_multiple_spaces": true,
+      "remove_invisible_characters": true
+    },
+    "dates": {
+      "standard_output_format": "YYYY-MM-DD",
+      "ambiguous_date_policy": "prefer_document_locale_then_warn",
+      "supported_formats": [
+        "YYYY-MM-DD",
+        "DD/MM/YYYY",
+        "MM/DD/YYYY",
+        "DD-MM-YYYY",
+        "DD MMM YYYY",
+        "MMM DD YYYY"
+      ]
+    },
+    "numbers": {
+      "decimal_separator_detection": true,
+      "thousand_separator_detection": true,
+      "negative_number_formats": [
+        "-100.00",
+        "(100.00)"
+      ]
+    },
+    "money": {
+      "preserve_original_text": true,
+      "parse_numeric_value": true,
+      "extract_currency_if_present": true,
+      "rounding_precision": 2
+    },
+    "currency": {
+      "symbol_to_code_map": {
+        "$": "USD",
+        "€": "EUR",
+        "£": "GBP",
+        "TND": "TND",
+        "د.ت": "TND"
+      }
+    }
+  },
+  "validation_rules": {
+    "document_level": [
+      {
+        "rule_id": "required_invoice_number",
+        "description": "Invoice number must be present.",
+        "severity": "error",
+        "condition": "invoice.invoice_number is not null"
+      },
+      {
+        "rule_id": "required_invoice_date",
+        "description": "Invoice date must be present and valid.",
+        "severity": "error",
+        "condition": "invoice.invoice_date is valid_date"
+      },
+      {
+        "rule_id": "required_total_amount",
+        "description": "Total amount must be present and positive.",
+        "severity": "error",
+        "condition": "amounts.total > 0"
+      },
+      {
+        "rule_id": "line_items_present",
+        "description": "At least one line item should be extracted.",
+        "severity": "warning",
+        "condition": "line_items.length >= 1"
+      },
+      {
+        "rule_id": "line_items_match_subtotal",
+        "description": "The sum of line-item amounts should approximately match the subtotal when subtotal is available.",
+        "severity": "warning",
+        "condition": "abs(sum(line_items.line_total) - amounts.subtotal) <= 0.1"
+      },
+      {
+        "rule_id": "subtotal_discount_tax_total_consistency",
+        "description": "Subtotal minus discount plus tax should approximately match total when all values are available.",
+        "severity": "warning",
+        "condition": "abs((amounts.subtotal - amounts.discount + amounts.tax) - amounts.total) <= 0.1"
+      }
+    ],
+    "field_level_policy": {
+      "missing_required_field": "error",
+      "invalid_required_field": "error",
+      "missing_optional_field": "info",
+      "invalid_optional_field": "warning"
+    }
+  },
+  "confidence_scoring": {
+    "enabled": true,
+    "score_range": {
+      "min": 0,
+      "max": 1
+    },
+    "document_confidence_formula": {
+      "required_fields_weight": 0.5,
+      "optional_fields_weight": 0.15,
+      "table_confidence_weight": 0.25,
+      "validation_consistency_weight": 0.1
+    },
+    "confidence_thresholds": {
+      "high": 0.85,
+      "medium": 0.65,
+      "low": 0.4
+    },
+    "manual_review_policy": {
+      "send_to_review_if_document_confidence_below": 0.65,
+      "send_to_review_if_required_field_confidence_below": 0.7,
+      "send_to_review_if_validation_errors_exist": true
+    }
+  },
+  "warnings_and_fallback_behavior": {
+    "warning_categories": [
+      "missing_required_field",
+      "missing_optional_field",
+      "low_confidence",
+      "ambiguous_candidate",
+      "validation_failed",
+      "ocr_quality_low",
+      "table_detection_failed",
+      "layout_identity_low",
+      "split_label_detected",
+      "value_before_label_detected"
+    ],
+    "fallback_policy": {
+      "allow_field_fallbacks": true,
+      "allow_table_fallbacks": true,
+      "allow_formula_based_inference": true,
+      "allow_manual_review_marker": true,
+      "never_guess_required_values_without_trace": true
+    },
+    "on_extraction_failure": {
+      "return_partial_output": true,
+      "include_errors": true,
+      "include_warnings": true,
+      "include_source_trace": true
+    }
+  },
+  "output_mapping": {
+    "output_format": "json",
+    "include_metadata": true,
+    "include_confidence": true,
+    "include_source_trace": true,
+    "target_structure": {
+      "invoice": {
+        "invoice_number": "fields.invoice_number",
+        "invoice_date": "fields.invoice_date",
+        "due_date": "fields.due_date"
+      },
+      "supplier": {
+        "name": "fields.supplier_name"
+      },
+      "customer": {
+        "name": "fields.customer_name"
+      },
+      "amounts": {
+        "subtotal": "fields.subtotal_amount",
+        "tax": "fields.tax_amount",
+        "total": "fields.total_amount",
+        "currency": "fields.currency"
+      },
+      "line_items": "tables.line_items"
+    }
+  },
+  "source_trace_requirements": {
+    "enabled": true,
+    "for_each_field_include": [
+      "page_number",
+      "line_index",
+      "raw_text",
+      "matched_label",
+      "extraction_strategy_used",
+      "confidence"
+    ],
+    "for_each_table_row_include": [
+      "page_number",
+      "raw_row_text",
+      "detected_columns",
+      "confidence"
+    ]
+  },
+  "versioning": {
+    "blueprint_semver": true,
+    "breaking_change_policy": {
+      "major": "Changes to required sections, field contract, table contract, or output mapping.",
+      "minor": "New optional fields, new strategies, or new validation rules.",
+      "patch": "Small corrections to labels, hints, or descriptions."
+    },
+    "backward_compatibility": {
+      "engine_should_reject_unsupported_major_versions": true,
+      "engine_may_ignore_unknown_optional_properties": true
+    }
+  },
+  "maintainability_notes": {
+    "owner": "data_extraction_team",
+    "recommended_review_frequency": "after_each_new_invoice_layout",
+    "known_limitations": [
+      "This layout may produce split labels and split values when normalized using plain PDF text extraction.",
+      "Some metadata values appear before their labels in the normalized line order, so the engine must support value-before-label matching.",
+      "Totals values may appear before their labels in normalized text; ordered mapping is required.",
+      "The line-item table may appear as either a single row per item or as separated lines depending on the PDF normalizer.",
+      "The discount field exists in this layout but is not part of the original minimal invoice reference output mapping unless the schema is extended."
+    ],
+    "change_log": [
+      {
+        "version": "1.0.0",
+        "date": "2026-05-26",
+        "changes": [
+          "Initial reusable blueprint generated for NovaFlow-style one-page supplier invoice layout."
+        ]
+      }
+    ]
+  }
+}

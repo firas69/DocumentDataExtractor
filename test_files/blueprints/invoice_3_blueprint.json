@@ -1,0 +1,1213 @@
+{
+  "blueprint_metadata": {
+    "blueprint_id": "bank_statement_dreamland_layout_v1",
+    "blueprint_name": "Dreamland National Bank Statement Layout Blueprint",
+    "blueprint_version": "1.0.0",
+    "schema_version": "1.0.0",
+    "status": "active",
+    "created_by": "document_automation_architect",
+    "created_at": "2026-05-26",
+    "last_updated_at": "2026-05-26",
+    "description": "Reusable blueprint for extracting structured data from a two-page bank statement containing business details, statement summary, account balances, transaction details, credit/debit amounts, and running balances.",
+    "intended_engine_version": ">=0.1.0",
+    "language": "en",
+    "notes": [
+      "This blueprint is for bank statement documents, not supplier invoices.",
+      "An invoice-only extraction engine should reject this document before attempting invoice field extraction.",
+      "The normalized text order is noisy; transaction rows may appear split across dates, descriptions, amounts, and balances."
+    ]
+  },
+  "document_family": {
+    "family": "financial_statement",
+    "document_type": "bank_statement",
+    "supported_variants": [
+      "business_bank_statement",
+      "checking_account_statement",
+      "current_account_statement",
+      "multi_page_statement"
+    ],
+    "unsupported_variants": [
+      "supplier_invoice",
+      "tax_invoice",
+      "commercial_invoice",
+      "purchase_order",
+      "bill_of_lading",
+      "receipt_only"
+    ],
+    "expected_document_characteristics": {
+      "is_pdf": true,
+      "may_be_scanned": true,
+      "may_have_multiple_pages": true,
+      "may_contain_tables": true,
+      "may_contain_totals_section": true,
+      "may_contain_tax_section": false
+    }
+  },
+  "layout_identity": {
+    "layout_id": "dreamland_bank_statement_layout",
+    "layout_name": "Dreamland Multi-Page Bank Statement Layout",
+    "layout_description": "Recognizes a bank statement layout using bank, account, statement summary, balance, credit/debit, and transaction-detail keywords.",
+    "identity_strategy": "keyword_and_layout_signature",
+    "required_keywords": [
+      "bank statement",
+      "statement summary",
+      "transaction details",
+      "opening balance",
+      "total credit",
+      "total debit",
+      "net balance"
+    ],
+    "optional_keywords": [
+      "business details",
+      "account type",
+      "account number",
+      "business name",
+      "business address",
+      "date",
+      "credit",
+      "debit",
+      "description",
+      "balance",
+      "customer service information"
+    ],
+    "negative_keywords": [
+      "invoice number",
+      "invoice date",
+      "subtotal",
+      "tax",
+      "vat",
+      "amount due",
+      "bill of lading",
+      "bol number",
+      "purchase order"
+    ],
+    "layout_signatures": {
+      "page_count_range": {
+        "min": 1,
+        "max": 10
+      },
+      "expected_sections": [
+        "bank_info",
+        "customer_service_info",
+        "business_details",
+        "statement_summary",
+        "transaction_details"
+      ],
+      "common_label_patterns": [
+        "Bank Statement",
+        "Statement Summary",
+        "Transaction Details",
+        "Date Credit Debit",
+        "Description",
+        "Balance",
+        "Opening Balance",
+        "Total Credit",
+        "Total Debit",
+        "Net Balance",
+        "Business Details",
+        "Account Type",
+        "Account Number",
+        "Business Name",
+        "Business Address"
+      ]
+    },
+    "minimum_identity_confidence": 0.75,
+    "on_identity_failure": {
+      "action": "reject_blueprint_for_document",
+      "message": "The document does not match the expected bank statement layout strongly enough."
+    }
+  },
+  "normalizer_assumptions": {
+    "input_representation": "normalized_document",
+    "required_normalized_inputs": [
+      "pages",
+      "lines",
+      "text"
+    ],
+    "optional_normalized_inputs": [
+      "blocks",
+      "tables",
+      "coordinates",
+      "font_metadata",
+      "ocr_confidence"
+    ],
+    "line_object_contract": {
+      "required_properties": [
+        "page_number",
+        "line_index",
+        "text"
+      ],
+      "optional_properties": [
+        "x_min",
+        "y_min",
+        "x_max",
+        "y_max",
+        "block_id",
+        "ocr_confidence"
+      ]
+    },
+    "page_numbering": "1_based",
+    "text_ordering_assumption": "top_to_bottom_left_to_right",
+    "ocr_assumptions": {
+      "ocr_may_be_used": true,
+      "ocr_errors_expected": true,
+      "common_ocr_confusions": [
+        {
+          "from": "O",
+          "to": "0"
+        },
+        {
+          "from": "I",
+          "to": "1"
+        },
+        {
+          "from": "S",
+          "to": "5"
+        }
+      ]
+    },
+    "preprocessing_expectations": {
+      "trim_whitespace": true,
+      "normalize_unicode": true,
+      "preserve_line_breaks": true,
+      "preserve_page_numbers": true,
+      "do_not_translate_content": true
+    }
+  },
+  "global_extraction_settings": {
+    "default_language": "en",
+    "supported_languages": [
+      "en"
+    ],
+    "case_sensitive_matching": false,
+    "accent_sensitive_matching": false,
+    "currency_detection": true,
+    "date_detection": true,
+    "number_detection": true,
+    "multi_page_extraction": true,
+    "allow_partial_extraction": true,
+    "minimum_document_confidence": 0.7,
+    "minimum_required_field_confidence": 0.7,
+    "minimum_optional_field_confidence": 0.5,
+    "fail_on_missing_required_fields": false,
+    "return_extraction_warnings": true,
+    "return_field_confidence": true,
+    "return_source_trace": true
+  },
+  "fields": [
+    {
+      "name": "bank_name",
+      "display_name": "Bank Name",
+      "description": "Name of the bank issuing the statement.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "bank statement",
+        "customer service information"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "section_based",
+        "section_markers": [
+          "customer service information",
+          "bank statement"
+        ],
+        "candidate_selection": "first_business_name_containing_bank_after_section_marker",
+        "max_lines_in_section": 8
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "bank_info",
+        "relative_position": "middle_or_lower_page"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_extra_spaces": true,
+        "title_case": false
+      },
+      "validation": {
+        "required": true,
+        "min_length": 2,
+        "max_length": 150,
+        "reject_if_contains_only_numbers": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_bank_keyword_found": 0.3,
+        "increase_if_in_bank_info_section": 0.15,
+        "decrease_if_same_as_business_name": 0.2
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "business_name_containing_bank",
+          "strong_text_near_bank_statement_keyword",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "bank.name"
+    },
+    {
+      "name": "account_number",
+      "display_name": "Account Number",
+      "description": "Bank account number associated with the statement.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "account number",
+        "acct number",
+        "account no"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "right_of_label",
+          "previous_line"
+        ],
+        "value_pattern": "[0-9]{4,20}|[A-Za-z0-9\\.\\-\\*]{4,30}",
+        "max_search_distance_lines": 4,
+        "support_label_value_inverted_order": true
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "business_details",
+        "relative_position": "near_business_name"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": true,
+        "min_length": 4,
+        "max_length": 30,
+        "regex": "^[A-Za-z0-9\\.\\-\\*]+$"
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_label_found": 0.25,
+        "increase_if_value_matches_pattern": 0.15,
+        "increase_if_in_expected_section": 0.1,
+        "decrease_if_multiple_candidates": 0.2
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "nearest_numeric_identifier_to_account_number_label",
+          "masked_account_pattern",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "account.account_number"
+    },
+    {
+      "name": "account_type",
+      "display_name": "Account Type",
+      "description": "Type of bank account shown on the statement.",
+      "data_type": "string",
+      "required": false,
+      "possible_labels": [
+        "account type",
+        "type"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "right_of_label"
+        ],
+        "value_pattern": "[A-Za-z ]+",
+        "max_search_distance_lines": 3
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "business_details",
+        "relative_position": "near_account_number"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": false,
+        "allowed_values": [
+          "Current",
+          "Checking",
+          "Savings",
+          "Business",
+          "Classic"
+        ]
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.3,
+        "increase_if_known_account_type": 0.15,
+        "increase_if_in_business_details_section": 0.1
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "known_account_type_near_business_details",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "account.account_type"
+    },
+    {
+      "name": "business_name",
+      "display_name": "Business Name",
+      "description": "Name of the account holder or business customer.",
+      "data_type": "string",
+      "required": true,
+      "possible_labels": [
+        "business name",
+        "customer name",
+        "account holder"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "right_of_label"
+        ],
+        "value_pattern": ".+",
+        "max_search_distance_lines": 3,
+        "support_concatenated_label_value": true
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "business_details",
+        "relative_position": "near_account_number"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": true,
+        "min_length": 2,
+        "max_length": 150,
+        "reject_if_contains_only_numbers": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.3,
+        "increase_if_in_business_details_section": 0.15,
+        "decrease_if_same_as_bank_name": 0.25
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "text_after_business_name_label",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "customer.business_name"
+    },
+    {
+      "name": "business_address",
+      "display_name": "Business Address",
+      "description": "Address of the account holder or business customer.",
+      "data_type": "string",
+      "required": false,
+      "possible_labels": [
+        "business address",
+        "customer address",
+        "address"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "right_of_label"
+        ],
+        "value_pattern": ".+",
+        "max_search_distance_lines": 4,
+        "support_concatenated_label_value": true
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "business_details",
+        "relative_position": "below_business_name"
+      },
+      "normalization": {
+        "trim": true,
+        "remove_label_text": true,
+        "remove_extra_spaces": true
+      },
+      "validation": {
+        "required": false,
+        "min_length": 5,
+        "max_length": 250
+      },
+      "confidence_rules": {
+        "base_score": 0.4,
+        "increase_if_label_found": 0.3,
+        "increase_if_address_pattern_found": 0.15,
+        "increase_if_in_business_details_section": 0.1
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "text_after_business_address_label",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "customer.business_address"
+    },
+    {
+      "name": "opening_balance",
+      "display_name": "Opening Balance",
+      "description": "Balance at the beginning of the statement period.",
+      "data_type": "money",
+      "required": true,
+      "possible_labels": [
+        "opening balance"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "right_of_label"
+        ],
+        "value_pattern": "money",
+        "max_search_distance_lines": 3
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "statement_summary",
+        "relative_position": "near_card_type_summary"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_money": true,
+        "decimal_separator_detection": true,
+        "thousand_separator_detection": true,
+        "preserve_currency": true
+      },
+      "validation": {
+        "required": true,
+        "must_be_valid_money": true
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_label_found": 0.3,
+        "increase_if_money_format_valid": 0.15,
+        "increase_if_in_statement_summary": 0.1
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "money_value_after_opening_balance_label",
+          "summary_row_opening_balance_column",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "summary.opening_balance"
+    },
+    {
+      "name": "total_credit",
+      "display_name": "Total Credit",
+      "description": "Total credited amount during the statement period.",
+      "data_type": "money",
+      "required": false,
+      "possible_labels": [
+        "total credit",
+        "credit total"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "right_of_label"
+        ],
+        "value_pattern": "money",
+        "max_search_distance_lines": 3
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "statement_summary",
+        "relative_position": "top_left_or_summary_section"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_money": true,
+        "decimal_separator_detection": true,
+        "thousand_separator_detection": true,
+        "preserve_currency": true
+      },
+      "validation": {
+        "required": false,
+        "must_be_positive_or_zero": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.3,
+        "increase_if_money_format_valid": 0.15,
+        "increase_if_in_statement_summary": 0.1
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "money_value_after_total_credit_label",
+          "summary_row_total_credit_column",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "summary.total_credit"
+    },
+    {
+      "name": "total_debit",
+      "display_name": "Total Debit",
+      "description": "Total debited amount during the statement period.",
+      "data_type": "money",
+      "required": false,
+      "possible_labels": [
+        "total debit",
+        "debit total"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value_or_summary_column",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "right_of_label",
+          "summary_column"
+        ],
+        "value_pattern": "money",
+        "max_search_distance_lines": 5
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1
+        ],
+        "preferred_section": "statement_summary",
+        "relative_position": "near_opening_balance_and_net_balance"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_money": true,
+        "decimal_separator_detection": true,
+        "thousand_separator_detection": true,
+        "preserve_currency": true
+      },
+      "validation": {
+        "required": false,
+        "must_be_positive_or_zero": true
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_label_found": 0.25,
+        "increase_if_summary_column_found": 0.2,
+        "increase_if_money_format_valid": 0.15
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "summary_row_total_debit_column",
+          "derive_from_opening_credit_net_balance",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "summary.total_debit"
+    },
+    {
+      "name": "net_balance",
+      "display_name": "Net Balance",
+      "description": "Ending or net balance shown in the statement summary.",
+      "data_type": "money",
+      "required": true,
+      "possible_labels": [
+        "net balance",
+        "balance",
+        "ending balance",
+        "closing balance"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "label_value_or_summary_column",
+        "label_position": [
+          "same_line",
+          "next_line",
+          "right_of_label",
+          "summary_column"
+        ],
+        "value_pattern": "money",
+        "max_search_distance_lines": 5
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1,
+          "last"
+        ],
+        "preferred_section": "statement_summary",
+        "relative_position": "near_total_debit_or_final_total"
+      },
+      "normalization": {
+        "trim": true,
+        "parse_money": true,
+        "decimal_separator_detection": true,
+        "thousand_separator_detection": true,
+        "preserve_currency": true
+      },
+      "validation": {
+        "required": true,
+        "must_be_valid_money": true
+      },
+      "confidence_rules": {
+        "base_score": 0.5,
+        "increase_if_net_balance_label_found": 0.25,
+        "increase_if_final_total_balance_found": 0.15,
+        "increase_if_money_format_valid": 0.15,
+        "decrease_if_multiple_balance_candidates": 0.2
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "summary_row_net_balance_column",
+          "last_total_balance_on_final_page",
+          "derive_from_opening_credit_debit_formula",
+          "manual_review"
+        ],
+        "on_failure": "return_null_with_warning"
+      },
+      "output_key": "summary.net_balance"
+    },
+    {
+      "name": "currency",
+      "display_name": "Currency",
+      "description": "Currency used for statement amounts.",
+      "data_type": "currency_code",
+      "required": false,
+      "possible_labels": [
+        "currency"
+      ],
+      "extraction_strategy": {
+        "strategy_type": "symbol_or_code_detection",
+        "search_scope": [
+          "statement_summary",
+          "transaction_details",
+          "full_document"
+        ],
+        "accepted_symbols": [
+          "$",
+          "€",
+          "£",
+          "د.ت",
+          "TND"
+        ],
+        "accepted_codes": [
+          "USD",
+          "EUR",
+          "GBP",
+          "TND"
+        ]
+      },
+      "location_hint": {
+        "preferred_pages": [
+          1,
+          "last"
+        ],
+        "preferred_section": "statement_summary",
+        "relative_position": "near_money_values"
+      },
+      "normalization": {
+        "map_symbols_to_iso_codes": true,
+        "default_currency_if_missing": null
+      },
+      "validation": {
+        "required": false,
+        "allowed_values": [
+          "USD",
+          "EUR",
+          "GBP",
+          "TND"
+        ]
+      },
+      "confidence_rules": {
+        "base_score": 0.4,
+        "increase_if_currency_symbol_repeated": 0.25,
+        "increase_if_iso_code_found": 0.25,
+        "decrease_if_multiple_currencies_found": 0.25
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "infer_from_bank_country",
+          "manual_review"
+        ],
+        "on_failure": "return_null_without_failure"
+      },
+      "output_key": "summary.currency"
+    }
+  ],
+  "tables": [
+    {
+      "table_name": "transactions",
+      "description": "Multi-page transaction table containing transaction date, credit amount, debit amount, description, and running balance.",
+      "required": true,
+      "detection_strategy": {
+        "strategy_type": "header_keyword_and_row_pattern",
+        "use_detected_tables_if_available": true,
+        "fallback_to_line_grouping": true,
+        "minimum_header_match_count": 3,
+        "allow_multi_page_table": true
+      },
+      "header_keywords": [
+        "date",
+        "credit",
+        "debit",
+        "description",
+        "balance"
+      ],
+      "start_markers": [
+        "date credit debit",
+        "date credit debit description balance",
+        "transaction details"
+      ],
+      "end_markers": [
+        "statement summary",
+        "customer service information",
+        "business details",
+        "total"
+      ],
+      "columns": [
+        {
+          "name": "transaction_date",
+          "display_name": "Transaction Date",
+          "data_type": "date",
+          "required": true,
+          "possible_headers": [
+            "date"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_pattern_mapping",
+            "value_pattern": "[0-9]{1,2}-[A-Za-z]{3}",
+            "infer_year_from_statement_context": true
+          },
+          "normalization": {
+            "trim": true,
+            "parse_date": true,
+            "input_date_formats": [
+              "DD-MMM",
+              "D-MMM"
+            ],
+            "output_date_format": "YYYY-MM-DD",
+            "infer_missing_year": true
+          },
+          "validation": {
+            "required": true,
+            "must_be_valid_date": true
+          },
+          "output_key": "transaction_date"
+        },
+        {
+          "name": "credit_amount",
+          "display_name": "Credit Amount",
+          "data_type": "money",
+          "required": false,
+          "possible_headers": [
+            "credit"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_context_mapping",
+            "value_pattern": "money",
+            "use_credit_debit_columns_if_coordinates_available": true,
+            "fallback_classify_by_balance_change": true
+          },
+          "normalization": {
+            "parse_money": true,
+            "decimal_separator_detection": true,
+            "thousand_separator_detection": true
+          },
+          "validation": {
+            "must_be_positive_or_zero": true
+          },
+          "output_key": "credit_amount"
+        },
+        {
+          "name": "debit_amount",
+          "display_name": "Debit Amount",
+          "data_type": "money",
+          "required": false,
+          "possible_headers": [
+            "debit"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_context_mapping",
+            "value_pattern": "money",
+            "use_credit_debit_columns_if_coordinates_available": true,
+            "fallback_classify_by_balance_change": true
+          },
+          "normalization": {
+            "parse_money": true,
+            "decimal_separator_detection": true,
+            "thousand_separator_detection": true
+          },
+          "validation": {
+            "must_be_positive_or_zero": true
+          },
+          "output_key": "debit_amount"
+        },
+        {
+          "name": "description",
+          "display_name": "Description",
+          "data_type": "string",
+          "required": false,
+          "possible_headers": [
+            "description"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_text_between_amounts",
+            "allow_multiline": true,
+            "merge_continuation_lines": true,
+            "handle_concatenated_balance_description": true
+          },
+          "normalization": {
+            "trim": true,
+            "remove_extra_spaces": true,
+            "separate_leading_money_from_description": true,
+            "separate_trailing_money_from_description": true
+          },
+          "validation": {
+            "max_length": 500
+          },
+          "output_key": "description"
+        },
+        {
+          "name": "balance",
+          "display_name": "Running Balance",
+          "data_type": "money",
+          "required": false,
+          "possible_headers": [
+            "balance"
+          ],
+          "extraction_strategy": {
+            "strategy_type": "column_position_or_rightmost_money_mapping",
+            "value_pattern": "money",
+            "prefer_rightmost_money_column": true
+          },
+          "normalization": {
+            "parse_money": true,
+            "decimal_separator_detection": true,
+            "thousand_separator_detection": true
+          },
+          "validation": {
+            "must_be_valid_money": true
+          },
+          "output_key": "balance"
+        }
+      ],
+      "row_rules": {
+        "minimum_columns_per_row": 2,
+        "ignore_empty_rows": true,
+        "ignore_rows_matching": [
+          "date",
+          "credit",
+          "debit",
+          "description",
+          "balance",
+          "transaction details",
+          "statement summary",
+          "customer service information",
+          "business details"
+        ],
+        "allow_wrapped_description_rows": true,
+        "merge_wrapped_rows_when_no_date_present": true,
+        "row_continuation_strategy": "append_to_previous_description",
+        "stop_when_end_marker_found": false,
+        "multi_page_continuation": true,
+        "special_row_patterns": [
+          "date followed by one_or_more_money_values",
+          "description followed by running_balance",
+          "running_balance_concatenated_with_description",
+          "final_total_row"
+        ]
+      },
+      "validation": {
+        "required": true,
+        "minimum_rows": 1,
+        "running_balance_should_progress_consistently_when_possible": true,
+        "summary_totals_should_match_transaction_sums_when_possible": true,
+        "allowed_total_tolerance": 0.1
+      },
+      "confidence_rules": {
+        "base_score": 0.45,
+        "increase_if_header_keywords_found": 0.25,
+        "increase_if_rows_have_dates": 0.15,
+        "increase_if_running_balances_detected": 0.1,
+        "increase_if_multi_page_continuation_detected": 0.05,
+        "decrease_if_no_header_found": 0.2,
+        "decrease_if_rows_are_inconsistent": 0.25
+      },
+      "fallback_strategy": {
+        "enabled": true,
+        "fallback_order": [
+          "detected_tables_from_normalizer",
+          "line_grouping_between_transaction_headers_and_summary_sections",
+          "date_money_description_balance_pattern",
+          "manual_review"
+        ],
+        "on_failure": "return_empty_array_with_warning"
+      },
+      "output_key": "transactions"
+    }
+  ],
+  "data_normalization_rules": {
+    "strings": {
+      "trim": true,
+      "collapse_multiple_spaces": true,
+      "remove_invisible_characters": true,
+      "split_concatenated_money_and_text": true
+    },
+    "dates": {
+      "standard_output_format": "YYYY-MM-DD",
+      "ambiguous_date_policy": "infer_year_from_statement_context_then_warn",
+      "supported_formats": [
+        "YYYY-MM-DD",
+        "DD/MM/YYYY",
+        "MM/DD/YYYY",
+        "DD-MM-YYYY",
+        "DD MMM YYYY",
+        "MMM DD YYYY",
+        "DD-MMM",
+        "D-MMM"
+      ]
+    },
+    "numbers": {
+      "decimal_separator_detection": true,
+      "thousand_separator_detection": true,
+      "negative_number_formats": [
+        "-100.00",
+        "(100.00)"
+      ]
+    },
+    "money": {
+      "preserve_original_text": true,
+      "parse_numeric_value": true,
+      "extract_currency_if_present": true,
+      "rounding_precision": 2,
+      "support_space_thousand_separator": true,
+      "support_comma_decimal_separator": true
+    },
+    "currency": {
+      "symbol_to_code_map": {
+        "$": "USD",
+        "€": "EUR",
+        "£": "GBP",
+        "TND": "TND",
+        "د.ت": "TND"
+      }
+    }
+  },
+  "validation_rules": {
+    "document_level": [
+      {
+        "rule_id": "required_bank_name",
+        "description": "Bank name must be present.",
+        "severity": "error",
+        "condition": "bank.name is not null"
+      },
+      {
+        "rule_id": "required_account_number",
+        "description": "Account number must be present.",
+        "severity": "error",
+        "condition": "account.account_number is not null"
+      },
+      {
+        "rule_id": "required_business_name",
+        "description": "Business name must be present.",
+        "severity": "error",
+        "condition": "customer.business_name is not null"
+      },
+      {
+        "rule_id": "required_opening_balance",
+        "description": "Opening balance must be present and valid.",
+        "severity": "error",
+        "condition": "summary.opening_balance is valid_money"
+      },
+      {
+        "rule_id": "required_net_balance",
+        "description": "Net balance must be present and valid.",
+        "severity": "error",
+        "condition": "summary.net_balance is valid_money"
+      },
+      {
+        "rule_id": "transactions_present",
+        "description": "At least one transaction row should be extracted.",
+        "severity": "warning",
+        "condition": "transactions.length >= 1"
+      },
+      {
+        "rule_id": "summary_balance_consistency",
+        "description": "Opening balance plus total credit minus total debit should approximately match net balance when all values are available.",
+        "severity": "warning",
+        "condition": "abs((summary.opening_balance + summary.total_credit - summary.total_debit) - summary.net_balance) <= 0.1"
+      }
+    ],
+    "field_level_policy": {
+      "missing_required_field": "error",
+      "invalid_required_field": "error",
+      "missing_optional_field": "info",
+      "invalid_optional_field": "warning"
+    }
+  },
+  "confidence_scoring": {
+    "enabled": true,
+    "score_range": {
+      "min": 0,
+      "max": 1
+    },
+    "document_confidence_formula": {
+      "required_fields_weight": 0.45,
+      "optional_fields_weight": 0.15,
+      "table_confidence_weight": 0.3,
+      "validation_consistency_weight": 0.1
+    },
+    "confidence_thresholds": {
+      "high": 0.85,
+      "medium": 0.65,
+      "low": 0.4
+    },
+    "manual_review_policy": {
+      "send_to_review_if_document_confidence_below": 0.7,
+      "send_to_review_if_required_field_confidence_below": 0.7,
+      "send_to_review_if_validation_errors_exist": true
+    }
+  },
+  "warnings_and_fallback_behavior": {
+    "warning_categories": [
+      "missing_required_field",
+      "missing_optional_field",
+      "low_confidence",
+      "ambiguous_candidate",
+      "validation_failed",
+      "ocr_quality_low",
+      "table_detection_failed",
+      "layout_identity_low",
+      "document_type_mismatch",
+      "multi_page_table_continuation",
+      "concatenated_money_and_text",
+      "missing_statement_period"
+    ],
+    "fallback_policy": {
+      "allow_field_fallbacks": true,
+      "allow_table_fallbacks": true,
+      "allow_formula_based_inference": true,
+      "allow_manual_review_marker": true,
+      "never_guess_required_values_without_trace": true
+    },
+    "on_extraction_failure": {
+      "return_partial_output": true,
+      "include_errors": true,
+      "include_warnings": true,
+      "include_source_trace": true
+    }
+  },
+  "output_mapping": {
+    "output_format": "json",
+    "include_metadata": true,
+    "include_confidence": true,
+    "include_source_trace": true,
+    "target_structure": {
+      "bank": {
+        "name": "fields.bank_name"
+      },
+      "account": {
+        "account_number": "fields.account_number",
+        "account_type": "fields.account_type"
+      },
+      "customer": {
+        "business_name": "fields.business_name",
+        "business_address": "fields.business_address"
+      },
+      "summary": {
+        "opening_balance": "fields.opening_balance",
+        "total_credit": "fields.total_credit",
+        "total_debit": "fields.total_debit",
+        "net_balance": "fields.net_balance",
+        "currency": "fields.currency"
+      },
+      "transactions": "tables.transactions"
+    }
+  },
+  "source_trace_requirements": {
+    "enabled": true,
+    "for_each_field_include": [
+      "page_number",
+      "line_index",
+      "raw_text",
+      "matched_label",
+      "extraction_strategy_used",
+      "confidence"
+    ],
+    "for_each_table_row_include": [
+      "page_number",
+      "raw_row_text",
+      "detected_columns",
+      "confidence"
+    ]
+  },
+  "versioning": {
+    "blueprint_semver": true,
+    "breaking_change_policy": {
+      "major": "Changes to required sections, field contract, table contract, or output mapping.",
+      "minor": "New optional fields, new strategies, or new validation rules.",
+      "patch": "Small corrections to labels, hints, or descriptions."
+    },
+    "backward_compatibility": {
+      "engine_should_reject_unsupported_major_versions": true,
+      "engine_may_ignore_unknown_optional_properties": true
+    }
+  },
+  "maintainability_notes": {
+    "owner": "data_extraction_team",
+    "recommended_review_frequency": "after_each_new_bank_statement_layout",
+    "known_limitations": [
+      "This blueprint is not compatible with invoice-only extraction unless the engine supports multiple document families.",
+      "The normalized text order is highly irregular and may separate transaction dates, descriptions, credits, debits, and balances.",
+      "Some balances are concatenated with descriptions, so preprocessing must split money values from text.",
+      "Credit/debit classification may require coordinates or balance-delta logic when plain text order is insufficient.",
+      "Dates appear without a year, so the engine must infer the statement year from external metadata or mark dates as partial."
+    ],
+    "change_log": [
+      {
+        "version": "1.0.0",
+        "date": "2026-05-26",
+        "changes": [
+          "Initial reusable blueprint generated for Dreamland-style multi-page bank statement layout."
+        ]
+      }
+    ]
+  }
+}

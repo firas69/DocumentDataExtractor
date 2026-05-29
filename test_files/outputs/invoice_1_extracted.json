@@ -1,0 +1,71 @@
+{
+  "document_id": "invoice_1",
+  "blueprint_id": "bol_swifttrack_layout_v1",
+  "document_family": "bill_of_lading",
+  "extracted_data": {
+    "bol": {
+      "bol_number": "STG-7729-04-AX",
+      "po_reference_number": "PO-2026-HRG-04",
+      "pickup_date": "2026-12-04",
+      "pro_number": "992-001-X88"
+    },
+    "shipper": {
+      "name": "Titan Manufacturing Co."
+    },
+    "consignee": {
+      "name": "West Coast Distribution Hub"
+    },
+    "carrier": {
+      "name": "SwiftTrack Global Logistics"
+    },
+    "shipment": {
+      "declared_value": {
+        "amount": 4600.63,
+        "currency": "USD"
+      },
+      "total_weight": 4850,
+      "handling_notes": "DANGER: Do not stack pallets. Temperature sensitive - keep dry. Call 24 hours prior to delivery at (562) 555-0440. Driver must verify seal #192837 upon arrival. Liftgate required at destination.",
+      "items": [
+        {
+          "quantity": 12,
+          "package_type": "Pallets",
+          "description": "Steel Fasteners, Grade 8",
+          "weight_lbs": 3800,
+          "freight_class": "50",
+          "nmfc_code": "95120",
+          "dimensions": "48×40×44"
+        },
+        {
+          "quantity": 2,
+          "package_type": "Pallets",
+          "description": "Machine Parts, Iron/Steel (Fixed)",
+          "weight_lbs": 1050,
+          "freight_class": "70",
+          "nmfc_code": "114820",
+          "dimensions": "48×40×36"
+        }
+      ]
+    }
+  },
+  "confidence": {
+    "bol.bol_number": 0.85,
+    "bol.po_reference_number": 0.85,
+    "bol.pickup_date": 0.85,
+    "bol.pro_number": 0.85,
+    "shipper.name": 0.85,
+    "consignee.name": 0.85,
+    "carrier.name": 0.85,
+    "shipment.declared_value": 0.85,
+    "shipment.total_weight": 0.85,
+    "shipment.handling_notes": 0.85,
+    "shipment.items": 0.8
+  },
+  "warnings": [],
+  "metadata": {
+    "engine_version": "0.1.0",
+    "fields_attempted": 10,
+    "fields_extracted": 10,
+    "tables_attempted": 1,
+    "tables_extracted": 1
+  }
+}
